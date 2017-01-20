@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.leezp.com/"/>
-  <updated>2017-01-10T13:52:18.255Z</updated>
+  <updated>2017-01-20T07:14:13.584Z</updated>
   <id>http://www.leezp.com/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>my new post</title>
-    <link href="http://www.leezp.com/2017/01/10/my-new-post/"/>
-    <id>http://www.leezp.com/2017/01/10/my-new-post/</id>
-    <published>2017-01-10T13:47:59.000Z</published>
-    <updated>2017-01-10T13:52:18.255Z</updated>
+    <link href="http://www.leezp.com/2017/12/25/my-new-post/"/>
+    <id>http://www.leezp.com/2017/12/25/my-new-post/</id>
+    <published>2017-12-25T13:47:59.000Z</published>
+    <updated>2017-01-20T07:14:13.584Z</updated>
     
     <content type="html"><![CDATA[<p>1223344<br><a id="more"></a><br>11233344</p>
 ]]></content>
