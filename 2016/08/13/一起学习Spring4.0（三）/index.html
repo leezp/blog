@@ -1,0 +1,1238 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,Spring框架," />
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Leezp's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在上一节中，我们已经学会了Bean的一些基本配置。
+在这一节中，将补充介绍Bean的配置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学习Spring4.0（三）">
+<meta property="og:url" content="http://www.leezp.com/blog/2016/08/13/一起学习Spring4.0（三）/index.html">
+<meta property="og:site_name" content="Leezp's Blog">
+<meta property="og:description" content="在上一节中，我们已经学会了Bean的一些基本配置。
+在这一节中，将补充介绍Bean的配置。">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/160813/spring.png">
+<meta property="og:updated_time" content="2017-02-23T09:20:09.798Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一起学习Spring4.0（三）">
+<meta name="twitter:description" content="在上一节中，我们已经学会了Bean的一些基本配置。
+在这一节中，将补充介绍Bean的配置。">
+<meta name="twitter:image" content="http://www.leezp.com/blog/blog/images/img/160813/spring.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.leezp.com/blog/2016/08/13/一起学习Spring4.0（三）/"/>
+
+
+
+
+
+  <title> 一起学习Spring4.0（三） | Leezp's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1d55f14ba137e7fe86312476de83b077";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Leezp's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Mr.Lee</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.leezp.com/blog/blog/2016/08/13/一起学习Spring4.0（三）/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Lee">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/blog/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Leezp's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Leezp's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                一起学习Spring4.0（三）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-13T14:02:02+08:00">
+                2016-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016/08/13/一起学习Spring4.0（三）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/13/一起学习Spring4.0（三）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/blog/2016/08/13/一起学习Spring4.0（三）/" class="leancloud_visitors" data-flag-title="一起学习Spring4.0（三）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>在上一节中，我们已经学会了Bean的一些基本配置。</p>
+<p>在这一节中，将补充介绍Bean的配置。</p>
+<a id="more"></a>
+<p>沿用上一节的项目。</p>
+<h2 id="Bean的其他配置方法"><a href="#Bean的其他配置方法" class="headerlink" title="Bean的其他配置方法"></a>Bean的其他配置方法</h2><h3 id="配置Bean之方法二工厂方法"><a href="#配置Bean之方法二工厂方法" class="headerlink" title="配置Bean之方法二工厂方法"></a>配置Bean之方法二工厂方法</h3><h4 id="通过调用静态工厂方法创建Bean"><a href="#通过调用静态工厂方法创建Bean" class="headerlink" title="通过调用静态工厂方法创建Bean"></a>通过调用静态工厂方法创建Bean</h4><p>调用<strong>静态工厂方法</strong>创建Bean是将<strong>对象创建的过程封装到静态方法中</strong>。当客户端需要对象时，只需要简单地调用静态方法，而不用关心创建对象的细节。</p>
+<p>要声明通过静态方法创建的Bean<br>1.在Bean的<strong>class</strong>属性里指定拥有该工厂方法的类<br>2.在<strong>factory-method</strong>属性里指定工厂方法的名称<br>3.使用&lt;constructor-arg&gt;元素为该方法传递方法参数。</p>
+<p>在src下新建包com.leezp.spring.beans.factory。</p>
+<p>在该包下新建Car.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.beans.factory;</div><div class="line"></div><div class="line">public class Car &#123;</div><div class="line">	private String brand;</div><div class="line">	</div><div class="line">	private double price;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">getBrand</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> brand;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>Brand(String brand) &#123;</div><div class="line">		this.brand = brand;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public double <span class="function"><span class="title">getPrice</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> price;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>Price(double price) &#123;</div><div class="line">		this.price = price;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public String <span class="function"><span class="title">toString</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> <span class="string">"Car [brand="</span> + brand + <span class="string">", price="</span> + price + <span class="string">"]"</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public Car(String brand, double price) &#123;</div><div class="line">		super();</div><div class="line">		this.brand = brand;</div><div class="line">		this.price = price;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建StaticCarFactory.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.beans.factory;</div><div class="line"></div><div class="line">import java.util.HashMap;</div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 静态工厂方法：直接调用某一个类的静态方法就可以返回Bean的实例</div><div class="line"> * </div><div class="line"> * @author Lee</div><div class="line"> * </div><div class="line"> */</div><div class="line">public class StaticCarFactory &#123;</div><div class="line"></div><div class="line">	private static Map&lt;String, Car&gt; cars = new HashMap&lt;String, Car&gt;();</div><div class="line"></div><div class="line">	static &#123;</div><div class="line">		cars.put(<span class="string">"audi"</span>, new Car(<span class="string">"audi"</span>, 300000));</div><div class="line">		cars.put(<span class="string">"ford"</span>, new Car(<span class="string">"ford"</span>, 400000));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static Car getCar(String name) &#123;</div><div class="line">		<span class="built_in">return</span> cars.get(name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure>
+<p>新建beans-factory.xml配置文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</div><div class="line"></div><div class="line">	&lt;!-- 通过静态工厂方法来配置Bean。注意不是配置静态工厂方法实例，而是配置Bean实例 --&gt;</div><div class="line">	&lt;!-- class属性：指向静态工厂方法的全类名；factory-method:指向静态工厂方法的名字； constructor-arg:如果工厂方法需要传入参数，则使用constructor-arg </div><div class="line">		来配置参数 --&gt;</div><div class="line">	&lt;bean id=&quot;car1&quot; class=&quot;com.leezp.spring.beans.factory.StaticCarFactory&quot;</div><div class="line">		factory-method=&quot;getCar&quot;&gt;</div><div class="line">		&lt;constructor-arg value=&quot;audi&quot;&gt;&lt;/constructor-arg&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">&lt;/beans&gt;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>新建Main.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.factory;</div><div class="line"></div><div class="line">import org.springframework.context.ApplicationContext;</div><div class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line">public class Main &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		ApplicationContext ctx = new ClassPathXmlApplicationContext(</div><div class="line">				&quot;beans-factory.xml&quot;);</div><div class="line"></div><div class="line">		Car car1 = (Car) ctx.getBean(&quot;car1&quot;);新建beans-beanfactory.xml配置文件。</div><div class="line">		System.out.println(car1);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>在控制台观察运行结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">Car [brand=audi, price=300000.0]</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<h4 id="通过调用实例工厂方法创建Bean"><a href="#通过调用实例工厂方法创建Bean" class="headerlink" title="通过调用实例工厂方法创建Bean"></a>通过调用实例工厂方法创建Bean</h4><p><strong>实例工厂方法：将对象的创建过程封装到另外一个对象实例的方法里</strong>。当客户端需要请求对象时，只需要简单的调用该实例方法而不需要关心对象的创建细节。</p>
+<p>要声明通过实例工厂方法创建的Bean<br>1.在bean的<strong>factory-bean</strong>属性里指定拥有该工厂方法的Bean。<br>2.在<strong>factory-method</strong>属性里指定该工厂方法的名称。<br>3.使用<strong>constructor-arg</strong>元素为工厂方法传递方法参数。</p>
+<p>新建InstanceCarFactory.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.factory;</div><div class="line"></div><div class="line">import java.util.HashMap;</div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 实例工厂方法：实例工厂的方法，即先需要创建工厂本身，再调用工厂的实例方法</div><div class="line"> * </div><div class="line"> * @author Lee</div><div class="line"> * </div><div class="line"> */</div><div class="line">public class InstanceCarFactory &#123;</div><div class="line">	private Map&lt;String, Car&gt; cars = null;</div><div class="line"></div><div class="line">	public InstanceCarFactory() &#123;</div><div class="line">		cars = new HashMap&lt;String, Car&gt;();</div><div class="line">		cars.put(&quot;audi&quot;, new Car(&quot;audi&quot;, 400000));</div><div class="line">		cars.put(&quot;ford&quot;, new Car(&quot;ford&quot;, 300000));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public Car getCar(String brand) &#123;</div><div class="line">		return cars.get(brand);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>修改beans-factory.xml配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></div><div class="line">	xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</div><div class="line"></div><div class="line">	&lt;!-- 通过静态工厂方法来配置Bean。注意不是配置静态工厂方法实例，而是配置Bean实例 --&gt;</div><div class="line">	&lt;!-- class属性：指向静态工厂方法的全类名；factory-method:指向静态工厂方法的名字； constructor-arg:如果工厂方法需要传入参数，则使用constructor-arg </div><div class="line">		来配置参数 --&gt;</div><div class="line">	&lt;bean id=<span class="string">"car1"</span> class=<span class="string">"com.leezp.spring.beans.factory.StaticCarFactory"</span></div><div class="line">		factory-method=<span class="string">"getCar"</span>&gt;</div><div class="line">		&lt;constructor-arg value=<span class="string">"audi"</span>&gt;&lt;/constructor-arg&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- Invalid bean definition with name <span class="string">'car2'</span> defined <span class="keyword">in</span> class path resource </div><div class="line">		[beans-factory.xml]: factory-bean reference points back to the same bean </div><div class="line">		definition --&gt;</div><div class="line"></div><div class="line">	&lt;!-- 配置工厂的实例 --&gt;</div><div class="line">	&lt;bean id=<span class="string">"carFactory"</span> class=<span class="string">"com.leezp.spring.beans.factory.InstanceCarFactory"</span>&gt;&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;bean id=<span class="string">"car2"</span> factory-bean=<span class="string">"carFactory"</span> factory-method=<span class="string">"getCar"</span>&gt;</div><div class="line">		&lt;constructor-arg value=<span class="string">"audi"</span>&gt;&lt;/constructor-arg&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p>修改Main.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.beans.factory;</div><div class="line"></div><div class="line">import org.springframework.context.ApplicationContext;</div><div class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line">public class Main &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		ApplicationContext ctx = new ClassPathXmlApplicationContext(</div><div class="line">				<span class="string">"beans-factory.xml"</span>);</div><div class="line"></div><div class="line">		Car car1 = (Car) ctx.getBean(<span class="string">"car1"</span>);</div><div class="line">		System.out.println(car1);</div><div class="line"></div><div class="line">		Car car2 = (Car) ctx.getBean(<span class="string">"car2"</span>);</div><div class="line">		System.out.println(car2);</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在控制台观察运行结果。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Car [brand=audi, price=300000.0]</div><div class="line">Car [brand=audi, price=400000.0]</div><div class="line">```</div></pre></td></tr></table></figure>
+<p><a href="http://pan.baidu.com/s/1c2d2rYg" target="_blank" rel="external">获取源代码</a></p>
+<h3 id="配置Bean之方法三FactoryBean"><a href="#配置Bean之方法三FactoryBean" class="headerlink" title="配置Bean之方法三FactoryBean"></a>配置Bean之方法三FactoryBean</h3><p>新建包com.leezp.spring.beans.factorybean。</p>
+<p>在该包下新建Car.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.factorybean;</div><div class="line"></div><div class="line">public class Car &#123;</div><div class="line">	private String brand;</div><div class="line">	</div><div class="line">	private double price;</div><div class="line"></div><div class="line">	public String getBrand() &#123;</div><div class="line">		return brand;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setBrand(String brand) &#123;</div><div class="line">		this.brand = brand;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public double getPrice() &#123;</div><div class="line">		return price;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setPrice(double price) &#123;</div><div class="line">		this.price = price;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public String toString() &#123;</div><div class="line">		return &quot;Car [brand=&quot; + brand + &quot;, price=&quot; + price + &quot;]&quot;;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public Car(String brand, double price) &#123;</div><div class="line">		super();</div><div class="line">		this.brand = brand;</div><div class="line">		this.price = price;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>新建CarFactoryBean.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.factorybean;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.FactoryBean;</div><div class="line"></div><div class="line">//自定义的FactoryBean需要实现 FactoryBean 接口</div><div class="line">public class CarFactoryBean implements FactoryBean&lt;Car&gt; &#123;</div><div class="line"></div><div class="line">	private String brand;</div><div class="line"></div><div class="line">	public void setBrand(String brand) &#123;</div><div class="line">		this.brand = brand;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 返回Bean的对象</div><div class="line">	@Override</div><div class="line">	public Car getObject() throws Exception &#123;</div><div class="line">		return new Car(&quot;BMW&quot;, 500000);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 返回bean的类型</div><div class="line">	@Override</div><div class="line">	public Class&lt;?&gt; getObjectType() &#123;</div><div class="line">		return Car.class;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 是否为单实例</div><div class="line">	@Override</div><div class="line">	public boolean isSingleton() &#123;</div><div class="line">		return true;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>新建beans-beanfactory.xml配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.beans.factorybean;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.FactoryBean;</div><div class="line"></div><div class="line">//自定义的FactoryBean需要实现 FactoryBean 接口</div><div class="line">public class CarFactoryBean implements FactoryBean&lt;Car&gt; &#123;</div><div class="line"></div><div class="line">	private String brand;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>Brand(String brand) &#123;</div><div class="line">		this.brand = brand;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 返回Bean的对象</div><div class="line">	@Override</div><div class="line">	public Car getObject() throws Exception &#123;</div><div class="line">		<span class="built_in">return</span> new Car(<span class="string">"BMW"</span>, 500000);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 返回bean的类型</div><div class="line">	@Override</div><div class="line">	public Class&lt;?&gt; <span class="function"><span class="title">getObjectType</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> Car.class;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 是否为单实例</div><div class="line">	@Override</div><div class="line">	public boolean <span class="function"><span class="title">isSingleton</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建Main.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.beans.factorybean;</div><div class="line"></div><div class="line">import org.springframework.context.ApplicationContext;</div><div class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line">public class Main &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		ApplicationContext ctx = new ClassPathXmlApplicationContext(</div><div class="line">				<span class="string">"beans-beanfactory.xml"</span>);</div><div class="line"></div><div class="line">		Car c = (Car) ctx.getBean(<span class="string">"car"</span>);</div><div class="line">		System.out.println(c);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure>
+<p>在控制台观察运行结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">Car [brand=BMW, price=500000.0]</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p><a href="http://pan.baidu.com/s/1hskLJVI" target="_blank" rel="external">获取源代码</a></p>
+<h2 id="Bean的第二种配置形式——基于注解的方式"><a href="#Bean的第二种配置形式——基于注解的方式" class="headerlink" title="Bean的第二种配置形式——基于注解的方式"></a>Bean的第二种配置形式——基于注解的方式</h2><p>spring从2.5版本开始支持注解注入，注解注入可以省去很多的xml配置工作。由于注解是写入java代码中的，所以注解注入会失去一定的灵活性，我们要根据需要来选择是否启用注解注入。</p>
+<h3 id="在classpath中扫描组件"><a href="#在classpath中扫描组件" class="headerlink" title="在classpath中扫描组件"></a>在classpath中扫描组件</h3><p>组件扫描（component scanning）:Spring能够从classpath下自动扫描，侦测和实例化具有特定注解的组件。</p>
+<p>特定组件包括：<br>1.@Component:基本注解，标识了一个受Spring管理的组件<br>2.@Repository:标识持久层组件(可将DAO类声明为Bean )<br>3.@Service：标识服务层（业务层）组件<br>4.@Controller:标识表现层组件</p>
+<p>对于扫描到的组件，<strong>Spring有默认的命名策略</strong>：使用非限定类名，第一个字母小写。<strong>也可以在注解中通过value属性值标识组件的名称</strong>。</p>
+<p>当在组件类上使用了特定的注解之后，还需要在Spring的配置文件中声明<strong>&lt;context:component-scan&gt;</strong>:<br>1.<strong>base-package属性指定一个需要扫描的基类包，Spring容器将会扫描这个基类包里及其子包中的所有类</strong>。<br>2.<strong>当需要扫描多个包时，可以使用逗号分隔</strong>。<br>3.如果仅希望扫描特定的类而非基包下的所有类，可使用resource-pattern属性过滤特定的类，示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">&lt;context:component-scan base-package=&quot;com.leezp.spring.beans&quot;</div><div class="line">		resource-pattern=&quot;autowire/*.class&quot; /&gt;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>4.&lt;context:include-filter&gt;子节点表示要包含的目标类。<br>5.&lt;context:exclude-filter&gt;子节点表示要排除在外的目标类。<br>6.&lt;context:component-scan&gt;下可以拥有若干个&lt;context:include-filter&gt;和&lt;context:exclude-filter&gt;子节点。<br>&lt;context:include-filter&gt;和&lt;context:exclude-filter&gt;子节点支持多种类型的过滤表达式：</p>
+<p>filter标签的type和表达式说明如下图。<br><img src="/blog/images/img/160813/spring.png" alt=""><br><strong>annotation</strong>:所有标注了XxxAnnotation的类。该类型采用目标类是否标注了某个注解进行过滤。<br><strong>assinable</strong>:所有继承或扩展XxxService的类。该类型采用目标类是否继承或扩展某个特定类进行过滤。<br>aspectj:所有类名以Service结束的类及继承或扩展它们的类。该类型采用aspectj表达式进行过滤。<br>regex:示例：com.\leezp.anno_*:所有com.leezp.anno包下的类。该类型采用正则表达式根据类的类名进行过滤<br>custom:采用XxxTypeFilter通过代码的方式定义过滤规则。该类必须实现org.springframework.core.type.TypeFilter接口。</p>
+<p>新建包com.leezp.spring.beans.annotation。</p>
+<p>在该包下新建TestObject.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Component;</div><div class="line"></div><div class="line">// 只加了@Component以后项目名称右上角还没有&quot;S&quot;的小标签，说明还没有被Spring管理,还要建立Spring配置文件才可以</div><div class="line">@Component</div><div class="line">public class TestObject &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>新建包com.leezp.spring.beans.annotation.controller。</p>
+<p>在该包下新建UserController.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation.controller;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Controller;</div><div class="line"></div><div class="line">@Controller</div><div class="line">public class UserController &#123;</div><div class="line">	</div><div class="line">	public void execute() &#123;</div><div class="line">		System.out.println(&quot;UserController execute...&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>新建包com.leezp.spring.beans.annotation.repository。</p>
+<p>在该包下新建UserRepository.java接口。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation.repository;</div><div class="line"></div><div class="line">public interface UserRepository &#123;</div><div class="line"></div><div class="line">	void save();</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>在该包下新建UserRepository接口的实现类UserRepositoryImpl.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation.repository;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Repository;</div><div class="line"></div><div class="line">@Repository(&quot;userRepository&quot;)</div><div class="line">public class UserRepositoryImpl implements UserRepository &#123;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void save() &#123;</div><div class="line">		System.out.println(&quot;UserRepository Save...&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>新建包com.leezp.spring.beans.annotation.service。</p>
+<p>在该包下新建业务类UserService.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation.service;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Service;</div><div class="line"></div><div class="line">@Service</div><div class="line">public class UserService &#123;</div><div class="line"></div><div class="line">	public void add() &#123;</div><div class="line">		System.out.println(&quot;UserService add...&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>新建beans-annotation.xml配置文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</div><div class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd&quot;&gt;</div><div class="line"></div><div class="line">	&lt;!-- 指定SpringIOC容器扫描的包 --&gt;</div><div class="line">	&lt;!-- 加上下面这个配置以后项目名称右上角出现&quot;S&quot;的小标签，说明已被Spring管理 --&gt;</div><div class="line">	&lt;!-- &lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot;&gt;&lt;/context:component-scan&gt; --&gt;</div><div class="line"></div><div class="line">	&lt;!-- 可以通过resource-pattern指定扫描的资源 --&gt;</div><div class="line">	&lt;!-- &lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot; </div><div class="line">		resource-pattern=&quot;repository/*.class&quot;&gt;&lt;/context:component-scan&gt; --&gt;</div><div class="line"></div><div class="line">	&lt;!-- context:exclude-filter子节点指定排除哪些指定表达式的组件 ,将不想包含的包粘贴进来 --&gt;</div><div class="line">	&lt;!-- &lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot;&gt; </div><div class="line">		&lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Repository&quot; </div><div class="line">		/&gt; &lt;/context:component-scan&gt; --&gt;</div><div class="line"></div><div class="line">	&lt;!-- context:include-filter子节点指定包含哪些表达式的组件，该子节点需要设置use-default-filters=&quot;false&quot; --&gt;</div><div class="line">	&lt;!-- &lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot; </div><div class="line">		use-default-filters=&quot;false&quot;&gt; &lt;context:include-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Repository&quot; </div><div class="line">		/&gt; &lt;/context:component-scan&gt; --&gt;</div><div class="line"></div><div class="line">	&lt;!-- 不包含UserRepository接口和这个接口所有实现类 --&gt;</div><div class="line">	&lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot;&gt;</div><div class="line">		&lt;context:exclude-filter type=&quot;assignable&quot;</div><div class="line">			expression=&quot;com.leezp.spring.beans.annotation.repository.UserRepository&quot; /&gt;</div><div class="line">	&lt;/context:component-scan&gt;</div><div class="line"></div><div class="line">	&lt;!-- &lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot; </div><div class="line">		use-default-filters=&quot;false&quot;&gt; &lt;context:include-filter type=&quot;assignable&quot; expression=&quot;com.leezp.spring.beans.annotation.repository.UserRepository&quot; </div><div class="line">		/&gt; &lt;/context:component-scan&gt; --&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<p>在com.leezp.spring.beans.annotation包下新建Main.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.beans.annotation;</div><div class="line"></div><div class="line">import org.springframework.context.ApplicationContext;</div><div class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line">import com.leezp.spring.beans.annotation.controller.UserController;</div><div class="line">import com.leezp.spring.beans.annotation.repository.UserRepository;</div><div class="line">import com.leezp.spring.beans.annotation.repository.UserRepositoryImpl;</div><div class="line">import com.leezp.spring.beans.annotation.service.UserService;</div><div class="line"></div><div class="line">public class Main &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		ApplicationContext ctx = new ClassPathXmlApplicationContext(</div><div class="line">				<span class="string">"beans-annotation.xml"</span>);</div><div class="line"></div><div class="line">		// java.lang.ClassNotFoundException:</div><div class="line">		// org.springframework.aop.TargetSource</div><div class="line">		// 这个异常是因为缺少jar包，只需导入spring-aop-4.0.4.RELEASE.jar即可。</div><div class="line"></div><div class="line">		TestObject to = (TestObject) ctx.getBean(<span class="string">"testObject"</span>);</div><div class="line">		System.out.println(to);</div><div class="line"></div><div class="line">		UserController u = (UserController) ctx.getBean(<span class="string">"userController"</span>);</div><div class="line">		System.out.println(u);</div><div class="line"></div><div class="line">		UserService us = (UserService) ctx.getBean(<span class="string">"userService"</span>);</div><div class="line">		System.out.println(us);</div><div class="line"></div><div class="line">		/*</div><div class="line">		 * UserRepository ur = (UserRepository) ctx.getBean(<span class="string">"userRepository"</span>);</div><div class="line">		 * System.out.println(ur);</div><div class="line">		 */</div><div class="line"></div><div class="line">		/*</div><div class="line">		 * UserRepositoryImpl xxx = (UserRepositoryImpl) ctx</div><div class="line">		 * .getBean(<span class="string">"userRepository"</span>); System.out.println(xxx);</div><div class="line">		 */</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure>
+<p>这里可能还需要一个Spring的jar包spring-aop-4.0.4.RELEASE.jar，点击下载<a href="http://pan.baidu.com/s/1mhB1gQs" target="_blank" rel="external">spring-framework-4.0.4.RELEASE.rar</a>（Spring所需jar包），在里面找到这个jar包添加到项目中并且build path。缺少这个jar包可能报出<code>java.lang.ClassNotFoundException:org.springframework.aop.TargetSource</code>错误。<br>在控制台观察运行结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">com.leezp.spring.beans.annotation.TestObject@3e431f96</div><div class="line">com.leezp.spring.beans.annotation.controller.UserController@28ced0c9</div><div class="line">com.leezp.spring.beans.annotation.service.UserService@21ed510d</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p><a href="http://pan.baidu.com/s/1cgoq3G" target="_blank" rel="external">获取源代码</a></p>
+<h3 id="利用注解来建立Bean之间的引用关系"><a href="#利用注解来建立Bean之间的引用关系" class="headerlink" title="利用注解来建立Bean之间的引用关系"></a>利用注解来建立Bean之间的引用关系</h3><p>有时候Bean之间是有关联关系的。我们先来建立Bean之间的关联关系，再来研究如何利用注解来建立Bean之间的<strong>引用</strong>关系。</p>
+<p>修改beans-annotation.xml配置文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</div><div class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd&quot;&gt;</div><div class="line"></div><div class="line">	&lt;!-- 指定SpringIOC容器扫描的包 --&gt;</div><div class="line">	&lt;!-- 加上下面这个配置以后项目名称右上角出现&quot;S&quot;的小标签，说明已被Spring管理 --&gt;</div><div class="line">	&lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot;&gt;&lt;/context:component-scan&gt;</div><div class="line"></div><div class="line">	&lt;!-- 可以通过resource-pattern指定扫描的资源 --&gt;</div><div class="line">	&lt;!-- &lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot; </div><div class="line">		resource-pattern=&quot;repository/*.class&quot;&gt;&lt;/context:component-scan&gt; --&gt;</div><div class="line"></div><div class="line">	&lt;!-- context:exclude-filter子节点指定排除哪些指定表达式的组件 ,将不想包含的包粘贴进来 --&gt;</div><div class="line">	&lt;!-- &lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot;&gt; </div><div class="line">		&lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Repository&quot; </div><div class="line">		/&gt; &lt;/context:component-scan&gt; --&gt;</div><div class="line"></div><div class="line">	&lt;!-- context:include-filter子节点指定包含哪些表达式的组件，该子节点需要设置use-default-filters=&quot;false&quot; --&gt;</div><div class="line">	&lt;!-- &lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot; </div><div class="line">		use-default-filters=&quot;false&quot;&gt; &lt;context:include-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Repository&quot; </div><div class="line">		/&gt; &lt;/context:component-scan&gt; --&gt;</div><div class="line"></div><div class="line">	&lt;!-- 不包含UserRepository接口和这个接口所有实现类 --&gt;</div><div class="line">	&lt;!-- &lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot;&gt; </div><div class="line">		&lt;context:exclude-filter type=&quot;assignable&quot; expression=&quot;com.leezp.spring.beans.annotation.repository.UserRepository&quot; </div><div class="line">		/&gt; &lt;/context:component-scan&gt; --&gt;</div><div class="line"></div><div class="line">	&lt;!-- &lt;context:component-scan base-package=&quot;com.leezp.spring.beans.annotation&quot; </div><div class="line">		use-default-filters=&quot;false&quot;&gt; &lt;context:include-filter type=&quot;assignable&quot; expression=&quot;com.leezp.spring.beans.annotation.repository.UserRepository&quot; </div><div class="line">		/&gt; &lt;/context:component-scan&gt; --&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>修改UserController.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation.controller;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Controller;</div><div class="line"></div><div class="line">import com.leezp.spring.beans.annotation.service.UserService;</div><div class="line"></div><div class="line">@Controller</div><div class="line">public class UserController &#123;</div><div class="line">	</div><div class="line">	private UserService userService;</div><div class="line">	</div><div class="line">	public void execute() &#123;</div><div class="line">		System.out.println(&quot;UserController execute...&quot;);</div><div class="line">		userService.add();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>修改UserService.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation.service;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Service;</div><div class="line"></div><div class="line">import com.leezp.spring.beans.annotation.repository.UserRepository;</div><div class="line"></div><div class="line">@Service</div><div class="line">public class UserService &#123;</div><div class="line">	</div><div class="line">	private UserRepository userRepository;</div><div class="line">	</div><div class="line">	public void setUserRepository(UserRepository userRepository) &#123;</div><div class="line">		this.userRepository = userRepository;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void add() &#123;</div><div class="line">		System.out.println(&quot;UserService add...&quot;);</div><div class="line">		userRepository.save();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>修改Main.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation;</div><div class="line"></div><div class="line">import org.springframework.context.ApplicationContext;</div><div class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line">import com.leezp.spring.beans.annotation.controller.UserController;</div><div class="line">import com.leezp.spring.beans.annotation.repository.UserRepository;</div><div class="line">import com.leezp.spring.beans.annotation.repository.UserRepositoryImpl;</div><div class="line">import com.leezp.spring.beans.annotation.service.UserService;</div><div class="line"></div><div class="line">public class Main &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		ApplicationContext ctx = new ClassPathXmlApplicationContext(</div><div class="line">				&quot;beans-annotation.xml&quot;);</div><div class="line"></div><div class="line">		// java.lang.ClassNotFoundException:</div><div class="line">		// org.springframework.aop.TargetSource</div><div class="line">		// 这个异常是因为缺少jar包，只需导入spring-aop-4.0.4.RELEASE.jar即可。</div><div class="line"></div><div class="line">		/*</div><div class="line">		 * TestObject to = (TestObject) ctx.getBean(&quot;testObject&quot;);</div><div class="line">		 * System.out.println(to);</div><div class="line">		 */</div><div class="line"></div><div class="line">		UserController u = (UserController) ctx.getBean(&quot;userController&quot;);</div><div class="line">		System.out.println(u);</div><div class="line">		u.execute();</div><div class="line"></div><div class="line">		/*</div><div class="line">		 * UserService us = (UserService) ctx.getBean(&quot;userService&quot;);</div><div class="line">		 * System.out.println(us);</div><div class="line">		 */</div><div class="line"></div><div class="line">		/*</div><div class="line">		 * UserRepository ur = (UserRepository) ctx.getBean(&quot;userRepository&quot;);</div><div class="line">		 * System.out.println(ur);</div><div class="line">		 */</div><div class="line"></div><div class="line">		/*</div><div class="line">		 * UserRepositoryImpl xxx = (UserRepositoryImpl) ctx</div><div class="line">		 * .getBean(&quot;userRepository&quot;); System.out.println(xxx);</div><div class="line">		 */</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>在控制台观察运行结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">com.leezp.spring.beans.annotation.controller.UserController@e28adfb</div><div class="line">UserController execute...</div><div class="line">Exception in thread &quot;main&quot; java.lang.NullPointerException</div><div class="line">	at com.leezp.spring.beans.annotation.controller.UserController.execute(UserController.java:14)</div><div class="line">	at com.leezp.spring.beans.annotation.Main.main(Main.java:27)</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>发现报错了。这个错误是因为属性没有被装配。</p>
+<p>&lt;context:component-scan&gt;元素还会自动注册AutowiredAnnotationBeanPostProcessor（后置处理器）实例，该实例可以自动装配具有<strong>@Autowired</strong>和<strong>@Resource</strong>、<strong>@Inject</strong>注解的属性。</p>
+<h4 id="使用-Autowired自动装配Bean"><a href="#使用-Autowired自动装配Bean" class="headerlink" title="使用@Autowired自动装配Bean"></a>使用@Autowired自动装配Bean</h4><p>@Autowired注解自动装配<strong>具有兼容类型</strong>的单个Bean属性。<br>1.<strong>构造器，普通字段（即使是非public），一切具有参数的方法（set方法上面）都可以应用@Autowired注解</strong>。</p>
+<p>给UserController.java添加注解@Autowired。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation.controller;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.stereotype.Controller;</div><div class="line"></div><div class="line">import com.leezp.spring.beans.annotation.service.UserService;</div><div class="line"></div><div class="line">@Controller</div><div class="line">public class UserController &#123;</div><div class="line">	@Autowired</div><div class="line">	private UserService userService;</div><div class="line">	</div><div class="line">	public void execute() &#123;</div><div class="line">		System.out.println(&quot;UserController execute...&quot;);</div><div class="line">		userService.add();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>给UserService.java添加注解@Autowired。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation.service;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.stereotype.Service;</div><div class="line"></div><div class="line">import com.leezp.spring.beans.annotation.repository.UserRepository;</div><div class="line"></div><div class="line">@Service</div><div class="line">public class UserService &#123;</div><div class="line">	// @Autowired//构造器，普通字段（即使是非public)都可以应用@Autowired注解</div><div class="line">	private UserRepository userRepository;</div><div class="line"></div><div class="line">	@Autowired</div><div class="line">	// 一切具有参数的方法（set方法上面）都可以应用@Autowired注解</div><div class="line">	public void setUserRepository(UserRepository userRepository) &#123;</div><div class="line">		this.userRepository = userRepository;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void add() &#123;</div><div class="line">		System.out.println(&quot;UserService add...&quot;);</div><div class="line">		userRepository.save();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>在控制台观察运行结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">com.leezp.spring.beans.annotation.controller.UserController@730d27f7</div><div class="line">UserController execute...</div><div class="line">UserService add...</div><div class="line">UserRepository Save...</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>2.<strong>默认情况下，所有使用@Autowired注解的属性都需要被设置，当Spring找不到匹配的Bean装配属性时，会抛出异常，<font color="red">若某一属性允许不被设置，可以设置@Autowired注解的required属性为false</font></strong>。</p>
+<p>修改UserRepositoryImpl.java添加关联关系TestObject。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation.repository;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.stereotype.Repository;</div><div class="line"></div><div class="line">import com.leezp.spring.beans.annotation.TestObject;</div><div class="line"></div><div class="line">@Repository(&quot;userRepository&quot;)</div><div class="line">public class UserRepositoryImpl implements UserRepository &#123;</div><div class="line">	@Autowired</div><div class="line">	private TestObject testObject;</div><div class="line">		</div><div class="line">	@Override</div><div class="line">	public void save() &#123;</div><div class="line">		System.out.println(&quot;UserRepository Save...&quot;);</div><div class="line">		System.out.println(testObject);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>在控制台观察运行结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">``` </div><div class="line">com.leezp.spring.beans.annotation.controller.UserController@64bb0423</div><div class="line">UserController execute...</div><div class="line">UserService add...</div><div class="line">UserRepository Save...</div><div class="line">com.leezp.spring.beans.annotation.TestObject@320cc97f</div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>修改TestObject.java去掉@Component使Spring找不到匹配的Bean装配属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Component;</div><div class="line"></div><div class="line">// 只加了@Component以后项目名称右上角还没有&quot;S&quot;的小标签，说明还没有被Spring管理,还要建立Spring配置文件才可以</div><div class="line"></div><div class="line">public class TestObject &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在控制台观察运行结果发现报错：<font color="red">No qualifying bean of type</font></p>
+<p>修改UserRepositoryImpl.java改为<strong>@Autowired(required=false)</strong>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import org.springframework.stereotype.Repository;</div><div class="line"></div><div class="line">import com.leezp.spring.beans.annotation.TestObject;</div><div class="line"></div><div class="line">@Repository(<span class="string">"userRepository"</span>)</div><div class="line">public class UserRepositoryImpl implements UserRepository &#123;</div><div class="line">	@Autowired(required=<span class="literal">false</span>)</div><div class="line">	private TestObject <span class="built_in">test</span>Object;</div><div class="line">		</div><div class="line">	@Override</div><div class="line">	public void <span class="function"><span class="title">save</span></span>() &#123;</div><div class="line">		System.out.println(<span class="string">"UserRepository Save..."</span>);</div><div class="line">		System.out.println(<span class="built_in">test</span>Object);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在控制台观察运行结果。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">com.leezp.spring.beans.annotation.controller.UserController@27cacbd9</div><div class="line">UserController execute...</div><div class="line">UserService add...</div><div class="line">UserRepository Save...</div><div class="line">null</div><div class="line">```</div></pre></td></tr></table></figure>
+<p>3.默认情况下，当IOC容器里存在多个类型兼容的Bean时，通过类型的自动装配将无法工作，此时可以在<strong>@Qualifier</strong>注解里提供Bean的名称，<strong>Spring允许对方法的入参标注@Qualifier已指定注入Bean的名称</strong>。</p>
+<p><strong><font color="red">@Qualifier(“XXX”) 中的 XX是 Bean 的名称，所以 @Autowired 和@Qualifier 结合使用时，自动注入的策略就从 byType 转变成 byName 了</font></strong>。</p>
+<p><a href="http://baike.baidu.com/item/%40Qualifier?sefr=enterbtn" target="_blank" rel="external">百度百科 @Qualifier</a></p>
+<p>在包com.leezp.spring.beans.annotation.repository下新建类UserJdbcRepository.java。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">``` bash</div><div class="line">package com.leezp.spring.beans.annotation.repository;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Repository;</div><div class="line"></div><div class="line">@Repository</div><div class="line">public class UserJdbcRepository implements UserRepository&#123;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void save() &#123;</div><div class="line">		System.out.println(&quot;UserJdbcRepository save...&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此时即为多个相同类型的bean</p>
+<p>解决方法一：@Repository() 括号里的Bean的名字刚好是首字母小写的属性名，即与属性名对应。</p>
+<p>解决方法二：@Qualifier注解指定装配哪一个指定的bean。</p>
+<p>修改UserService.java。</p>
+<pre><code class="bash">package com.leezp.spring.beans.annotation.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.leezp.spring.beans.annotation.repository.UserRepository;
+
+@Service
+public class UserService {
+    // @Autowired//构造器，普通字段（即使是非public)都可以应用@Autowired注解
+    private UserRepository userRepository;
+
+    /*
+     * @Autowired
+     * //@Qualifier使用方式一
+     * @Qualifier(<span class="string">"userRepositoryImpl"</span>) // 一切具有参数的方法（<span class="built_in">set</span>方法上面）都可以应用@Autowired注解
+     * public void <span class="built_in">set</span>UserRepository(UserRepository userRepository) {
+     * this.userRepository = userRepository; }
+     */
+
+    @Autowired
+    //@Qualifier使用方式二
+    // 一切具有参数的方法（<span class="built_in">set</span>方法上面）都可以应用@Autowired注解
+    public void <span class="built_in">set</span>UserRepository(
+            @Qualifier(<span class="string">"userRepositoryImpl"</span>) UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public void <span class="function"><span class="title">add</span></span>() {
+        System.out.println(<span class="string">"UserService add..."</span>);
+        userRepository.save();
+    }
+}
+</code></pre>
+<p>4.@Autowired注解也可以应用在<strong>数组类型</strong>的属性上，此时Spring将会把所有匹配的Bean进行自动装配。<br>5.@Autowired注解也可以应用在<strong>集合属性</strong>上，此时Spring读取该集合的类型信息，然后自动装配所有与之兼容的Bean。<br>6.@Autowired注解用在<strong>java.util.Map</strong>上时，若该Map的键值为Spring，那么Spring将自动装配与之Map值类型兼容的Bean，此时Bean的名称作为健值。</p>
+<h4 id="使用-Resource或-Inject自动装配Bean"><a href="#使用-Resource或-Inject自动装配Bean" class="headerlink" title="使用@Resource或@Inject自动装配Bean"></a>使用@Resource或@Inject自动装配Bean</h4><p>1.Spring还支持@Resource和@Inject注解，这两个注解和@Autowired注解的功用类似。<br>2.<strong>@Resource注解要求提供一个Bean名称的属性，若该属性为空，则自动采用标注处的变量或方法名作为Bean的名称</strong>。<br>3.@Inject和@Autowired注解一样也是按类型匹配注入的Bean，但没有required属性。<br>4.<strong>建议使用@Autowired注解</strong>。</p>
+<p><a href="http://pan.baidu.com/s/1slnRugd" target="_blank" rel="external">获取源代码</a></p>
+<h2 id="Spring4-x-新特性：-泛型依赖注入"><a href="#Spring4-x-新特性：-泛型依赖注入" class="headerlink" title="Spring4.x 新特性： 泛型依赖注入"></a>Spring4.x 新特性： 泛型依赖注入</h2><p>Spring 4.x中可以为子类注入子类对应的泛型类型的成员变量的引用。<br>通俗一点来说：两个子类之间的依赖关系不需要在子类中去声明，而是在父类中进行了声明，而依赖的纽带就是 泛型类型，必须是相同的父类泛型类型才具有依赖关系。</p>
+<p>在以上的代码中，BaseService中引用了BaseReponsitory，并且在BaseService的add方法中调用了BaseReponsitory的add方法<br>在他们的子类中，继承了这种关系，因此我们在测试方法中调用userService.add(); 也是可以成功地调用UserReponsitory中的add方法。</p>
+<p><br><br><strong>参考文献</strong><br><a href="http://blog.csdn.net/liushuijinger/article/details/17506883" target="_blank" rel="external">Spring jar包详解</a></p>
+<p><strong>版权声明：本文为博主原创文章，转载请注明出处 <a href="http://leezp.space" target="_blank" rel="external">Leezp’s Blog</a></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/blog/images/weixin-gongzhonghao.jpg" alt="Lee wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将鼓励我继续创作,我一直在期待那个最帅的人出现！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/blog/images/wechat-image.png" alt="Lee WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/blog/images/alipay-image.png" alt="Lee Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/java/" rel="tag"># java</a>
+          
+            <a href="/blog/tags/Spring框架/" rel="tag"># Spring框架</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2016/08/01/一起学习Spring4.0（二）/" rel="next" title="一起学习Spring4.0（二）Bean的配置">
+                <i class="fa fa-chevron-left"></i> 一起学习Spring4.0（二）Bean的配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2016/12/31/离线搭建docker环境/" rel="prev" title="离线搭建Docker环境">
+                离线搭建Docker环境 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/13/一起学习Spring4.0（三）/"
+     data-title="一起学习Spring4.0（三）"
+     data-content=""
+     data-url="http://www.leezp.com/blog/blog/2016/08/13/一起学习Spring4.0（三）/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/13/一起学习Spring4.0（三）/"
+           data-title="一起学习Spring4.0（三）" data-url="http://www.leezp.com/blog/blog/2016/08/13/一起学习Spring4.0（三）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/images/avatar.gif"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">独自在冷风中</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/blog/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/leezp" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-weibo-url" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-douban-url" target="_blank" title="DouBan">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  DouBan
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-zhihu-url" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  ZhiHu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean的其他配置方法"><span class="nav-number">1.</span> <span class="nav-text">Bean的其他配置方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Bean之方法二工厂方法"><span class="nav-number">1.1.</span> <span class="nav-text">配置Bean之方法二工厂方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过调用静态工厂方法创建Bean"><span class="nav-number">1.1.1.</span> <span class="nav-text">通过调用静态工厂方法创建Bean</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过调用实例工厂方法创建Bean"><span class="nav-number">1.1.2.</span> <span class="nav-text">通过调用实例工厂方法创建Bean</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Bean之方法三FactoryBean"><span class="nav-number">1.2.</span> <span class="nav-text">配置Bean之方法三FactoryBean</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean的第二种配置形式——基于注解的方式"><span class="nav-number">2.</span> <span class="nav-text">Bean的第二种配置形式——基于注解的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在classpath中扫描组件"><span class="nav-number">2.1.</span> <span class="nav-text">在classpath中扫描组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用注解来建立Bean之间的引用关系"><span class="nav-number">2.2.</span> <span class="nav-text">利用注解来建立Bean之间的引用关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-Autowired自动装配Bean"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用@Autowired自动装配Bean</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-Resource或-Inject自动装配Bean"><span class="nav-number">2.2.2.</span> <span class="nav-text">使用@Resource或@Inject自动装配Bean</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring4-x-新特性：-泛型依赖注入"><span class="nav-number">3.</span> <span class="nav-text">Spring4.x 新特性： 泛型依赖注入</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leezp"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCSR37sVQgtQ3I6tDvMoemUp-gzGzoHsz", "PEz2OiJWtAgYkJKI5PNMWNvI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

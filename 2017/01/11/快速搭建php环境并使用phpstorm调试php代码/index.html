@@ -1,0 +1,1176 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="干货,php," />
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Leezp's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="教你从零基础升级成会完美调试php的大神！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速搭建php环境并使用phpstorm调试php代码">
+<meta property="og:url" content="http://www.leezp.com/blog/2017/01/11/快速搭建php环境并使用phpstorm调试php代码/index.html">
+<meta property="og:site_name" content="Leezp's Blog">
+<meta property="og:description" content="教你从零基础升级成会完美调试php的大神！">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/apache_4.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/xdebug_3.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/xdebug_4.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/xdebug_5.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/xdebug_1.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/xdebug_2.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/apache_1.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/apache_2.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/apache_3.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_4.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_5.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_6.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_7.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_1.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_9.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_10.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_11.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_8.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_12.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_13.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_2.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_3.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_14.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_15.png">
+<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/170111/phpStorm_16.png">
+<meta property="og:updated_time" content="2017-02-09T01:09:24.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="快速搭建php环境并使用phpstorm调试php代码">
+<meta name="twitter:description" content="教你从零基础升级成会完美调试php的大神！">
+<meta name="twitter:image" content="http://www.leezp.com/blog/blog/images/img/170111/apache_4.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.leezp.com/blog/2017/01/11/快速搭建php环境并使用phpstorm调试php代码/"/>
+
+
+
+
+
+  <title> 快速搭建php环境并使用phpstorm调试php代码 | Leezp's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1d55f14ba137e7fe86312476de83b077";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Leezp's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Mr.Lee</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.leezp.com/blog/blog/2017/01/11/快速搭建php环境并使用phpstorm调试php代码/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Lee">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/blog/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Leezp's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Leezp's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                快速搭建php环境并使用phpstorm调试php代码
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-11T19:30:02+08:00">
+                2017-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2017/01/11/快速搭建php环境并使用phpstorm调试php代码/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/11/快速搭建php环境并使用phpstorm调试php代码/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/blog/2017/01/11/快速搭建php环境并使用phpstorm调试php代码/" class="leancloud_visitors" data-flag-title="快速搭建php环境并使用phpstorm调试php代码">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>教你从零基础升级成会完美调试php的大神！</p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近由于工作的关系调研一些php的webshell，为了更好的理解一些语句的作用，我想到了用调试来解决，但是搜索了全网也没有找到一份适合于新手、可配置性高、完整且实用的教程，于是决定自己写一份，正所谓“前人栽树，后人乘凉”。就当做给以后新手小白们的福利了。有过php调试经验的同学也可以看看我这份文档中所讲述的内容是否能使你的php代码调试、发布等等变得更加方便，我本人经过几天的认真研究总结出的这些方法的确使代码调试达到了eclipse、Visual Studio相当的十分流畅的用户体验，代码发布达到了eclipse相当的简洁高效的用户体验，总结起来就是用了科学的配置方法以后，感觉很爽。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>操作系统：win7 64bit<br>Php版本是：5.6.27<br>PhpStorm版本是：PhpStorm 10.0.1<br>Apache版本：2.4.17<br>我用的是Chrome浏览器，版本：55.0.2883.87 m</p>
+<p>如果只发布项目不进行调试，使用phpStudy集成环境来发布php项目也是不错的选择，特别适合新手学习使用。</p>
+<h3 id="安装Php"><a href="#安装Php" class="headerlink" title="安装Php"></a>安装Php</h3><p>这里的Php相当于Php代码的编译环境。跟教程里的其他配置操作的难度相比，这部分可以忽略不计，对纯小白来说可能稍微有一点难度，请自行百度，安装好以后配置好环境变量。本教程将留更大篇幅给后面有难度的章节。</p>
+<h3 id="安装PhpStorm"><a href="#安装PhpStorm" class="headerlink" title="安装PhpStorm"></a>安装PhpStorm</h3><p>PhpStorm是Php代码运行环境和调试工具。安装方法请自行百度。</p>
+<h3 id="安装Apache服务器"><a href="#安装Apache服务器" class="headerlink" title="安装Apache服务器"></a>安装Apache服务器</h3><p>Apache服务器是适合搭载Php项目的服务器，也是世界上使用最广泛的服务器。百度下载Apache服务器到本地文件夹。</p>
+<h3 id="安装Xdebug"><a href="#安装Xdebug" class="headerlink" title="安装Xdebug"></a>安装Xdebug</h3><p>Xdebug是对Php代码进行调试所需要的插件。把它放置在<strong>php安装的文件夹下的ext</strong>文件夹里。<br>我的Xdebug的安装路径为：<code>D:\D\software\php\php-5.6.27-Win32-VC11-x64\ext</code>。<strong>注意要安装与自己Php对应版本的Xdebug</strong>，我安装的php_xdebug-2.5.0-5.6-vc11-x86_64.dll，<strong>2.5.0是xdebug的版本，5.6是我本地安装的php的版本</strong>。如果你要安装和我相同版本的xdebug(<a href="http://pan.baidu.com/s/1i4Mw0ct" target="_blank" rel="external">php_xdebug-2.5.0-5.6-vc11-x86_64.dll</a>)，可以点击进入我的百度云下载。</p>
+<p>打开php的安装目录，找到php.ini配置文件。将下面这段话复制到php.ini 文件任意位置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[xdebug]</div><div class="line">xdebug.profiler_output_dir=<span class="string">"D:\D\workspace\xdebug_output\xdebug"</span></div><div class="line">;输出目录自己定义</div><div class="line">xdebug.trace_output_dir=<span class="string">"D:\D\workspace\xdebug_output\xdebug"</span></div><div class="line">;输出目录自己定义</div><div class="line">zend_extension=<span class="string">"D:\D\software\php\php-5.6.27-Win32-VC11-x64\ext\php_xdebug-2.5.0-5.6-vc11-x86_64.dll"</span></div><div class="line">;zend_extension为Xdebug在你电脑里安装的物理地址</div><div class="line">xdebug.remote_enable=on</div><div class="line">xdebug.profiler_enable=off  </div><div class="line">;一般不要打开性能监控，会生成很大的缓存文件，几个g到几十g都有</div><div class="line">xdebug.idekey=<span class="string">"PHPSTORM"</span></div></pre></td></tr></table></figure>
+<p>检查Xdebug是否安装成功：<br>用记事本写一个php文件，1.php。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;?php </div><div class="line">phpinfo();</div></pre></td></tr></table></figure>
+<p>作用是打印php的信息。放置到Apache服务器的htdocs目录下。<br><img src="/blog/images/img/170111/apache_4.png" alt=""><br>启动Apache服务器（不懂的在正文第一节中有介绍启动方法），在浏览器中输入<code>localhost/1.php</code>，在弹出的php信息页面Ctrl+F搜索是否有Xdebug。如果找不到说明Xdebug没有安装成功。<br>如果显示下面的信息，说明xdebug已经安装成功。<br><img src="/blog/images/img/170111/xdebug_3.png" alt=""><br><br><br>对于按照上面每一步操作下来，仍然没有显示Xdebug的解决办法：</p>
+<p>打开Apache服务器的配置文件httpd.conf（不懂的在正文第一节中有介绍配置文件位置）,Ctrl+F搜索PHPIniDir，将后面的地址改成php.ini（php的配置文件）的地址。<br>这样做是因为Apache服务器对PHP.Ini加载有个默认路径，如果和你的安装路径不一致，就读取不了php.ini，我的Apache2.4.17默认：PHPIniDir “D:/php”,改成自己的 php.ini 文件路径，<strong>重启Apache服务器</strong>，就可以了，这个时候发现Xdebug也加载出来了。<br><img src="/blog/images/img/170111/xdebug_4.png" alt=""><br><img src="/blog/images/img/170111/xdebug_5.png" alt=""></p>
+<h3 id="安装xdebug-helper"><a href="#安装xdebug-helper" class="headerlink" title="安装xdebug helper"></a>安装xdebug helper</h3><p>xdebug helper是一款浏览器插件，跟phpStorm配合用于调试你的php代码。<br>如果你也使用的Chrome浏览器，<a href="http://pan.baidu.com/s/1gf5LNzX" target="_blank" rel="external">xdebug helper</a>可以点击进入我的百度云下载。<br>安装方法为  Chrome浏览器-&gt;设置-&gt;扩展程序 ,将下载好的插件拖动进去即可。<br><img src="/blog/images/img/170111/xdebug_1.png" alt=""><br>安装好以后在Chrome浏览器的右上角，会出现一个小虫子的图标。<br><img src="/blog/images/img/170111/xdebug_2.png" alt=""></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>到这里我默认你已经安装好了上面的几个工具。</p>
+<h3 id="检查Apache默认端口是否被占用"><a href="#检查Apache默认端口是否被占用" class="headerlink" title="检查Apache默认端口是否被占用"></a>检查Apache默认端口是否被占用</h3><p>Apache服务器的默认端口号是80，跟IIS服务器的默认端口号相同。因为我常用IIS发布一些.NET的项目，所以IIS服务器的端口号我十分不愿意修改，这里我选择修改Apache的默认端口号，把它改成8081（电脑上没装IIS服务器的可以忽略这个问题，检测方法：浏览器地址栏输入<code>localhost</code>,看看会不会显示IIS服务器的起始页，会有IIS字样）。</p>
+<p>找到Apache服务器的所在文件夹。<br><img src="/blog/images/img/170111/apache_1.png" alt=""><br>用文本编辑器打开/conf/httpd.conf，Ctrl+F搜索“Listen”，紧接着Listen的数字就是端口号，默认状态下为“Listen 80/8080”，改成8081。</p>
+<p>切换到Apache目录下的bin文件夹下（例如我的是D:\Apache2.4.17-x64\bin）。<br><img src="/blog/images/img/170111/apache_2.png" alt=""><br>双击打开httpd.exe即可启动，启动后弹出一个黑色的命令框。<br><img src="/blog/images/img/170111/apache_3.png" alt=""><br>在浏览器中输入<code>localhost:8081/</code>检查是否启动Apache服务器，成功启动后会看到Apache服务器的欢迎页。</p>
+<h3 id="配置phpStorm"><a href="#配置phpStorm" class="headerlink" title="配置phpStorm"></a>配置phpStorm</h3><p>打开自己的phpStorm。</p>
+<p>1.新建一个php文件test.php。<br><img src="/blog/images/img/170111/phpStorm_4.png" alt=""><br>不需要知道我写的这个文件的意思，感兴趣的同学可以继续进行研究，这个就说来话长了。</p>
+<p>将项目拷贝到apache服务器htdocs目录下，启动phpStorm时打开的文件路径为Apache服务器下项目的路径</p>
+<p>File-&gt; Settings-&gt; Build,Execution,Deployment-&gt; Debugger，设置端口号Port为8081。<br><img src="/blog/images/img/170111/phpStorm_5.png" alt=""></p>
+<p>2.发布项目。</p>
+<p>File-&gt; Settings-&gt; Build,Execution,Deployment-&gt; Deployment，点击左上角加号，新增一个发布的项目。Type下拉框选择In place，Name文本框对边填写一个名字。我填的是Test。<br><img src="/blog/images/img/170111/phpStorm_6.png" alt=""><br>点击Ok，在这个界面配置Web server root URL，地址是用浏览器访问的地址，一般写成<code><a href="http://服务器IP地址:服务器端口号" target="_blank" rel="external">http://服务器IP地址:服务器端口号</a></code>，这里我写为<code><a href="http://localhost:8081" target="_blank" rel="external">http://localhost:8081</a></code>，也可以写成<code><a href="http://localhost:8081/Test" target="_blank" rel="external">http://localhost:8081/Test</a></code>，这里的Test为刚刚发布项目时取的名字。保存更改。<br><img src="/blog/images/img/170111/phpStorm_7.png" alt=""></p>
+<p>3.打开File-&gt; Settings-&gt; Languages &amp; Frameworks-&gt; PHP-&gt; Servers，点击Import，导入一个部署好的项目。<br><img src="/blog/images/img/170111/phpStorm_1.png" alt=""><br>在下拉框里选择刚刚发布的项目Test。<br><img src="/blog/images/img/170111/phpStorm_9.png" alt=""><br>点击确定，保存修改。<br><img src="/blog/images/img/170111/phpStorm_10.png" alt=""><br><img src="/blog/images/img/170111/phpStorm_11.png" alt=""></p>
+<p>4.点菜单栏的Run&gt;Edit Configurations… 在弹出的窗口中添加一个调试配置：<br>点击左上角加号，选择PHP Web Application,在右侧的Configuration里点击“更多”按钮。<br><img src="/blog/images/img/170111/phpStorm_8.png" alt=""><br>弹出了刚刚配置好的Servers,点击确定保存修改。<br><img src="/blog/images/img/170111/phpStorm_12.png" alt=""><br>在Name里随便取个名字，我取的是Test。<br><img src="/blog/images/img/170111/phpStorm_13.png" alt=""></p>
+<p>5.进入File-&gt; Settings-&gt; Languages &amp; Frameworks-&gt; PHP -&gt;Debug，找到Xdebug选项卡，port填9000(<strong>Debug port要和php.ini里面的 xdebug.remote_port相一致！默认是9000</strong>)。<br><img src="/blog/images/img/170111/phpStorm_2.png" alt=""></p>
+<p>6.进入File-&gt; Settings-&gt;Languages &amp; Frameworks -&gt;PHP -&gt;Debug -&gt;DBGp Proxy 填写：<br>IDE key: phpStorm<br>host: localhost<br>port: 8081<br><img src="/blog/images/img/170111/phpStorm_3.png" alt=""></p>
+<h3 id="需要注意的问题"><a href="#需要注意的问题" class="headerlink" title="需要注意的问题"></a>需要注意的问题</h3><p>1.File-&gt; Settings-&gt; Build,Execution,Deployment-&gt; Deployment下的 Web server root URL 下将启动后的默认url改为”http://” +你的 ip后，发现总是默认启动80端口，原来还要加上服务器的端口号（我设置的8081），这样才会找到正确的路径。</p>
+<p>2.更改完Apache的配置后一定要重启服务器。</p>
+<h2 id="高阶配置"><a href="#高阶配置" class="headerlink" title="高阶配置"></a>高阶配置</h2><p>更改默认的网站目录为PHPStorm的工作目录。</p>
+<p>由于默认的网站目录在Apache服务器目录下的htdocs里，可是我的phpStrom用的工作目录(WorkSpace)却不是这个,在phpstorm里点击Chrome浏览器图标默认打开的url不是服务器下的，所以会出错，影响浏览php页面的心情。</p>
+<p>怎样才能不再浏览器里输入Apache下的工作路径而直接在phpStorm里点击Chrome浏览器图标访问自己编写的项目呢？</p>
+<p>解决方法<br>1.将此php项目的工作目录赋值到Apache服务器的htdocs目录下，这样省去了粘贴项目到htdocs目录下的繁琐，但不是最佳解决方案。</p>
+<p>2.在Apache的配置文件httpd.conf 里面修改Apache的默认工作目录<br>在Apache配置文件里搜索”DocumentRoot”，将DocumentRoot和Directory改为你PHPStrom的工作目录即可，注意两个值一定要相同,<strong>重启Apache服务器</strong>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DocumentRoot <span class="string">"D:/D/workspace/phpStorm10.0.1_WorkSpace"</span></div><div class="line">&lt;Directory <span class="string">"D:/D/workspace/phpStorm10.0.1_WorkSpace"</span>&gt;</div></pre></td></tr></table></figure>
+<p>上面的步骤实际上是手动完成了 相当于Eclipse在 IDE中自动配置发布的过程。<br>按照这个步骤配置好以后就达到了相当于WebStorm里点击浏览器直接查看网页的功能，但这里配置的更完美，在phpStorm里直接点开Chrome浏览器图标以后在浏览器的地址栏里面显示的是服务器下的路径，究竟有多完美，自行体会。</p>
+<h2 id="php-debug"><a href="#php-debug" class="headerlink" title="php debug"></a>php debug</h2><p>说到这里又非常有趣了。</p>
+<p>1.检查谷歌浏览器扩展插件是否下载了xdebug插件。<br>2.检查本地php下安装对应php版本的xdebug.dll文件。<br>3.启动Apache服务器。<br>4.phpstorm里打开调试的监听器<br><img src="/blog/images/img/170111/phpStorm_14.png" alt=""><br><img src="/blog/images/img/170111/phpStorm_15.png" alt=""><br>5.加断点<br>6.点击phpStorm里的Chrome浏览器图标，像run 项目一样，就自动进入debug模式了。<br><img src="/blog/images/img/170111/phpStorm_16.png" alt=""><br>7.不想debug？ 关掉phpstorm里debug监听器即可，这时候点击 浏览器图标就只是run了。</p>
+<p><br><br>配置好之后调试php就一个字，爽！！！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇博客是博主良心之作。教程里有特别多的细节和注意点，应用好这些注意点可以极大方便你的php开发，调试。让你拥有不弱于VS/Eclipse 的用户体验！！！希望各位看官在转载之余不忘写明出处，本人将不胜感激。<br><br><br><strong>参考文献</strong><br><a href="http://www.cnblogs.com/derrck/p/5195946.html" target="_blank" rel="external">PHP 设置调试工具XDebug PHPStorm IDE</a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="http://www.xiami.com/play?ids=/song/playlist/id/1795434955"></iframe>
+
+<p><strong>版权声明：本文为博主原创文章，转载请注明出处 <a href="http://leezp.space" target="_blank" rel="external">Leezp’s Blog</a></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/blog/images/weixin-gongzhonghao.jpg" alt="Lee wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将鼓励我继续创作,我一直在期待那个最帅的人出现！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/blog/images/wechat-image.png" alt="Lee WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/blog/images/alipay-image.png" alt="Lee Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/干货/" rel="tag"># 干货</a>
+          
+            <a href="/blog/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2016/12/31/离线搭建docker环境/" rel="next" title="离线搭建Docker环境">
+                <i class="fa fa-chevron-left"></i> 离线搭建Docker环境
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/01/11/快速搭建php环境并使用phpstorm调试php代码/"
+     data-title="快速搭建php环境并使用phpstorm调试php代码"
+     data-content=""
+     data-url="http://www.leezp.com/blog/blog/2017/01/11/快速搭建php环境并使用phpstorm调试php代码/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/11/快速搭建php环境并使用phpstorm调试php代码/"
+           data-title="快速搭建php环境并使用phpstorm调试php代码" data-url="http://www.leezp.com/blog/blog/2017/01/11/快速搭建php环境并使用phpstorm调试php代码/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/images/avatar.gif"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">独自在冷风中</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/blog/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/leezp" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-weibo-url" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-douban-url" target="_blank" title="DouBan">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  DouBan
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-zhihu-url" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  ZhiHu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Php"><span class="nav-number">2.1.</span> <span class="nav-text">安装Php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装PhpStorm"><span class="nav-number">2.2.</span> <span class="nav-text">安装PhpStorm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Apache服务器"><span class="nav-number">2.3.</span> <span class="nav-text">安装Apache服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Xdebug"><span class="nav-number">2.4.</span> <span class="nav-text">安装Xdebug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装xdebug-helper"><span class="nav-number">2.5.</span> <span class="nav-text">安装xdebug helper</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">3.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检查Apache默认端口是否被占用"><span class="nav-number">3.1.</span> <span class="nav-text">检查Apache默认端口是否被占用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置phpStorm"><span class="nav-number">3.2.</span> <span class="nav-text">配置phpStorm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需要注意的问题"><span class="nav-number">3.3.</span> <span class="nav-text">需要注意的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高阶配置"><span class="nav-number">4.</span> <span class="nav-text">高阶配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php-debug"><span class="nav-number">5.</span> <span class="nav-text">php debug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leezp"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCSR37sVQgtQ3I6tDvMoemUp-gzGzoHsz", "PEz2OiJWtAgYkJKI5PNMWNvI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
