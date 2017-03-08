@@ -1,0 +1,1178 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,Spring框架,事务," />
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Leezp's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本节讲述Spring中的事务管理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学习Spring4.0（六）Spring中的事务管理">
+<meta property="og:url" content="http://www.leezp.com/blog/2016/09/03/一起学习Spring4.0（六）/index.html">
+<meta property="og:site_name" content="Leezp's Blog">
+<meta property="og:description" content="本节讲述Spring中的事务管理。">
+<meta property="og:updated_time" content="2017-03-08T02:31:15.353Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一起学习Spring4.0（六）Spring中的事务管理">
+<meta name="twitter:description" content="本节讲述Spring中的事务管理。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.leezp.com/blog/2016/09/03/一起学习Spring4.0（六）/"/>
+
+
+
+
+
+  <title> 一起学习Spring4.0（六）Spring中的事务管理 | Leezp's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1d55f14ba137e7fe86312476de83b077";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Leezp's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Mr.Lee</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.leezp.com/blog/blog/2016/09/03/一起学习Spring4.0（六）/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Lee">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/blog/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Leezp's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Leezp's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                一起学习Spring4.0（六）Spring中的事务管理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-03T14:10:06+08:00">
+                2016-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016/09/03/一起学习Spring4.0（六）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/一起学习Spring4.0（六）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/blog/2016/09/03/一起学习Spring4.0（六）/" class="leancloud_visitors" data-flag-title="一起学习Spring4.0（六）Spring中的事务管理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>本节讲述Spring中的事务管理。</p>
+<a id="more"></a>
+<h2 id="Spring中的事务管理"><a href="#Spring中的事务管理" class="headerlink" title="Spring中的事务管理"></a>Spring中的事务管理</h2><p>事务就是一系列的动作，它们被当做一个单独的工作单元，这些动作要么全部完成，要么全部不起作用。用来确保数据的完整性和一致性。<br>事务的四个关键属性（ACID）<br>1.原子性（atomicity）：事务是一个原子操作，由一系列动作组成。事务的原子性确保动作要么全部完成要么完全不起作用。<br>2.一致性（consistency）：一旦所有事务动作完成，事务就被提交，数据和资源就处于一种满足业务规则的一致性状态中。<br>3.隔离性（isolation）：可能有许多事务会同时处理相同的数据，因此每个事物都应该与其他事务隔离开来，防止数据破坏。<br>4.持久性（durability）：一旦事务完成，无论发生什么系统错误，它的结果都不应该受到影响，通常情况下，事务的结果被写到持久化存储器中。</p>
+<h2 id="Spring的事务管理机制"><a href="#Spring的事务管理机制" class="headerlink" title="Spring的事务管理机制"></a>Spring的事务管理机制</h2><p>Spring在不同的事务管理API之上定义了一个抽象层。而应用程序开发人员不必了解底层的事务管理API，就可以使用Spring的事务管理机制。<br>Spring既支持编程式事务管理，也支持声明式的事务管理。<br><strong>编程式事务管理：将事务管理代码嵌入到业务方法中来控制事务的提交和回滚</strong>。在编程式管理事务时，必须在每个事务操作中包含额外的事务管理代码。<br><strong>声明式事务管理</strong>：大多数情况下比编程式事务管理更好用。它<strong>将事务管理代码从业务方法中分离出来，以声明的方式来实现事务管理</strong>。事务管理作为一种横切关注点，可以通过AOP方法模块化。<strong>Spring通过SpringAOP框架支持声明式事务管理</strong>。</p>
+<h3 id="Spring中的事务管理器"><a href="#Spring中的事务管理器" class="headerlink" title="Spring中的事务管理器"></a>Spring中的事务管理器</h3><p>Spring从不同的事务管理API中抽象了一整套的事务机制。开发人员不必了解底层的事务API，就可以利用这些事务机制。<strong>有了这些事务机制，事务管理代码就能独立于特定的事务技术了</strong>。<br>Spring的核心事务管理抽象是 org.springframework.transaction <strong>Interface Platform TransactionManager</strong>管理和封装了一组独立于技术的方法。无论使用Spring的哪种事务管理策略（编程式或声明式），事务管理器都是必须的。</p>
+<h3 id="Spring中事务管理器的不同实现"><a href="#Spring中事务管理器的不同实现" class="headerlink" title="Spring中事务管理器的不同实现"></a>Spring中事务管理器的不同实现</h3><p>org.springframework.jdbc.datasource<br><strong>Class DataSource TransactionManager</strong>:在应用程序中只需要处理一个数据源，而且通过JDBC存取。</p>
+<p>org.springframework.transaction.jta<br><strong>Class JtaTransactionManager</strong>:在JavaEE应用服务器上用JTA（Java Transaction API）进行事务管理。</p>
+<p>org.springframework.orm.hibernate3<br><strong>Class Hibernate TransactionManager</strong>:用Hibernate框架存取数据库。</p>
+<p>事务管理器以普通的Bean形式声明在SpringIOC容器中。</p>
+<h2 id="声明式事务"><a href="#声明式事务" class="headerlink" title="声明式事务"></a>声明式事务</h2><p>一共三步。<br>1.在配置文件中配置事务管理器<br>2.在配置文件中配置注解驱动<br>3.在要应用事务的方法前添加@Transaction。</p>
+<p>沿用上一节中的项目。在项目下新建包com.leezp.spring.tx。<br>在该包下新建接口BookShopDao.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">public interface BookShopDao &#123;</div><div class="line"></div><div class="line">	//根据书号获取书的单价</div><div class="line">	public int findBookPriceByIsbn(String isbn);</div><div class="line">	</div><div class="line">	//更新书的库存，使书号对应的库存 -1</div><div class="line">	public void updateBookStock(String isbn);</div><div class="line">	</div><div class="line">	//更新用户的账户余额：使username的balance - price</div><div class="line">	public void updateUserAccount(String username,int price);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建异常类BookStockException.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">//继承RuntimeException,Generate Constructors from SuperClass添加构造器</div><div class="line">// Add default serial version ID</div><div class="line">public class BookStockException extends RuntimeException &#123;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * </div><div class="line">	 */</div><div class="line">	private static final long serialVersionUID = 1L;</div><div class="line"></div><div class="line">	public <span class="function"><span class="title">BookStockException</span></span>() &#123;</div><div class="line">		super();</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public BookStockException(String message, Throwable cause,</div><div class="line">			boolean <span class="built_in">enable</span>Suppression, boolean writableStackTrace) &#123;</div><div class="line">		super(message, cause, <span class="built_in">enable</span>Suppression, writableStackTrace);</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public BookStockException(String message, Throwable cause) &#123;</div><div class="line">		super(message, cause);</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public BookStockException(String message) &#123;</div><div class="line">		super(message);</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public BookStockException(Throwable cause) &#123;</div><div class="line">		super(cause);</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建异常类UserAccountException.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">public class UserAccountException extends RuntimeException &#123;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * </div><div class="line">	 */</div><div class="line">	private static final long serialVersionUID = 1L;</div><div class="line"></div><div class="line">	public <span class="function"><span class="title">UserAccountException</span></span>() &#123;</div><div class="line">		super();</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public UserAccountException(String message, Throwable cause,</div><div class="line">			boolean <span class="built_in">enable</span>Suppression, boolean writableStackTrace) &#123;</div><div class="line">		super(message, cause, <span class="built_in">enable</span>Suppression, writableStackTrace);</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public UserAccountException(String message, Throwable cause) &#123;</div><div class="line">		super(message, cause);</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public UserAccountException(String message) &#123;</div><div class="line">		super(message);</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public UserAccountException(Throwable cause) &#123;</div><div class="line">		super(cause);</div><div class="line">		// TODO Auto-generated constructor stub</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建接口BookShopDao的实现类BookShopDaoImpl.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.jdbc.core.JdbcTemplate;</div><div class="line">import org.springframework.stereotype.Repository;</div><div class="line"></div><div class="line">@Repository(<span class="string">"bookShopDao"</span>)</div><div class="line">public class BookShopDaoImpl implements BookShopDao &#123;</div><div class="line"></div><div class="line">	@Autowired</div><div class="line">	private JdbcTemplate jdbcTemplate;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int findBookPriceByIsbn(String isbn) &#123;</div><div class="line">		String sql = <span class="string">" select price from book where isbn = ? "</span>;</div><div class="line">		<span class="built_in">return</span> jdbcTemplate.queryForObject(sql, Integer.class, isbn);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void updateBookStock(String isbn) &#123;</div><div class="line">		// 检查书的库存是否足够，若不够，则抛出异常</div><div class="line">		String sql2 = <span class="string">" select stock from book_stock where isbn = ? "</span>;</div><div class="line">		int stock = jdbcTemplate.queryForObject(sql2, Integer.class, isbn);</div><div class="line">		<span class="keyword">if</span> (stock == 0) &#123;</div><div class="line">			// 定义一个异常类</div><div class="line">			throw new BookStockException(<span class="string">"库存不足"</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		String sql = <span class="string">" update book_stock set stock= stock -1  where isbn = ? "</span>;</div><div class="line">		jdbcTemplate.update(sql, isbn);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void updateUserAccount(String username, int price) &#123;</div><div class="line">		// 验证余额是否足够，若不足，则抛出异常</div><div class="line">		String sql2 = <span class="string">" select balance from account where username = ? "</span>;</div><div class="line">		int balance = jdbcTemplate</div><div class="line">				.queryForObject(sql2, Integer.class, username);</div><div class="line">		<span class="keyword">if</span> (balance &lt; price) &#123;</div><div class="line">			throw new UserAccountException(<span class="string">"余额不足"</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		String sql = <span class="string">" update account set balance=balance - ? where username = ? "</span>;</div><div class="line">		jdbcTemplate.update(sql, price, username);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建接口BookShopService.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">public interface BookShopService &#123;</div><div class="line"></div><div class="line">	public void purchase(String username, String isbn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建接口BookShopService的实现类BookShopServiceImpl.java。注意在要应用事务的方法上添加@Transaction。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.stereotype.Service;</div><div class="line">import org.springframework.transaction.annotation.Transactional;</div><div class="line"></div><div class="line">@Service(<span class="string">"bookShopService"</span>)</div><div class="line">public class BookShopServiceImpl implements BookShopService &#123;</div><div class="line"></div><div class="line">	@Autowired</div><div class="line">	private BookShopDao bookShopDao;</div><div class="line"></div><div class="line">	//添加事务注解 @Transactional</div><div class="line">	@Transactional</div><div class="line">	@Override</div><div class="line">	public void purchase(String username, String isbn) &#123;</div><div class="line">		// 1.获取书的单价</div><div class="line">		int price = bookShopDao.findBookPriceByIsbn(isbn);</div><div class="line">		// 2.更新书的库存 -1</div><div class="line">		bookShopDao.updateBookStock(isbn);</div><div class="line">		// 3.更新用户余额</div><div class="line">		bookShopDao.updateUserAccount(username, price);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>重新配置db.properties属性文件里的连接字符串。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jdbc.jdbcUrl=jdbc:mysql://localhost:3306/spring_demo2</div></pre></td></tr></table></figure>
+<p>修改applicationContext.xml配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;context:component-scan base-package=<span class="string">"com.leezp.spring"</span>&gt;&lt;/context:component-scan&gt;</div></pre></td></tr></table></figure>
+<p>向该配置文件中添加：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 配置事务管理器 --&gt;</div><div class="line">&lt;bean id=<span class="string">"transactionManager"</span></div><div class="line">	class=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</div><div class="line">	&lt;!-- 添加数据源 --&gt;</div><div class="line">	&lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span>&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;!-- 启用事务注解 --&gt;</div><div class="line">&lt;tx:annotation-driven transaction-manager=<span class="string">"transactionManager"</span> /&gt;</div></pre></td></tr></table></figure>
+<p>新建测试类（JUnit Test Case）SpringTransactionTest.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">import org.junit.Test;</div><div class="line">import org.springframework.context.ApplicationContext;</div><div class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line">public class SpringTransactionTest &#123;</div><div class="line"></div><div class="line">	private ApplicationContext ctx = null;</div><div class="line">	private BookShopDao bookShopDao = null;</div><div class="line">	private BookShopService bookShopService=null;</div><div class="line"></div><div class="line">	&#123;</div><div class="line">		ctx = new ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</div><div class="line">		bookShopDao=ctx.getBean(BookShopDao.class);</div><div class="line">		bookShopService=ctx.getBean(BookShopService.class);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testBookShopService</span></span>()&#123;</div><div class="line">		bookShopService.purchase(<span class="string">"AA"</span>, <span class="string">"1001"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testBookShopDaoUpdateUserAccount</span></span>()&#123;</div><div class="line">		bookShopDao.updateUserAccount(<span class="string">"AA"</span>, 200);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testBookShopDaoUpdateBookStock</span></span>()&#123;</div><div class="line">		bookShopDao.updateBookStock(<span class="string">"1001"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testBookShopDaoFindPriceByIsbn</span></span>() &#123;</div><div class="line">		System.out.println(bookShopDao.findBookPriceByIsbn(<span class="string">"1001"</span>));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://pan.baidu.com/s/1boUbEY7" target="_blank" rel="external">获取源代码</a><br><a href="http://pan.baidu.com/s/1kUJCcYV" target="_blank" rel="external">获取数据库文件</a></p>
+<h2 id="其他细节"><a href="#其他细节" class="headerlink" title="其他细节"></a>其他细节</h2><p>事务的属性：<br>1.事务的传播行为 propagation<br>2.事务的隔离级别 isolation<br>3.对哪些异常不回滚 noRollbackFor/rollbackFor<br>4.事务的过期时间 timeout</p>
+<h3 id="事务传播属性"><a href="#事务传播属性" class="headerlink" title="事务传播属性"></a>事务传播属性</h3><p>当事务方法被另一个事务方法调用时，必须指定事务应该如何传播。例如：方法可能继续在现有事务中运行，也可能开启一个新事务，并在自己的事务中运行。</p>
+<p>事务的传播行为可以由传播属性指定。Spring定义了7种传播行为。</p>
+<h4 id="Spring支持的事务传播行为"><a href="#Spring支持的事务传播行为" class="headerlink" title="Spring支持的事务传播行为"></a>Spring支持的事务传播行为</h4><p><strong>REQUIRED</strong>(默认)：如果有事务在运行，当前的方法就在这个事务内运行，否则，就启动一个新的事务，并在自己的事务内运行。</p>
+<p><strong>REQUIRES_NEW</strong>：当前的方法必须启动新事务，并在它自己的事务内运行，如果有事务正在运行，应该将它挂起。</p>
+<p>SUPPORTS：如果有事务在运行，当前的方法就在这个事务内运行，否则它可以不运行在事务中。</p>
+<p>NOT_SUPPORTED：当前的方法不应该运行在事务中，如果有运行的事务，将它挂起。</p>
+<p>MANDATORY：当前的方法必须运行在事务内部，如果没有正在运行的事务，就抛出异常。</p>
+<p>NEVER：当前的方法不应该运行在事务中，如果有运行的事务，就抛出异常。</p>
+<p>NESTED：如果有事务在运行，当前的方法就应该在这个事务的嵌套事务内运行，否则，就启动一个新的事务，并在它自己的事务内运行。</p>
+<p>事务的传播属性可以在@Transactional注解的propagation属性中定义。eg:@Transactional(propagation=Propagation.REQUIRED)</p>
+<p>在项目中新建接口Cashier.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">public interface Cashier &#123;</div><div class="line"></div><div class="line">	public void checkout(String username, List&lt;String&gt; isbns);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建接口Cashier的实现类CashierImpl.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.stereotype.Service;</div><div class="line">import org.springframework.transaction.annotation.Propagation;</div><div class="line">import org.springframework.transaction.annotation.Transactional;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 事务的传播行为（事务之间的调用）</div><div class="line"> * </div><div class="line"> * @author Lee</div><div class="line"> * </div><div class="line"> */</div><div class="line">@Service(<span class="string">"cashier"</span>)</div><div class="line">public class CashierImpl implements Cashier &#123;</div><div class="line"></div><div class="line">	@Autowired</div><div class="line">	private BookShopService bookShopService;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * 当bookService的purchase()方法被另一个事务方法checkout()调用时，</div><div class="line">	 * </div><div class="line">	 * 它默认会在**已有**的事务内运行，这个默认的传播行为就是REQUIRED。</div><div class="line">	 * </div><div class="line">	 * 因此在checkout()方法的开始和终止边界内只有一个事务，</div><div class="line">	 * </div><div class="line">	 * 这个事务只在checkout()方法结束的时候被提交，</div><div class="line">	 * </div><div class="line">	 * 因为用户余额只够买第一本书的，所以最终结果用户一本书都买不了。</div><div class="line">	 * </div><div class="line">	 */</div><div class="line">	// 使用propagation 指定事务的传播行为，即当前的事务方法被另一个事务方法调用时，如何使用事务</div><div class="line">	// 默认取值REQUIRED,即使用调用方法的事务</div><div class="line">	// REQUIRES_NEW:使用自己的事务，调用事务的方法的事务被挂起</div><div class="line">	@Transactional(propagation = Propagation.REQUIRED)</div><div class="line">	@Override</div><div class="line">	public void checkout(String username, List&lt;String&gt; isbns) &#123;</div><div class="line">		<span class="keyword">for</span> (String isbn : isbns) &#123;</div><div class="line">			bookShopService.purchase(username, isbn);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>修改SpringTransactionTest.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">import java.util.Arrays;</div><div class="line"></div><div class="line">import org.junit.Test;</div><div class="line">import org.springframework.context.ApplicationContext;</div><div class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line">public class SpringTransactionTest &#123;</div><div class="line"></div><div class="line">	private ApplicationContext ctx = null;</div><div class="line">	private BookShopDao bookShopDao = null;</div><div class="line">	private BookShopService bookShopService = null;</div><div class="line">	private Cashier cashier = null;</div><div class="line">	&#123;</div><div class="line">		ctx = new ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</div><div class="line">		bookShopDao = ctx.getBean(BookShopDao.class);</div><div class="line">		bookShopService = ctx.getBean(BookShopService.class);</div><div class="line">		cashier = ctx.getBean(Cashier.class);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testTransactionlPropagation</span></span>() &#123;</div><div class="line">		cashier.checkout(<span class="string">"AA"</span>, Arrays.asList(<span class="string">"1001"</span>, <span class="string">"1002"</span>));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testBookShopService</span></span>() &#123;</div><div class="line">		bookShopService.purchase(<span class="string">"AA"</span>, <span class="string">"1001"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testBookShopDaoUpdateUserAccount</span></span>() &#123;</div><div class="line">		bookShopDao.updateUserAccount(<span class="string">"AA"</span>, 200);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testBookShopDaoUpdateBookStock</span></span>() &#123;</div><div class="line">		bookShopDao.updateBookStock(<span class="string">"1001"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testBookShopDaoFindPriceByIsbn</span></span>() &#123;</div><div class="line">		System.out.println(bookShopDao.findBookPriceByIsbn(<span class="string">"1001"</span>));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://pan.baidu.com/s/1pLTT9G3" target="_blank" rel="external">获取源代码</a></p>
+<h3 id="并发事务所导致的问题"><a href="#并发事务所导致的问题" class="headerlink" title="并发事务所导致的问题"></a>并发事务所导致的问题</h3><p>当同一个应用程序或者不同应用程序中的多个事务在同一个数据集上并发执行时，可能会出现许多意外的问题。</p>
+<p>并发事务所导致的问题可以分为下面三种类型：<br>1.脏读：对于两个事务T1,T2,T1读取了已经被T2更新但还没有被提交的字段。之后，若T2回滚，T1读取的内容就是临时且无效的。<br>2.不可重复读：对于两个事务T1,T2,T1读取了一个字段，然后T2更新了该字段。之后，T1再次读取同一个字段，值就不同了。<br>3.幻读：对于两个事务T1,T2,T1从一个表中读取了一个字段，然后T2在该表中插入了一些新的行。之后，如果T1再次读取同一个表，就会多出几行。</p>
+<p>事务的隔离级别：<br>使用isolation指定事务的隔离级别，最常用的取值为 READ_COMMITTED：保证一个事务修改的数据提交后才能被另外一个事务读取。另外一个事务不能读取该事务未提交的数据。</p>
+<h3 id="超时和只读属性"><a href="#超时和只读属性" class="headerlink" title="超时和只读属性"></a>超时和只读属性</h3><p>由于事务可以在行和表上获得锁，因此长事务会占用资源，并对整体性能产生影响。<br>如果一个事务只读取数据但不做修改，数据库引擎可以对这个事务进行优化。<br><strong>超时事务属性</strong>：事务在强制回滚之前可以保持多久。这样可以防止长期运行的事务占用资源。<br><strong>只读事务属性</strong>：表示这个事务只读取数据但不更新数据，这样可以帮助数据库引擎优化事务。</p>
+<p>修改CashierImpl.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx;</div><div class="line"></div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.stereotype.Service;</div><div class="line">import org.springframework.transaction.annotation.Isolation;</div><div class="line">import org.springframework.transaction.annotation.Propagation;</div><div class="line">import org.springframework.transaction.annotation.Transactional;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 事务的传播行为（事务之间的调用）</div><div class="line"> * </div><div class="line"> * @author Lee</div><div class="line"> * </div><div class="line"> */</div><div class="line">@Service(<span class="string">"cashier"</span>)</div><div class="line">public class CashierImpl implements Cashier &#123;</div><div class="line"></div><div class="line">	@Autowired</div><div class="line">	private BookShopService bookShopService;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * 当bookService的purchase()方法被另一个事务方法checkout()调用时，</div><div class="line">	 * </div><div class="line">	 * 它默认会在**已有**的事务内运行，这个默认的传播行为就是REQUIRED。</div><div class="line">	 * </div><div class="line">	 * 因此在checkout()方法的开始和终止边界内只有一个事务，</div><div class="line">	 * </div><div class="line">	 * 这个事务只在checkout()方法结束的时候被提交，</div><div class="line">	 * </div><div class="line">	 * 因为用户余额只够买第一本书的，所以最终结果用户一本书都买不了。</div><div class="line">	 * </div><div class="line">	 */</div><div class="line">	// 1.使用propagation 指定事务的传播行为，即当前的事务方法被另一个事务方法调用时，如何使用事务</div><div class="line">	// 默认取值REQUIRED,即使用调用方法的事务</div><div class="line">	// REQUIRES_NEW:使用自己的事务，调用事务的方法的事务被挂起</div><div class="line">	// 2.使用isolation指定事务的隔离级别，最常用的取值为 READ_COMMITTED</div><div class="line">	// 3.默认情况下Spring的声明式事务对所有的运行时异常进行回滚，也可以通过对应的属性进行设置。</div><div class="line">	// noRollbackFor:指定对哪些异常不进行回滚，通常情况下取默认值即可。</div><div class="line">	// @Transactional(propagation = Propagation.REQUIRED, isolation =</div><div class="line">	// Isolation.READ_COMMITTED, noRollbackFor = &#123; UserAccountException.class &#125;)</div><div class="line">	// 4.使用<span class="built_in">read</span>Only指定事务是否只读，即没有写操作，表示这个事务只读取数据但不更新数据，</div><div class="line">	// 这样可以帮助数据库引擎优化事务，若真的是一个只读取数据库值的方法，应设置 <span class="built_in">readonly</span>=<span class="literal">true</span></div><div class="line">	// 5.timeout:单位 秒，使用timeout指定强制回滚之前事务可以占用的时间。</div><div class="line">	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, <span class="built_in">read</span>Only = <span class="literal">false</span>, timeout = 3)</div><div class="line">	@Override</div><div class="line">	public void checkout(String username, List&lt;String&gt; isbns) &#123;</div><div class="line">		<span class="keyword">for</span> (String isbn : isbns) &#123;</div><div class="line">			bookShopService.purchase(username, isbn);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://pan.baidu.com/s/1pLbKMqn" target="_blank" rel="external">获取源代码</a></p>
+<h2 id="基于XML文件方式"><a href="#基于XML文件方式" class="headerlink" title="基于XML文件方式"></a>基于XML文件方式</h2><p>新建包com.leezp.spring.tx.xml。复制com.leezp.spring.tx包下的BookShopDao.java、BookStockException.java、UserAccountException.java到com.leezp.spring.tx.xml包。<br>在该包下新建BookShopDaoImpl.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx.xml;</div><div class="line"></div><div class="line">import org.springframework.jdbc.core.JdbcTemplate;</div><div class="line"></div><div class="line">public class BookShopDaoImpl implements BookShopDao &#123;</div><div class="line"></div><div class="line">	private JdbcTemplate jdbcTemplate;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>JdbcTemplate(JdbcTemplate jdbcTemplate) &#123;</div><div class="line">		this.jdbcTemplate = jdbcTemplate;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int findBookPriceByIsbn(String isbn) &#123;</div><div class="line">		String sql = <span class="string">" select price from book where isbn = ? "</span>;</div><div class="line">		<span class="built_in">return</span> jdbcTemplate.queryForObject(sql, Integer.class, isbn);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void updateBookStock(String isbn) &#123;</div><div class="line">		// 检查书的库存是否足够，若不够，则抛出异常</div><div class="line">		String sql2 = <span class="string">" select stock from book_stock where isbn = ? "</span>;</div><div class="line">		int stock = jdbcTemplate.queryForObject(sql2, Integer.class, isbn);</div><div class="line">		<span class="keyword">if</span> (stock == 0) &#123;</div><div class="line">			// 定义一个异常类</div><div class="line">			throw new BookStockException(<span class="string">"库存不足"</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		String sql = <span class="string">" update book_stock set stock= stock -1  where isbn = ? "</span>;</div><div class="line">		jdbcTemplate.update(sql, isbn);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void updateUserAccount(String username, int price) &#123;</div><div class="line">		// 验证余额是否足够，若不足，则抛出异常</div><div class="line">		String sql2 = <span class="string">" select balance from account where username = ? "</span>;</div><div class="line">		int balance = jdbcTemplate</div><div class="line">				.queryForObject(sql2, Integer.class, username);</div><div class="line">		<span class="keyword">if</span> (balance &lt; price) &#123;</div><div class="line">			throw new UserAccountException(<span class="string">"余额不足"</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		String sql = <span class="string">" update account set balance=balance - ? where username = ? "</span>;</div><div class="line">		jdbcTemplate.update(sql, price, username);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建包com.leezp.spring.tx.xml.service。复制com.leezp.spring.tx.xml包下的Cashier.java、BookShopService.java到包com.leezp.spring.tx.xml.service。<br>新建包com.leezp.spring.tx.xml.service.impl。<br>在该包下新建BookShopServiceImpl.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx.xml.service.impl;</div><div class="line"></div><div class="line">import com.leezp.spring.tx.xml.BookShopDao;</div><div class="line">import com.leezp.spring.tx.xml.service.BookShopService;</div><div class="line"></div><div class="line">public class BookShopServiceImpl implements BookShopService &#123;</div><div class="line"></div><div class="line">	private BookShopDao bookShopDao;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>BookShopDao(BookShopDao bookShopDao) &#123;</div><div class="line">		this.bookShopDao = bookShopDao;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void purchase(String username, String isbn) &#123;</div><div class="line">		// 1.获取书的单价</div><div class="line">		int price = bookShopDao.findBookPriceByIsbn(isbn);</div><div class="line">		// 2.更新书的库存 -1</div><div class="line">		bookShopDao.updateBookStock(isbn);</div><div class="line">		// 3.更新用户余额</div><div class="line">		bookShopDao.updateUserAccount(username, price);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在该包下新建CashierImpl.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class CashierImpl implements Cashier &#123;</div><div class="line"></div><div class="line">	private BookShopService bookShopService;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>BookShopService(BookShopService bookShopService) &#123;</div><div class="line">		this.bookShopService = bookShopService;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void checkout(String username, List&lt;String&gt; isbns) &#123;</div><div class="line">		<span class="keyword">for</span> (String isbn : isbns) &#123;</div><div class="line">			bookShopService.purchase(username, isbn);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建配置文件applicationContext-tx-xml.xml。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></div><div class="line">	xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	xmlns:tx=<span class="string">"http://www.springframework.org/schema/tx"</span> xmlns:aop=<span class="string">"http://www.springframework.org/schema/aop"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd</span></div><div class="line">		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"&gt;</div><div class="line"></div><div class="line">	&lt;context:component-scan base-package=<span class="string">"com.leezp.spring"</span>&gt;&lt;/context:component-scan&gt;</div><div class="line"></div><div class="line">	&lt;!-- 导入资源文件 --&gt;</div><div class="line">	&lt;context:property-placeholder location=<span class="string">"classpath:db.properties"</span> /&gt;</div><div class="line"></div><div class="line">	&lt;!-- 配置c3p0数据源 --&gt;</div><div class="line">	&lt;bean id=<span class="string">"dataSource"</span> class=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"user"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.user&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"password"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.password&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"jdbcUrl"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.jdbcUrl&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"driverClass"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.driverClass&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line"></div><div class="line">		&lt;property name=<span class="string">"initialPoolSize"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.initPoolSize&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"maxPoolSize"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.maxPoolSize&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- 配置Spring 的jdbcTemplate --&gt;</div><div class="line">	&lt;bean id=<span class="string">"jdbcTemplate"</span> class=<span class="string">"org.springframework.jdbc.core.JdbcTemplate"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- 配置Bean --&gt;</div><div class="line">	&lt;bean id=<span class="string">"bookShopDao"</span> class=<span class="string">"com.leezp.spring.tx.xml.BookShopDaoImpl"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"jdbcTemplate"</span> ref=<span class="string">"jdbcTemplate"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;bean id=<span class="string">"bookShopService"</span></div><div class="line">		class=<span class="string">"com.leezp.spring.tx.xml.service.impl.BookShopServiceImpl"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"bookShopDao"</span> ref=<span class="string">"bookShopDao"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;bean id=<span class="string">"cashier"</span> class=<span class="string">"com.leezp.spring.tx.xml.service.impl.CashierImpl"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"bookShopService"</span> ref=<span class="string">"bookShopService"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- 1.配置事务管理器 --&gt;</div><div class="line">	&lt;bean id=<span class="string">"transactionManager"</span></div><div class="line">		class=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- 2.配置事务属性：传播行为、隔离级别、回滚、过期时间 --&gt;</div><div class="line">	&lt;tx:advice id=<span class="string">"txAdvice"</span> transaction-manager=<span class="string">"transactionManager"</span>&gt;</div><div class="line">		&lt;tx:attributes&gt;</div><div class="line">			&lt;!-- 根据方法名指定事务的属性 --&gt;</div><div class="line">			&lt;tx:method name=<span class="string">"purchase"</span> propagation=<span class="string">"REQUIRES_NEW"</span> /&gt;</div><div class="line">			&lt;tx:method name=<span class="string">"*"</span> /&gt;</div><div class="line">		&lt;/tx:attributes&gt;</div><div class="line">	&lt;/tx:advice&gt;</div><div class="line"></div><div class="line">	&lt;!-- 3.配置事务切入点（在哪个方法起作用）以及把事务切入点和事务属性关联起来 --&gt;</div><div class="line">	&lt;aop:config&gt;</div><div class="line">		&lt;!-- 设置 任意返回值任意类型任意方法任意参数 --&gt;</div><div class="line">		&lt;aop:pointcut expression=<span class="string">"execution(* com.leezp.spring.tx.xml.service.*.*(..))"</span></div><div class="line">			id=<span class="string">"txPointCut"</span> /&gt;</div><div class="line">		&lt;!-- 用 &lt;aop:advisor&gt;将事务切入点和事务属性关联起来 --&gt;</div><div class="line">		&lt;aop:advisor advice-ref=<span class="string">"txAdvice"</span> pointcut-ref=<span class="string">"txPointCut"</span> /&gt;</div><div class="line">	&lt;/aop:config&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p>在包com.leezp.spring.tx.xml下新建SpringTransactionTest.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">package com.leezp.spring.tx.xml;</div><div class="line"></div><div class="line">import java.util.Arrays;</div><div class="line"></div><div class="line">import org.junit.Test;</div><div class="line">import org.springframework.context.ApplicationContext;</div><div class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line">import com.leezp.spring.tx.xml.service.BookShopService;</div><div class="line">import com.leezp.spring.tx.xml.service.Cashier;</div><div class="line"></div><div class="line">public class SpringTransactionTest &#123;</div><div class="line"></div><div class="line">	private ApplicationContext ctx = null;</div><div class="line">	private BookShopDao bookShopDao = null;</div><div class="line">	private BookShopService bookShopService = null;</div><div class="line">	private Cashier cashier = null;</div><div class="line">	&#123;</div><div class="line">		ctx = new ClassPathXmlApplicationContext(</div><div class="line">				<span class="string">"applicationContext-tx-xml.xml"</span>);</div><div class="line">		bookShopDao = ctx.getBean(BookShopDao.class);</div><div class="line">		bookShopService = ctx.getBean(BookShopService.class);</div><div class="line">		cashier = ctx.getBean(Cashier.class);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testTransactionlPropagation</span></span>() &#123;</div><div class="line">		cashier.checkout(<span class="string">"AA"</span>, Arrays.asList(<span class="string">"1001"</span>, <span class="string">"1002"</span>));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Test</div><div class="line">	public void <span class="function"><span class="title">testBookShopService</span></span>() &#123;</div><div class="line">		bookShopService.purchase(<span class="string">"AA"</span>, <span class="string">"1001"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://pan.baidu.com/s/1i5brkpf" target="_blank" rel="external">获取源代码</a></p>
+<p><strong>版权声明：本文为博主原创文章，转载请注明出处 <a href="http://leezp.space" target="_blank" rel="external">Leezp’s Blog</a></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/blog/images/weixin-gongzhonghao.jpg" alt="Lee wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将鼓励我继续创作,我一直在期待那个最帅的人出现！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/blog/images/wechat-image.png" alt="Lee WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/blog/images/alipay-image.png" alt="Lee Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/java/" rel="tag"># java</a>
+          
+            <a href="/blog/tags/Spring框架/" rel="tag"># Spring框架</a>
+          
+            <a href="/blog/tags/事务/" rel="tag"># 事务</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2016/08/27/一起学习Spring4.0（五）/" rel="next" title="一起学习Spring4.0（五）Spring对JDBC的支持">
+                <i class="fa fa-chevron-left"></i> 一起学习Spring4.0（五）Spring对JDBC的支持
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2016/09/11/一起学习Spring4.0（七）/" rel="prev" title="一起学习Spring4.0（七）Spring整合Hibernate">
+                一起学习Spring4.0（七）Spring整合Hibernate <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/03/一起学习Spring4.0（六）/"
+     data-title="一起学习Spring4.0（六）Spring中的事务管理"
+     data-content=""
+     data-url="http://www.leezp.com/blog/blog/2016/09/03/一起学习Spring4.0（六）/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/03/一起学习Spring4.0（六）/"
+           data-title="一起学习Spring4.0（六）Spring中的事务管理" data-url="http://www.leezp.com/blog/blog/2016/09/03/一起学习Spring4.0（六）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/images/avatar.gif"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">独自在冷风中</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/blog/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/leezp" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-weibo-url" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-douban-url" target="_blank" title="DouBan">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  DouBan
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-zhihu-url" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  ZhiHu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring中的事务管理"><span class="nav-number">1.</span> <span class="nav-text">Spring中的事务管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring的事务管理机制"><span class="nav-number">2.</span> <span class="nav-text">Spring的事务管理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring中的事务管理器"><span class="nav-number">2.1.</span> <span class="nav-text">Spring中的事务管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring中事务管理器的不同实现"><span class="nav-number">2.2.</span> <span class="nav-text">Spring中事务管理器的不同实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明式事务"><span class="nav-number">3.</span> <span class="nav-text">声明式事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他细节"><span class="nav-number">4.</span> <span class="nav-text">其他细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务传播属性"><span class="nav-number">4.1.</span> <span class="nav-text">事务传播属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring支持的事务传播行为"><span class="nav-number">4.1.1.</span> <span class="nav-text">Spring支持的事务传播行为</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发事务所导致的问题"><span class="nav-number">4.2.</span> <span class="nav-text">并发事务所导致的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超时和只读属性"><span class="nav-number">4.3.</span> <span class="nav-text">超时和只读属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于XML文件方式"><span class="nav-number">5.</span> <span class="nav-text">基于XML文件方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leezp"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCSR37sVQgtQ3I6tDvMoemUp-gzGzoHsz", "PEz2OiJWtAgYkJKI5PNMWNvI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
