@@ -89,21 +89,21 @@
 <meta name="description" content="本节讲述Spring整合Hibernate。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一起学习Spring4.0（七）Spring整合Hibernate">
-<meta property="og:url" content="http://www.leezp.com/blog/2016/09/11/一起学习Spring4.0（七）/index.html">
+<meta property="og:url" content="http://www.leezp.space/blog/2016/09/11/一起学习Spring4.0（七）/index.html">
 <meta property="og:site_name" content="Leezp's Blog">
 <meta property="og:description" content="本节讲述Spring整合Hibernate。">
-<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/160911/hibernate_1.png">
-<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/160911/hibernate_2.png">
-<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/160911/hibernate_5.png">
-<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/160911/hibernate_3.png">
-<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/160911/hibernate_4.png">
-<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/160911/hibernate_6.png">
-<meta property="og:image" content="http://www.leezp.com/blog/blog/images/img/160911/hibernate_7.png">
-<meta property="og:updated_time" content="2017-03-10T05:42:33.609Z">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160911/hibernate_1.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160911/hibernate_2.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160911/hibernate_5.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160911/hibernate_3.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160911/hibernate_4.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160911/hibernate_6.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160911/hibernate_7.png">
+<meta property="og:updated_time" content="2017-03-13T08:31:07.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一起学习Spring4.0（七）Spring整合Hibernate">
 <meta name="twitter:description" content="本节讲述Spring整合Hibernate。">
-<meta name="twitter:image" content="http://www.leezp.com/blog/blog/images/img/160911/hibernate_1.png">
+<meta name="twitter:image" content="http://www.leezp.space/blog/blog/images/img/160911/hibernate_1.png">
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://www.leezp.com/blog/2016/09/11/一起学习Spring4.0（七）/"/>
+  <link rel="canonical" href="http://www.leezp.space/blog/2016/09/11/一起学习Spring4.0（七）/"/>
 
 
 
@@ -303,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.leezp.com/blog/blog/2016/09/11/一起学习Spring4.0（七）/">
+  <link itemprop="mainEntityOfPage" href="http://www.leezp.space/blog/blog/2016/09/11/一起学习Spring4.0（七）/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Lee">
@@ -476,6 +476,7 @@
 <p>修改applicationContext.xml配置文件。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></div><div class="line">	xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	xmlns:tx=<span class="string">"http://www.springframework.org/schema/tx"</span> xmlns:aop=<span class="string">"http://www.springframework.org/schema/aop"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd</span></div><div class="line">		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"&gt;</div><div class="line"></div><div class="line">	&lt;!-- 使用注解要配置自动扫描的包 --&gt;</div><div class="line">	&lt;context:component-scan base-package=<span class="string">"com.leezp.spring.hibernate"</span>&gt;&lt;/context:component-scan&gt;</div><div class="line"></div><div class="line">	&lt;!-- 1.配置数据源 --&gt;</div><div class="line">	&lt;!-- 导入资源文件 --&gt;</div><div class="line">	&lt;context:property-placeholder location=<span class="string">"classpath:db.properties"</span> /&gt;</div><div class="line"></div><div class="line">	&lt;bean id=<span class="string">"dataSource"</span> class=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"user"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.user&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"password"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.password&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"driverClass"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.driverClass&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"jdbcUrl"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.jdbcUrl&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line"></div><div class="line">		&lt;property name=<span class="string">"initialPoolSize"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.initPoolSize&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"maxPoolSize"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.maxPoolSize&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- 2.配置Hibernate 的 SessionFactory实例 :通过Spring 提供的LocalSessionFactoryBean进行配置 --&gt;</div><div class="line">	&lt;bean id=<span class="string">"sessionFactory"</span></div><div class="line">		class=<span class="string">"org.springframework.orm.hibernate4.LocalSessionFactoryBean"</span>&gt;</div><div class="line">		&lt;!-- 配置数据源属性 --&gt;</div><div class="line">		&lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;!-- 配置hibernate配置文件的位置及名称 --&gt;</div><div class="line">		&lt;!-- &lt;property name=<span class="string">"configLocation"</span> value=<span class="string">"classpath:hibernate.cfg.xml"</span>&gt;&lt;/property&gt; --&gt;</div><div class="line">		&lt;!-- 使用hibernateProperties属性来配置Hibernate原生的属性 --&gt;</div><div class="line">		&lt;property name=<span class="string">"hibernateProperties"</span>&gt;</div><div class="line">			&lt;props&gt;</div><div class="line">				&lt;prop key=<span class="string">"hibernate.dialect"</span>&gt;org.hibernate.dialect.MySQL5InnoDBDialect&lt;/prop&gt;</div><div class="line">				&lt;!-- 测试方法：将这里的<span class="literal">true</span>改成<span class="literal">false</span>，若不显示sql语句（之前显示sql语句），证明配置生效 --&gt;</div><div class="line">				&lt;prop key=<span class="string">"hibernate.show_sql"</span>&gt;<span class="literal">false</span>&lt;/prop&gt;</div><div class="line">				&lt;prop key=<span class="string">"hibernate.format_sql"</span>&gt;<span class="literal">true</span>&lt;/prop&gt;</div><div class="line">				&lt;prop key=<span class="string">"hibernate.hbm2ddl.auto"</span>&gt;update&lt;/prop&gt;</div><div class="line">			&lt;/props&gt;</div><div class="line">		&lt;/property&gt;</div><div class="line">		&lt;!-- 配置hibernate映射文件的位置及名称，可以使用通配符 --&gt;</div><div class="line">		&lt;property name=<span class="string">"mappingLocations"</span></div><div class="line">			value=<span class="string">"classpath:com/leezp/spring/hibernate/entities/*.hbm.xml"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- 3.配置Spring的声明式事务 --&gt;</div><div class="line">	&lt;!-- ①.配置事务管理器 --&gt;</div><div class="line">	&lt;bean id=<span class="string">"transactionManager"</span></div><div class="line">		class=<span class="string">"org.springframework.orm.hibernate4.HibernateTransactionManager"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"sessionFactory"</span> ref=<span class="string">"sessionFactory"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	&lt;!-- ②.配置事务属性，需要事务管理器 --&gt;</div><div class="line">	&lt;tx:advice id=<span class="string">"txAdvice"</span> transaction-manager=<span class="string">"transactionManager"</span>&gt;</div><div class="line">		&lt;tx:attributes&gt;</div><div class="line">			&lt;tx:method name=<span class="string">"get"</span> <span class="built_in">read</span>-only=<span class="string">"true"</span> /&gt;</div><div class="line">			&lt;tx:method name=<span class="string">"*"</span> /&gt;</div><div class="line">		&lt;/tx:attributes&gt;</div><div class="line">	&lt;/tx:advice&gt;</div><div class="line">	&lt;!-- ③.配置事务切点，并把切点和事务属性关联起来 --&gt;</div><div class="line">	&lt;aop:config&gt;</div><div class="line">		&lt;!-- com.leezp.spring.hibernate.service包下的所有类，所有方法，参数值任意 --&gt;</div><div class="line">		&lt;aop:pointcut</div><div class="line">			expression=<span class="string">"execution(* com.leezp.spring.hibernate.service.*.*(..))"</span></div><div class="line">			id=<span class="string">"txPointCut"</span> /&gt;</div><div class="line">		&lt;aop:advisor advice-ref=<span class="string">"txAdvice"</span> pointcut-ref=<span class="string">"txPointCut"</span> /&gt;</div><div class="line">	&lt;/aop:config&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
 <p><a href="http://pan.baidu.com/s/1mhSxG4C" target="_blank" rel="external">获取源代码</a></p>
+<p><strong>参考文献</strong><br><a href="http://blog.csdn.net/tuke_tuke/article/details/49717991" target="_blank" rel="external">hibernate中的映射文件xxx.hbm.xml详解总结</a><br><a href="http://sishuok.com/forum/posts/list/6756.html" target="_blank" rel="external">xxx.hbm.xml文件配置详解，适合保存。</a><br><a href="http://blog.csdn.net/zxygww/article/details/45194445" target="_blank" rel="external">Hibernate 的<generator class="native"></generator>的不同属性含义</a></p>
 <p><strong>版权声明：本文为博主原创文章，转载请注明出处 <a href="http://leezp.space" target="_blank" rel="external">Leezp’s Blog</a></strong></p>
 
       
@@ -567,7 +568,7 @@
         <div class="ds-share flat" data-thread-key="2016/09/11/一起学习Spring4.0（七）/"
      data-title="一起学习Spring4.0（七）Spring整合Hibernate"
      data-content=""
-     data-url="http://www.leezp.com/blog/blog/2016/09/11/一起学习Spring4.0（七）/">
+     data-url="http://www.leezp.space/blog/blog/2016/09/11/一起学习Spring4.0（七）/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -598,7 +599,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/09/11/一起学习Spring4.0（七）/"
-           data-title="一起学习Spring4.0（七）Spring整合Hibernate" data-url="http://www.leezp.com/blog/blog/2016/09/11/一起学习Spring4.0（七）/">
+           data-title="一起学习Spring4.0（七）Spring整合Hibernate" data-url="http://www.leezp.space/blog/blog/2016/09/11/一起学习Spring4.0（七）/">
       </div>
     
   </div>
