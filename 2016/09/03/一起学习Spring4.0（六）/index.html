@@ -413,7 +413,7 @@
       
 
       
-        <script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>本节讲述Spring中的事务管理。</p>
+        <script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>本节讲述Spring中的事务管理。</p>
 <a id="more"></a>
 <h2 id="Spring中的事务管理"><a href="#Spring中的事务管理" class="headerlink" title="Spring中的事务管理"></a>Spring中的事务管理</h2><p>事务就是一系列的动作，它们被当做一个单独的工作单元，这些动作要么全部完成，要么全部不起作用。用来确保数据的完整性和一致性。<br>事务的四个关键属性（ACID）<br>1.原子性（atomicity）：事务是一个原子操作，由一系列动作组成。事务的原子性确保动作要么全部完成要么完全不起作用。<br>2.一致性（consistency）：一旦所有事务动作完成，事务就被提交，数据和资源就处于一种满足业务规则的一致性状态中。<br>3.隔离性（isolation）：可能有许多事务会同时处理相同的数据，因此每个事物都应该与其他事务隔离开来，防止数据破坏。<br>4.持久性（durability）：一旦事务完成，无论发生什么系统错误，它的结果都不应该受到影响，通常情况下，事务的结果被写到持久化存储器中。</p>
 <h2 id="Spring的事务管理机制"><a href="#Spring的事务管理机制" class="headerlink" title="Spring的事务管理机制"></a>Spring的事务管理机制</h2><p>Spring在不同的事务管理API之上定义了一个抽象层。而应用程序开发人员不必了解底层的事务管理API，就可以使用Spring的事务管理机制。<br>Spring既支持编程式事务管理，也支持声明式的事务管理。<br><strong>编程式事务管理：将事务管理代码嵌入到业务方法中来控制事务的提交和回滚</strong>。在编程式管理事务时，必须在每个事务操作中包含额外的事务管理代码。<br><strong>声明式事务管理</strong>：大多数情况下比编程式事务管理更好用。它<strong>将事务管理代码从业务方法中分离出来，以声明的方式来实现事务管理</strong>。事务管理作为一种横切关注点，可以通过AOP方法模块化。<strong>Spring通过SpringAOP框架支持声明式事务管理</strong>。</p>
@@ -595,9 +595,6 @@
           
           </div>
           
-
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
 
 
           
