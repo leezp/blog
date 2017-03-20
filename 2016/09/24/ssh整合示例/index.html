@@ -1,0 +1,1261 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,ssh," />
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Leezp's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="ssh整合的一个demo。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssh整合示例">
+<meta property="og:url" content="http://www.leezp.space/blog/2016/09/24/ssh整合示例/index.html">
+<meta property="og:site_name" content="Leezp's Blog">
+<meta property="og:description" content="ssh整合的一个demo。">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_2.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_3.jpg">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_4.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_5.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_6.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_7.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_8.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_9.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_10.jpg">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_11.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_12.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_13.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_14.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_16.jpg">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_15.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_17.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_18.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_19.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_22.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_20.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_21.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_23.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_24.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_25.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_26.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_27.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_28.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_29.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_30.png">
+<meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh_31.png">
+<meta property="og:updated_time" content="2017-03-20T07:51:45.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ssh整合示例">
+<meta name="twitter:description" content="ssh整合的一个demo。">
+<meta name="twitter:image" content="http://www.leezp.space/blog/blog/images/img/160924/ssh.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.leezp.space/blog/2016/09/24/ssh整合示例/"/>
+
+
+
+
+
+  <title> ssh整合示例 | Leezp's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1d55f14ba137e7fe86312476de83b077";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Leezp's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Mr.Lee</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.leezp.space/blog/blog/2016/09/24/ssh整合示例/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Lee">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/blog/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Leezp's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Leezp's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ssh整合示例
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-24T14:01:15+08:00">
+                2016-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016/09/24/ssh整合示例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/24/ssh整合示例/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/blog/2016/09/24/ssh整合示例/" class="leancloud_visitors" data-flag-title="ssh整合示例">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>ssh整合的一个demo。</p>
+<a id="more"></a>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p><a href="http://pan.baidu.com/s/1eRExe5W" target="_blank" rel="external">spring4-required</a><br><a href="http://pan.baidu.com/s/1misg1rM" target="_blank" rel="external">struts2.3.15.3-blank</a><br><a href="http://pan.baidu.com/s/1miqe6so" target="_blank" rel="external">hibernate-release-4.2.4.Final</a></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="加入Spring"><a href="#加入Spring" class="headerlink" title="加入Spring"></a>加入Spring</h3><h4 id="加入jar包"><a href="#加入jar包" class="headerlink" title="加入jar包"></a>加入jar包</h4><p><a href="http://pan.baidu.com/s/1eRExe5W" target="_blank" rel="external">spring4-required</a></p>
+<h4 id="配置web-xml文件"><a href="#配置web-xml文件" class="headerlink" title="配置web.xml文件"></a>配置web.xml文件</h4><p>在web.xml文件中 alt+ / 选择 ContextLoaderListener。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;web-app xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	xmlns=<span class="string">"http://java.sun.com/xml/ns/javaee"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span></div><div class="line">	id=<span class="string">"WebApp_ID"</span> version=<span class="string">"3.0"</span>&gt;</div><div class="line"></div><div class="line">	&lt;!-- needed <span class="keyword">for</span> ContextLoaderListener --&gt;</div><div class="line">	&lt;context-param&gt;</div><div class="line">		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">		&lt;param-value&gt;location&lt;/param-value&gt;</div><div class="line">	&lt;/context-param&gt;</div><div class="line"></div><div class="line">	&lt;!-- Bootstraps the root web application context before servlet initialization --&gt;</div><div class="line">	&lt;listener&gt;</div><div class="line">		&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</div><div class="line">	&lt;/listener&gt;</div><div class="line"></div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure>
+<p>修改web.xml。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;web-app xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	xmlns=<span class="string">"http://java.sun.com/xml/ns/javaee"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span></div><div class="line">	id=<span class="string">"WebApp_ID"</span> version=<span class="string">"3.0"</span>&gt;</div><div class="line"></div><div class="line">	&lt;context-param&gt;</div><div class="line">		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">		&lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;</div><div class="line">	&lt;/context-param&gt;</div><div class="line"></div><div class="line">	&lt;listener&gt;</div><div class="line">		&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</div><div class="line">	&lt;/listener&gt;</div><div class="line"></div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure>
+<h4 id="加入Spring的配置文件"><a href="#加入Spring的配置文件" class="headerlink" title="加入Spring的配置文件"></a>加入Spring的配置文件</h4><p>new -&gt; Source Folder新建一个源码包conf。<br>在conf源码包下新建applicationContext.xml配置文件。</p>
+<h3 id="加入Hibernate"><a href="#加入Hibernate" class="headerlink" title="加入Hibernate"></a>加入Hibernate</h3><p>1).同时建立持久化类，和其对应的 .hbm.xml文件，生成对应的数据表。<br>2).Spring整合Hibernate。<br>3).步骤：<br>①.加入jar包<br>加入hibernate-release-4.2.4.Final-&gt;lib-&gt;required文件夹下的全部8个jar包。<br>②.在类路径下加入hibernate.cfg.xml文件，在其中配置hibernate的基本属性。<br>新建hibernate.cfg.xml配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</div><div class="line">		<span class="string">"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</span></div><div class="line">		<span class="string">"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"</span>&gt;</div><div class="line">&lt;hibernate-configuration&gt;</div><div class="line">	&lt;session-factory&gt;</div><div class="line">    	&lt;!-- 配置 hibernate的基本属性 --&gt;</div><div class="line"></div><div class="line">		&lt;!-- 方言 --&gt;</div><div class="line">		&lt;property name=<span class="string">"hibernate.dialect"</span>&gt;org.hibernate.dialect.MySQL5InnoDBDialect&lt;/property&gt;</div><div class="line">		&lt;!-- 是否显示及格式化SQL --&gt;</div><div class="line">		&lt;property name=<span class="string">"hibernate.show_sql"</span>&gt;<span class="literal">true</span>&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"hibernate.format_sql"</span>&gt;<span class="literal">true</span>&lt;/property&gt;</div><div class="line">		&lt;!-- 生成数据表的策略 --&gt;</div><div class="line">		&lt;property name=<span class="string">"hibernate.hbm2ddl.auto"</span>&gt;update&lt;/property&gt;</div><div class="line">		&lt;!-- 二级缓存相关 --&gt;</div><div class="line">	&lt;/session-factory&gt;</div><div class="line">&lt;/hibernate-configuration&gt;</div></pre></td></tr></table></figure>
+<p>③.建立持久化类，和其对应的 .hbm.xml文件<br>在src下新建包com.leezp.ssh.entities。<br>在该包下新建Department.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.entities;</div><div class="line"></div><div class="line">public class Department &#123;</div><div class="line"></div><div class="line">	private Integer id;</div><div class="line"></div><div class="line">	private String departmentName;</div><div class="line"></div><div class="line">	public Integer <span class="function"><span class="title">getId</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>Id(Integer id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">getDepartmentName</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> departmentName;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>DepartmentName(String departmentName) &#123;</div><div class="line">		this.departmentName = departmentName;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在该包下新建Employee.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.entities;</div><div class="line"></div><div class="line">import java.sql.Date;</div><div class="line"></div><div class="line">public class Employee &#123;</div><div class="line"></div><div class="line">	private Integer id;</div><div class="line">	// 不能被修改</div><div class="line">	private String lastName;</div><div class="line"></div><div class="line">	private String email;</div><div class="line">	// 从前端传入的是String类型，所以需要注意转换</div><div class="line">	private Date birth;</div><div class="line">	// 不能被修改</div><div class="line">	private Date createTime;</div><div class="line">	// 单向多对一的关联关系</div><div class="line">	private Department department;</div><div class="line">	public Integer <span class="function"><span class="title">getId</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> id;</div><div class="line">	&#125;</div><div class="line">	public void <span class="built_in">set</span>Id(Integer id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line">	public String <span class="function"><span class="title">getLastName</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> lastName;</div><div class="line">	&#125;</div><div class="line">	public void <span class="built_in">set</span>LastName(String lastName) &#123;</div><div class="line">		this.lastName = lastName;</div><div class="line">	&#125;</div><div class="line">	public String <span class="function"><span class="title">getEmail</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> email;</div><div class="line">	&#125;</div><div class="line">	public void <span class="built_in">set</span>Email(String email) &#123;</div><div class="line">		this.email = email;</div><div class="line">	&#125;</div><div class="line">	public Date <span class="function"><span class="title">getBirth</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> birth;</div><div class="line">	&#125;</div><div class="line">	public void <span class="built_in">set</span>Birth(Date birth) &#123;</div><div class="line">		this.birth = birth;</div><div class="line">	&#125;</div><div class="line">	public Date <span class="function"><span class="title">getCreateTime</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> createTime;</div><div class="line">	&#125;</div><div class="line">	public void <span class="built_in">set</span>CreateTime(Date createTime) &#123;</div><div class="line">		this.createTime = createTime;</div><div class="line">	&#125;</div><div class="line">	public Department <span class="function"><span class="title">getDepartment</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> department;</div><div class="line">	&#125;</div><div class="line">	public void <span class="built_in">set</span>Department(Department department) &#123;</div><div class="line">		this.department = department;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在该包下新建 Hibernate XML Mapping file(hbm.xml)。<br>Hibernate会帮助我们根据entities自动生成内容。<br>查看Employee.hbm.xml。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span>?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC <span class="string">"-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></div><div class="line"><span class="string">"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"</span>&gt;</div><div class="line">&lt;!-- Generated 2017-3-14 15:46:11 by Hibernate Tools 3.4.0.CR1 --&gt;</div><div class="line">&lt;hibernate-mapping&gt;</div><div class="line">    &lt;class name=<span class="string">"com.leezp.ssh.entities.Employee"</span> table=<span class="string">"EMPLOYEE"</span>&gt;</div><div class="line">        &lt;id name=<span class="string">"id"</span> <span class="built_in">type</span>=<span class="string">"java.lang.Integer"</span>&gt;</div><div class="line">            &lt;column name=<span class="string">"ID"</span> /&gt;</div><div class="line">            &lt;generator class=<span class="string">"assigned"</span> /&gt;</div><div class="line">        &lt;/id&gt;</div><div class="line">        &lt;property name=<span class="string">"lastName"</span> <span class="built_in">type</span>=<span class="string">"java.lang.String"</span>&gt;</div><div class="line">            &lt;column name=<span class="string">"LASTNAME"</span> /&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">        &lt;property name=<span class="string">"email"</span> <span class="built_in">type</span>=<span class="string">"java.lang.String"</span>&gt;</div><div class="line">            &lt;column name=<span class="string">"EMAIL"</span> /&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">        &lt;property name=<span class="string">"birth"</span> <span class="built_in">type</span>=<span class="string">"java.sql.Date"</span>&gt;</div><div class="line">            &lt;column name=<span class="string">"BIRTH"</span> /&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">        &lt;property name=<span class="string">"createTime"</span> <span class="built_in">type</span>=<span class="string">"java.sql.Date"</span>&gt;</div><div class="line">            &lt;column name=<span class="string">"CREATETIME"</span> /&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">        &lt;many-to-one name=<span class="string">"department"</span> class=<span class="string">"com.leezp.ssh.entities.Department"</span> fetch=<span class="string">"join"</span>&gt;</div><div class="line">            &lt;column name=<span class="string">"DEPARTMENT"</span> /&gt;</div><div class="line">        &lt;/many-to-one&gt;</div><div class="line">    &lt;/class&gt;</div><div class="line">&lt;/hibernate-mapping&gt;</div></pre></td></tr></table></figure>
+<p>查看Department.hbm.xml。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span>?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC <span class="string">"-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></div><div class="line"><span class="string">"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"</span>&gt;</div><div class="line">&lt;!-- Generated 2017-3-14 15:46:11 by Hibernate Tools 3.4.0.CR1 --&gt;</div><div class="line">&lt;hibernate-mapping&gt;</div><div class="line">    &lt;class name=<span class="string">"com.leezp.ssh.entities.Department"</span> table=<span class="string">"DEPARTMENT"</span>&gt;</div><div class="line">        &lt;id name=<span class="string">"id"</span> <span class="built_in">type</span>=<span class="string">"java.lang.Integer"</span>&gt;</div><div class="line">            &lt;column name=<span class="string">"ID"</span> /&gt;</div><div class="line">            &lt;generator class=<span class="string">"assigned"</span> /&gt;</div><div class="line">        &lt;/id&gt;</div><div class="line">        &lt;property name=<span class="string">"departmentName"</span> <span class="built_in">type</span>=<span class="string">"java.lang.String"</span>&gt;</div><div class="line">            &lt;column name=<span class="string">"DEPARTMENTNAME"</span> /&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">    &lt;/class&gt;</div><div class="line">&lt;/hibernate-mapping&gt;</div></pre></td></tr></table></figure>
+<p>修改Department.hbm.xml。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span>?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC <span class="string">"-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></div><div class="line"><span class="string">"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"</span>&gt;</div><div class="line">&lt;!-- Generated 2017-3-14 15:46:11 by Hibernate Tools 3.4.0.CR1 --&gt;</div><div class="line">&lt;hibernate-mapping&gt;</div><div class="line">    &lt;class name=<span class="string">"com.leezp.ssh.entities.Department"</span> table=<span class="string">"SSH_DEPARTMENT"</span>&gt;</div><div class="line">        &lt;id name=<span class="string">"id"</span> <span class="built_in">type</span>=<span class="string">"java.lang.Integer"</span>&gt;</div><div class="line">            &lt;column name=<span class="string">"ID"</span> /&gt;</div><div class="line">            &lt;generator class=<span class="string">"native"</span> /&gt;</div><div class="line">        &lt;/id&gt;</div><div class="line">        &lt;property name=<span class="string">"departmentName"</span> <span class="built_in">type</span>=<span class="string">"java.lang.String"</span>&gt;</div><div class="line">            &lt;column name=<span class="string">"DEPARTMENT_NAME"</span> /&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">    &lt;/class&gt;</div><div class="line">&lt;/hibernate-mapping&gt;</div></pre></td></tr></table></figure>
+<p>修改Employee.hbm.xml。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span>?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC <span class="string">"-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></div><div class="line"><span class="string">"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"</span>&gt;</div><div class="line">&lt;!-- Generated 2017-3-14 15:46:11 by Hibernate Tools 3.4.0.CR1 --&gt;</div><div class="line">&lt;hibernate-mapping&gt;</div><div class="line">	&lt;class name=<span class="string">"com.leezp.ssh.entities.Employee"</span> table=<span class="string">"SSH_EMPLOYEE"</span>&gt;</div><div class="line">		&lt;id name=<span class="string">"id"</span> <span class="built_in">type</span>=<span class="string">"java.lang.Integer"</span>&gt;</div><div class="line">			&lt;column name=<span class="string">"ID"</span> /&gt;</div><div class="line">			&lt;generator class=<span class="string">"native"</span> /&gt;</div><div class="line">		&lt;/id&gt;</div><div class="line">		&lt;property name=<span class="string">"lastName"</span> <span class="built_in">type</span>=<span class="string">"java.lang.String"</span>&gt;</div><div class="line">			&lt;column name=<span class="string">"LAST_NAME"</span> /&gt;</div><div class="line">		&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"email"</span> <span class="built_in">type</span>=<span class="string">"java.lang.String"</span>&gt;</div><div class="line">			&lt;column name=<span class="string">"EMAIL"</span> /&gt;</div><div class="line">		&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"birth"</span> <span class="built_in">type</span>=<span class="string">"java.sql.Date"</span>&gt;</div><div class="line">			&lt;column name=<span class="string">"BIRTH"</span> /&gt;</div><div class="line">		&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"createTime"</span> <span class="built_in">type</span>=<span class="string">"java.sql.Date"</span>&gt;</div><div class="line">			&lt;column name=<span class="string">"CREATE_TIME"</span> /&gt;</div><div class="line">		&lt;/property&gt;</div><div class="line">		&lt;!-- 映射单向多对一的关联关系 --&gt;</div><div class="line">		&lt;many-to-one name=<span class="string">"department"</span> class=<span class="string">"com.leezp.ssh.entities.Department"</span>&gt;</div><div class="line">			&lt;column name=<span class="string">"DEPARTMENT_ID"</span> /&gt;</div><div class="line">		&lt;/many-to-one&gt;</div><div class="line">	&lt;/class&gt;</div><div class="line">&lt;/hibernate-mapping&gt;</div></pre></td></tr></table></figure>
+<p>④.和Spring进行整合<br>i.加入c3p0和MySQL的驱动。<br>c3p0-0.9.1.2.jar<br>mysql-connector-java-5.1.22-bin.jar<br>ii.在Spring的配置文件中配置:数据源，SessionFactory。</p>
+<p>在conf源码包下面新建db.properties属性文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">jdbc.user=root</div><div class="line">jdbc.password=root</div><div class="line">jdbc.driverClass=com.mysql.jdbc.Driver</div><div class="line">jdbc.jdbcUrl=jdbc:mysql://localhost:3306/ssh_demo</div><div class="line"></div><div class="line">jdbc.initPoolSize=5</div><div class="line">jdbc.maxPoolSize=10</div></pre></td></tr></table></figure>
+<p>修改Spring配置文件applicationContext.xml。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></div><div class="line">	xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> xmlns:aop=<span class="string">"http://www.springframework.org/schema/aop"</span></div><div class="line">	xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span> xmlns:tx=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd</span></div><div class="line">		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"&gt;</div><div class="line"></div><div class="line">	&lt;!-- 导入资源文件 --&gt;</div><div class="line">	&lt;context:property-placeholder location=<span class="string">"classpath:db.properties"</span> /&gt;</div><div class="line"></div><div class="line">	&lt;!-- 配置C3P0数据源 --&gt;</div><div class="line">	&lt;bean id=<span class="string">"dataSource"</span> class=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"user"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.user&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"password"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.password&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"driverClass"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.driverClass&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"jdbcUrl"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.jdbcUrl&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line"></div><div class="line">		&lt;property name=<span class="string">"initialPoolSize"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.initPoolSize&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"maxPoolSize"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.maxPoolSize&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- 配置SessionFactory --&gt;</div><div class="line">	&lt;bean id=<span class="string">"sessionFactory"</span></div><div class="line">		class=<span class="string">"org.springframework.orm.hibernate4.LocalSessionFactoryBean"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;!-- 路径给Spring用的情况可以加classpath:，指的是编译后的class路径。/WEB-INF/classes/，编译后的class文件，资源文件，依赖文件等都会放在这个路径下。 --&gt;</div><div class="line">		&lt;property name=<span class="string">"configLocation"</span> value=<span class="string">"classpath:hibernate.cfg.xml"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;!-- 注意将复制的com.leezp.ssh.entities中的<span class="string">"."</span>换成<span class="string">"/"</span>并在最后加上<span class="string">"/*.hbm.xml"</span> --&gt;</div><div class="line">		&lt;property name=<span class="string">"mappingLocations"</span> value=<span class="string">"classpath:com/leezp/ssh/entities/*.hbm.xml"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p>在mysql新建一个空的数据库ssh_demo。<strong>启动项目，会看到生成对应的数据表</strong>。<br><img src="/blog/images/img/160924/ssh.png" alt=""><br>在数据库里向ssh_department表添加数据。<br><img src="/blog/images/img/160924/ssh_2.png" alt=""><br>修改Spring配置文件applicationContext.xml配置<strong>声明式事务</strong>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></div><div class="line">	xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> xmlns:aop=<span class="string">"http://www.springframework.org/schema/aop"</span></div><div class="line">	xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span> xmlns:tx=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd</span></div><div class="line">		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"&gt;</div><div class="line"></div><div class="line">	&lt;!-- 导入资源文件 --&gt;</div><div class="line">	&lt;context:property-placeholder location=<span class="string">"classpath:db.properties"</span> /&gt;</div><div class="line"></div><div class="line">	&lt;!-- 配置C3P0数据源 --&gt;</div><div class="line">	&lt;bean id=<span class="string">"dataSource"</span> class=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"user"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.user&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"password"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.password&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"driverClass"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.driverClass&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"jdbcUrl"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.jdbcUrl&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line"></div><div class="line">		&lt;property name=<span class="string">"initialPoolSize"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.initPoolSize&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=<span class="string">"maxPoolSize"</span> value=<span class="string">"<span class="variable">$&#123;jdbc.maxPoolSize&#125;</span>"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- 配置SessionFactory --&gt;</div><div class="line">	&lt;bean id=<span class="string">"sessionFactory"</span></div><div class="line">		class=<span class="string">"org.springframework.orm.hibernate4.LocalSessionFactoryBean"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;!-- 路径给Spring用的情况可以加classpath:，指的是编译后的class路径。/WEB-INF/classes/，编译后的class文件，资源文件，依赖文件等都会放在这个路径下。 --&gt;</div><div class="line">		&lt;property name=<span class="string">"configLocation"</span> value=<span class="string">"classpath:hibernate.cfg.xml"</span>&gt;&lt;/property&gt;</div><div class="line">		&lt;!-- 注意将复制的com.leezp.ssh.entities中的<span class="string">"."</span>换成<span class="string">"/"</span>并在最后加上<span class="string">"/*.hbm.xml"</span> --&gt;</div><div class="line">		&lt;property name=<span class="string">"mappingLocations"</span> value=<span class="string">"classpath:com/leezp/ssh/entities/*.hbm.xml"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- 配置Spring的声明式事务 --&gt;</div><div class="line">	&lt;!-- 1.配置hibernate的事务管理器 --&gt;</div><div class="line">	&lt;bean id=<span class="string">"transactionManager"</span></div><div class="line">		class=<span class="string">"org.springframework.orm.hibernate4.HibernateTransactionManager"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"sessionFactory"</span> ref=<span class="string">"sessionFactory"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	&lt;!-- 2.配置事务属性 --&gt;</div><div class="line">	&lt;tx:advice id=<span class="string">"txAdvice"</span> transaction-manager=<span class="string">"transactionManager"</span>&gt;</div><div class="line">		&lt;tx:attributes&gt;</div><div class="line">			&lt;!-- 配置get开头的 <span class="built_in">read</span>-only=<span class="string">"true --&gt;</span></div><div class="line">			&lt;tx:method name="get*<span class="string">" read-only="</span><span class="literal">true</span><span class="string">" /&gt;</span></div><div class="line">			&lt;!-- 配置默认值 --&gt;</div><div class="line">			&lt;tx:method name="*<span class="string">" /&gt;</span></div><div class="line">		&lt;/tx:attributes&gt;</div><div class="line">	&lt;/tx:advice&gt;</div><div class="line">	&lt;!-- 3.配置事务切入点 --&gt;</div><div class="line">	&lt;aop:config&gt;</div><div class="line">		&lt;!-- com.leezp.ssh.service包下的所有类的所有方法所有参数 --&gt;</div><div class="line">		&lt;aop:pointcut expression="execution(* com.leezp.ssh.service.*.*(..))<span class="string">"</span></div><div class="line">			id="txPointCut<span class="string">" /&gt;</span></div><div class="line">		&lt;!-- 4.把事务属性和事务切入点关联起来 --&gt;</div><div class="line">		&lt;aop:advisor advice-ref="txAdvice<span class="string">" pointcut-ref="</span>txPointCut<span class="string">" /&gt;</span></div><div class="line">	&lt;/aop:config&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p>新建包com.leezp.ssh.service。</p>
+<p><a href="http://pan.baidu.com/s/1c2BZ5Ji" target="_blank" rel="external">获取源代码</a></p>
+<h3 id="加入Struts2"><a href="#加入Struts2" class="headerlink" title="加入Struts2"></a>加入Struts2</h3><h4 id="加入jar包-1"><a href="#加入jar包-1" class="headerlink" title="加入jar包"></a>加入jar包</h4><p>asm-3.3.jar<br>asm-commons-3.3.jar<br>asm-tree-3.3.jar<br>commons-fileupload-1.3.jar<br>commons-io-2.0.1.jar<br>commons-lang3-3.1.jar<br>commons-logging-1.1.3.jar<br>freemarker-2.3.19.jar<br>javassist-3.11.0.GA.jar<br>log4j-1.2.17.jar<br>ognl-3.0.6.jar<br>struts2-core-2.3.15.3.jar<br>xwork-core-2.3.15.3.jar<br>若有重复的jar包，则需要删除版本较低的。javassist-3.11.0.GA.jar<br><img src="/blog/images/img/160924/ssh_3.jpg" alt=""></p>
+<h4 id="在web-xml文件中配置Struts2的Filter"><a href="#在web-xml文件中配置Struts2的Filter" class="headerlink" title="在web.xml文件中配置Struts2的Filter"></a>在web.xml文件中配置Struts2的Filter</h4><p>复制<a href="http://pan.baidu.com/s/1pL8Vl7X" target="_blank" rel="external">struts2官方示例web.xml</a>中的如下代码到项目的web.xml文件中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;filter&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line">&lt;/filter&gt;</div><div class="line"></div><div class="line">&lt;filter-mapping&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line">&lt;/filter-mapping&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="加入Struts2的配置文件"><a href="#加入Struts2的配置文件" class="headerlink" title="加入Struts2的配置文件"></a>加入Struts2的配置文件</h4><p>复制<a href="http://pan.baidu.com/s/1pLAXfjd" target="_blank" rel="external">struts2官方配置文件struts.xml</a>到conf源码包下。</p>
+<p>修改struts.xml。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</div><div class="line">&lt;!DOCTYPE struts PUBLIC</div><div class="line">	<span class="string">"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</span></div><div class="line">	<span class="string">"http://struts.apache.org/dtds/struts-2.3.dtd"</span>&gt;</div><div class="line"></div><div class="line">&lt;struts&gt;</div><div class="line"></div><div class="line">	&lt;constant name=<span class="string">"struts.enable.DynamicMethodInvocation"</span> value=<span class="string">"false"</span> /&gt;</div><div class="line">	&lt;constant name=<span class="string">"struts.devMode"</span> value=<span class="string">"true"</span> /&gt;</div><div class="line"></div><div class="line">	&lt;!-- 这是利用Struts2里面的自动匹配特性。*代表通配符，可以匹配任何一个字符串,[1]表示匹配的参数。 --&gt;</div><div class="line">	&lt;!-- 举个例子来说，如果你在xml文件中做了这个配置，那么当你页面里面有一个form &lt;form action=<span class="string">"/emp-add"</span> method=<span class="string">"post"</span>&gt; </div><div class="line">		那么，*匹配到的就是“add”,同时method=<span class="string">"&#123;1&#125;"</span>，实际上就是method=<span class="string">"add"</span>。 --&gt;</div><div class="line">	&lt;!-- 假设有两个参数，如果在xml里面的配置是 &lt;action name=<span class="string">"emp-*-*"</span> class=<span class="string">"&#123;1&#125;Action"</span> method=<span class="string">"&#123;2&#125;"</span>&gt; </div><div class="line">		那么第一个星号对应的是&#123;1&#125;,第二个星号对应的是&#123;2&#125; --&gt;</div><div class="line">	&lt;!-- 例如，页面里面有&lt;form action=<span class="string">"/emp-employee-add"</span> method=<span class="string">"post"</span>&gt; 那么实际上的意思就是 </div><div class="line">		class=<span class="string">"employeeAction"</span> method=<span class="string">"add"</span> --&gt;</div><div class="line">	&lt;!-- **这样做的好处就是我们不必为增、删、改、查方法写四个&lt;action&gt;配置。** --&gt;</div><div class="line">	&lt;!-- 通配符还可以用来节省xml文件中的代码量 --&gt;</div><div class="line">	&lt;package name=<span class="string">"default"</span> namespace=<span class="string">"/"</span> extends=<span class="string">"struts-default"</span>&gt;</div><div class="line"></div><div class="line">	&lt;/package&gt;</div><div class="line"></div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure>
+<h4 id="Struts2整合Spring"><a href="#Struts2整合Spring" class="headerlink" title="Struts2整合Spring"></a>Struts2整合Spring</h4><p>①.加入Struts2的Spring插件的jar包。<br>struts2-spring-plugin-2.3.15.3.jar<br>②.在Spring的配置文件中正常配置Action，注意Action的scope为prototype。</p>
+<p>在conf源码包下新建applicationContext-beans.xml配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></div><div class="line">	xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</div><div class="line"></div><div class="line">	</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p>在src下新建包com.leezp.ssh.actions。</p>
+<p>在该包下新建EmployeeAction.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.actions;</div><div class="line"></div><div class="line">public class EmployeeAction &#123;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>修改applicationContext-beans.xml配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></div><div class="line">	xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</div><div class="line"></div><div class="line">	&lt;bean id=<span class="string">"employeeAction"</span> class=<span class="string">"com.leezp.ssh.actions.EmployeeAction"</span></div><div class="line">		scope=<span class="string">"prototype"</span>&gt;&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p>③.在Struts2的配置文件中配置Action时，class属性指向该Action在IOC中的id。</p>
+<p>修改struts.xml配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</div><div class="line">&lt;!DOCTYPE struts PUBLIC</div><div class="line">	<span class="string">"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</span></div><div class="line">	<span class="string">"http://struts.apache.org/dtds/struts-2.3.dtd"</span>&gt;</div><div class="line"></div><div class="line">&lt;struts&gt;</div><div class="line"></div><div class="line">	&lt;constant name=<span class="string">"struts.enable.DynamicMethodInvocation"</span> value=<span class="string">"false"</span> /&gt;</div><div class="line">	&lt;constant name=<span class="string">"struts.devMode"</span> value=<span class="string">"true"</span> /&gt;</div><div class="line"></div><div class="line">	&lt;package name=<span class="string">"default"</span> namespace=<span class="string">"/"</span> extends=<span class="string">"struts-default"</span>&gt;</div><div class="line"></div><div class="line">		&lt;action name=<span class="string">"emp-*"</span> class=<span class="string">"employeeAction"</span> method=<span class="string">"&#123;1&#125;"</span>&gt;&lt;/action&gt;</div><div class="line"></div><div class="line">	&lt;/package&gt;</div><div class="line"></div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure>
+<p>向数据库中的表ssh_employee添加两条用于测试的数据。<br><img src="/blog/images/img/160924/ssh_4.png" alt=""><br>新建一个web页面index.jsp。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=ISO-8859-1"</span></div><div class="line">	pageEncoding=<span class="string">"ISO-8859-1"</span>%&gt;</div><div class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=ISO-8859-1"</span>&gt;</div><div class="line">&lt;title&gt;Insert title here&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">	&lt;a href=<span class="string">"emp-list"</span>&gt;List All Employees&lt;/a&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>修改前面建好的EmployeeAction.java。为它添加与index.jsp里”emp-list”对应的list()方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.actions;</div><div class="line"></div><div class="line">import com.opensymphony.xwork2.ActionSupport;</div><div class="line"></div><div class="line">public class EmployeeAction extends ActionSupport &#123;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * </div><div class="line">	 */</div><div class="line">	private static final long serialVersionUID = 1L;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">list</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> <span class="string">"list"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>添加包com.leezp.ssh.dao。在该包下新建EmployeeDao.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.dao;</div><div class="line"></div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">import org.hibernate.Session;</div><div class="line">import org.hibernate.SessionFactory;</div><div class="line"></div><div class="line">import com.leezp.ssh.entities.Employee;</div><div class="line"></div><div class="line">public class EmployeeDao &#123;</div><div class="line"></div><div class="line">	private SessionFactory sessionFactory;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>SessionFactory(SessionFactory sessionFactory) &#123;</div><div class="line">		this.sessionFactory = sessionFactory;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public Session <span class="function"><span class="title">getSession</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> this.sessionFactory.getCurrentSession();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public List&lt;Employee&gt; <span class="function"><span class="title">getAll</span></span>() &#123;</div><div class="line">		// 迫切左外连接</div><div class="line">		// Query query =</div><div class="line">		// getSession.createQuery(<span class="string">" from Employee e left outer join fetch e.department o"</span>);</div><div class="line">		// Iterator iter = query.list().iterator();</div><div class="line">		// 说明：</div><div class="line">		// 关键字：left join fetch</div><div class="line">		// 返回结果为Employee类型，再通过Employee对象导航到department对象</div><div class="line">		String hql = <span class="string">" from Employee e left outer join fetch e.department "</span>;</div><div class="line">		<span class="built_in">return</span> getSession().createQuery(hql).list();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在包com.leezp.ssh.service下新建EmployeeService.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.service;</div><div class="line"></div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">import com.leezp.ssh.dao.EmployeeDao;</div><div class="line">import com.leezp.ssh.entities.Employee;</div><div class="line"></div><div class="line">public class EmployeeService &#123;</div><div class="line"></div><div class="line">	private EmployeeDao employeeDao;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>EmployeeDao(EmployeeDao employeeDao) &#123;</div><div class="line">		this.employeeDao = employeeDao;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public List&lt;Employee&gt; <span class="function"><span class="title">getAll</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> employeeDao.getAll();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>修改EmployeeAction.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.actions;</div><div class="line"></div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">import org.apache.struts2.interceptor.RequestAware;</div><div class="line"></div><div class="line">import com.leezp.ssh.service.EmployeeService;</div><div class="line">import com.opensymphony.xwork2.ActionSupport;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 实现RequestAware请求域</div><div class="line"> * </div><div class="line"> * @author Lee</div><div class="line"> * </div><div class="line"> */</div><div class="line">public class EmployeeAction extends ActionSupport implements RequestAware &#123;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * </div><div class="line">	 */</div><div class="line">	private static final long serialVersionUID = 1L;</div><div class="line"></div><div class="line">	private EmployeeService employeeService;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>EmployeeService(EmployeeService employeeService) &#123;</div><div class="line">		this.employeeService = employeeService;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">list</span></span>() &#123;</div><div class="line">		request.put(<span class="string">"employees"</span>, employeeService.getAll());</div><div class="line">		<span class="built_in">return</span> <span class="string">"list"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private Map&lt;String, Object&gt; request;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void <span class="built_in">set</span>Request(Map&lt;String, Object&gt; arg0) &#123;</div><div class="line">		this.request = arg0;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在applicationContext.xml中配置bean。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></div><div class="line">	xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</div><div class="line"></div><div class="line">	&lt;bean id=<span class="string">"employeeDao"</span> class=<span class="string">"com.leezp.ssh.dao.EmployeeDao"</span>&gt;</div><div class="line">		&lt;!-- 这里的ref指向的sessionFactory在另一个配置文件 --&gt;</div><div class="line">		&lt;!-- ref指向不同配置文件时，需要在web.xml的&lt;context-param&gt;中修改配置为 &lt;param-value&gt;classpath:applicationContext*.xml&lt;/param-value&gt; --&gt;</div><div class="line">		&lt;property name=<span class="string">"sessionFactory"</span> ref=<span class="string">"sessionFactory"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;bean id=<span class="string">"employeeService"</span> class=<span class="string">"com.leezp.ssh.service.EmployeeService"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"employeeDao"</span> ref=<span class="string">"employeeDao"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line"></div><div class="line">	&lt;bean id=<span class="string">"employeeAction"</span> class=<span class="string">"com.leezp.ssh.actions.EmployeeAction"</span></div><div class="line">		scope=<span class="string">"prototype"</span>&gt;</div><div class="line">		&lt;property name=<span class="string">"employeeService"</span> ref=<span class="string">"employeeService"</span>&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p>修改web.xml中的&lt;param-value&gt;标签为<code>&lt;param-value&gt;classpath:applicationContext*.xml&lt;/param-value&gt;</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;web-app xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	xmlns=<span class="string">"http://java.sun.com/xml/ns/javaee"</span></div><div class="line">	xsi:schemaLocation=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span></div><div class="line">	id=<span class="string">"WebApp_ID"</span> version=<span class="string">"3.0"</span>&gt;</div><div class="line"></div><div class="line">	&lt;context-param&gt;</div><div class="line">		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">		&lt;param-value&gt;classpath:applicationContext*.xml&lt;/param-value&gt;</div><div class="line">	&lt;/context-param&gt;</div><div class="line"></div><div class="line">	&lt;listener&gt;</div><div class="line">		&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</div><div class="line">	&lt;/listener&gt;</div><div class="line"></div><div class="line">	&lt;!-- 配置Struts2的Filter --&gt;</div><div class="line">	&lt;filter&gt;</div><div class="line">        &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">        &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line">    &lt;/filter&gt;</div><div class="line"></div><div class="line">    &lt;filter-mapping&gt;</div><div class="line">        &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line">    &lt;/filter-mapping&gt;</div><div class="line"></div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure>
+<p>修改struts.xml配置文件，添加一个结果集的返回页面emp-list.jsp。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</div><div class="line">&lt;!DOCTYPE struts PUBLIC</div><div class="line">	<span class="string">"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</span></div><div class="line">	<span class="string">"http://struts.apache.org/dtds/struts-2.3.dtd"</span>&gt;</div><div class="line"></div><div class="line">&lt;struts&gt;</div><div class="line"></div><div class="line">	&lt;constant name=<span class="string">"struts.enable.DynamicMethodInvocation"</span> value=<span class="string">"false"</span> /&gt;</div><div class="line">	&lt;constant name=<span class="string">"struts.devMode"</span> value=<span class="string">"true"</span> /&gt;</div><div class="line"></div><div class="line">	&lt;package name=<span class="string">"default"</span> namespace=<span class="string">"/"</span> extends=<span class="string">"struts-default"</span>&gt;</div><div class="line"></div><div class="line">		&lt;!-- 这是利用Struts2里面的自动匹配特性。*代表通配符，可以匹配任何一个字符串,[1]表示匹配的参数。 --&gt;</div><div class="line">		&lt;!-- 举个例子来说，如果你在xml文件中做了这个配置，那么当你页面里面有一个form &lt;form action=<span class="string">"/emp-add"</span> method=<span class="string">"post"</span>&gt; </div><div class="line">			那么，*匹配到的就是“add”,同时method=<span class="string">"&#123;1&#125;"</span>，实际上就是method=<span class="string">"add"</span>。 --&gt;</div><div class="line">		&lt;!-- 假设有两个参数，如果在xml里面的配置是 &lt;action name=<span class="string">"emp-*-*"</span> class=<span class="string">"&#123;1&#125;Action"</span> method=<span class="string">"&#123;2&#125;"</span>&gt; </div><div class="line">			那么第一个星号对应的是&#123;1&#125;,第二个星号对应的是&#123;2&#125; --&gt;</div><div class="line">		&lt;!-- 例如，页面里面有&lt;form action=<span class="string">"/emp-employee-add"</span> method=<span class="string">"post"</span>&gt; 那么实际上的意思就是 </div><div class="line">			class=<span class="string">"employeeAction"</span> method=<span class="string">"add"</span> --&gt;</div><div class="line">		&lt;!-- **这样做的好处就是我们不必为增、删、改、查方法写四个&lt;action&gt;配置。** --&gt;</div><div class="line">		&lt;!-- 通配符还可以用来节省xml文件中的代码量 --&gt;</div><div class="line">		&lt;action name=<span class="string">"emp-*"</span> class=<span class="string">"employeeAction"</span> method=<span class="string">"&#123;1&#125;"</span>&gt;</div><div class="line">			&lt;result name=<span class="string">"list"</span>&gt;/WEB-INF/views/emp-list.jsp&lt;/result&gt;</div><div class="line">		&lt;/action&gt;</div><div class="line"></div><div class="line">	&lt;/package&gt;</div><div class="line"></div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure>
+<p>在WEB-INF目录下新建views文件夹。<br><strong>配置Eclipse中新建的web页面的默认编码</strong>：<br>Window-&gt;Preferences-&gt;输入encoding，选择JSP Files，在右侧的Encoding下拉框选择UTF-8，点击保存。<br><img src="/blog/images/img/160924/ssh_5.png" alt=""><br>在views文件夹下新建web页面emp-list.jsp，这时看到它的默认编码已经变成了UTF-8。<br><img src="/blog/images/img/160924/ssh_6.png" alt=""><br>在emp-list.jsp中导入struts2的标签&lt;%@ taglib prefix=”s” uri=”/struts-tags”%&gt;并和前台页面显示绑定。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></div><div class="line">	pageEncoding=<span class="string">"UTF-8"</span>%&gt;</div><div class="line">&lt;%@ taglib prefix=<span class="string">"s"</span> uri=<span class="string">"/struts-tags"</span>%&gt;</div><div class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</div><div class="line">&lt;title&gt;Insert title here&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">	&lt;h4&gt;Employee List Page&lt;/h4&gt;</div><div class="line"></div><div class="line">	&lt;s:<span class="keyword">if</span> <span class="built_in">test</span>=<span class="string">"#request.employees==null || #request.employees.size()==0 "</span>&gt;</div><div class="line">	没有任何员工信息</div><div class="line">	&lt;/s:<span class="keyword">if</span>&gt;</div><div class="line">	&lt;s:<span class="keyword">else</span>&gt;</div><div class="line">		&lt;table border=<span class="string">"1"</span> cellpadding=<span class="string">"10"</span> cellspacing=<span class="string">"0"</span>&gt;</div><div class="line">			&lt;tr&gt;</div><div class="line">				&lt;td&gt;ID&lt;/td&gt;</div><div class="line">				&lt;td&gt;LASTNAME&lt;/td&gt;</div><div class="line">				&lt;td&gt;EMAIL&lt;/td&gt;</div><div class="line">				&lt;td&gt;BIRTH&lt;/td&gt;</div><div class="line">				&lt;td&gt;CREATETIME&lt;/td&gt;</div><div class="line">				&lt;td&gt;DEPT&lt;/td&gt;</div><div class="line">			&lt;/tr&gt;</div><div class="line">			&lt;s:iterator value=<span class="string">"#request.employees"</span>&gt;</div><div class="line">				&lt;tr&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;id &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;lastName &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;email &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;birth &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;createTime &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;department.departmentName &#125;</span>&lt;/td&gt;</div><div class="line">				&lt;/tr&gt;</div><div class="line">			&lt;/s:iterator&gt;</div><div class="line">		&lt;/table&gt;</div><div class="line">	&lt;/s:<span class="keyword">else</span>&gt;</div><div class="line">	</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>开启服务器运行项目。<br><img src="/blog/images/img/160924/ssh_7.png" alt=""></p>
+<p><a href="http://pan.baidu.com/s/1bo4tQFl" target="_blank" rel="external">获取源代码</a></p>
+<h3 id="业务需求"><a href="#业务需求" class="headerlink" title="业务需求"></a>业务需求</h3><h4 id="获取所有的员工信息"><a href="#获取所有的员工信息" class="headerlink" title="获取所有的员工信息"></a>获取所有的员工信息</h4><p>若在Dao中只查询Employee的信息，而且Employee和Department还是使用的懒加载，页面上如果需要显示员工信息，此时会出现懒加载异常，代理对象不能被初始化<code>org.hibernate.LazyInitializationException: could not initialize proxy - no Session</code>。<br>eg:<br>EmployeeDao.java没有查询department。<br><img src="/blog/images/img/160924/ssh_8.png" alt=""><br>同时修改Employee.hbm.xml文件禁止懒加载。<br><img src="/blog/images/img/160924/ssh_9.png" alt=""><br>解决方法：<br>①.关闭懒加载 lazy=”false”，不推荐使用，因为查询了很多不需要的数据，影响性能。<a href="http://pan.baidu.com/s/1geJeMwb" target="_blank" rel="external">获取源代码</a><br>②.获取Employee时使用迫切左外连接同时初始化其关联的Department对象。<br>③.使用OpenSessionInViewFilter:页面加载时开启Session，页面加载完关Session，<strong>见文末参考文献《懒加载异常的解决办法》</strong>。</p>
+<h4 id="删除员工信息"><a href="#删除员工信息" class="headerlink" title="删除员工信息"></a>删除员工信息</h4><p>在emp-list.jsp页面里添加“删除”功能的超链接。<br><img src="/blog/images/img/160924/ssh_10.jpg" alt=""><br>在EmployeeAction.java里添加id属性和delete方法。<br><img src="/blog/images/img/160924/ssh_11.png" alt=""><br>在EmployeeDao.java里添加delete()方法的数据库操作语句。<br><img src="/blog/images/img/160924/ssh_12.png" alt=""><br>在业务层EmployeeService.java里添加调用employeeDao。<br><img src="/blog/images/img/160924/ssh_13.png" alt=""><br>修改EmployeeAction.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.actions;</div><div class="line"></div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">import org.apache.struts2.interceptor.RequestAware;</div><div class="line"></div><div class="line">import com.leezp.ssh.service.EmployeeService;</div><div class="line">import com.opensymphony.xwork2.ActionSupport;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 实现RequestAware请求域</div><div class="line"> * </div><div class="line"> * @author Lee</div><div class="line"> * </div><div class="line"> */</div><div class="line">public class EmployeeAction extends ActionSupport implements RequestAware &#123;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * </div><div class="line">	 */</div><div class="line">	private static final long serialVersionUID = 1L;</div><div class="line"></div><div class="line">	private EmployeeService employeeService;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>EmployeeService(EmployeeService employeeService) &#123;</div><div class="line">		this.employeeService = employeeService;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">list</span></span>() &#123;</div><div class="line">		request.put(<span class="string">"employees"</span>, employeeService.getAll());</div><div class="line">		<span class="built_in">return</span> <span class="string">"list"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private Integer id;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>Id(Integer id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">delete</span></span>() &#123;</div><div class="line">		employeeService.delete(id);</div><div class="line">		<span class="built_in">return</span> SUCCESS;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private Map&lt;String, Object&gt; request;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void <span class="built_in">set</span>Request(Map&lt;String, Object&gt; arg0) &#123;</div><div class="line">		this.request = arg0;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这时候要在struts.xml里配置返回的数据如何绑定web页面。<br><img src="/blog/images/img/160924/ssh_14.png" alt=""><br><strong>注意：name后参数应该小写</strong>，应该改成如下图。<br><img src="/blog/images/img/160924/ssh_16.jpg" alt=""><br>启动服务器运行项目。<br><img src="/blog/images/img/160924/ssh_15.png" alt=""><br>点击“删除”超链接可以删除一行数据。</p>
+<p><a href="http://pan.baidu.com/s/1boE3oo3" target="_blank" rel="external">获取源代码</a></p>
+<h4 id="删除时弹出“确定删除吗？”提示信息并使用ajax异步删除"><a href="#删除时弹出“确定删除吗？”提示信息并使用ajax异步删除" class="headerlink" title="删除时弹出“确定删除吗？”提示信息并使用ajax异步删除"></a>删除时弹出“确定删除吗？”提示信息并使用ajax异步删除</h4><p>在WebContent文件夹下新建文件夹scripts。将<a href="http://pan.baidu.com/s/1dE5BI4h" target="_blank" rel="external">jquery-1.9.1.min.js</a>添加到scripts文件夹下。</p>
+<p>修改emp-list.jsp。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></div><div class="line">	pageEncoding=<span class="string">"UTF-8"</span>%&gt;</div><div class="line">&lt;%@ taglib prefix=<span class="string">"s"</span> uri=<span class="string">"/struts-tags"</span>%&gt;</div><div class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</div><div class="line">&lt;title&gt;Insert title here&lt;/title&gt;</div><div class="line">&lt;!-- 开发时推荐写绝对路径--&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"scripts/jquery-1.9.1.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	$(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		//1.点击delete时，弹出 确定是要删除xx的信息吗？若确定，执行删除，若不确定，则取消</div><div class="line">		$(<span class="string">".delete"</span>).click(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			var lastName = $(this).next(<span class="string">":input"</span>).val();</div><div class="line">			//var lastName = $(this).next(<span class="string">":hidden"</span>).val();//等价于上面一句</div><div class="line">			var flag = confirm(<span class="string">"确定要删除"</span> + lastName + <span class="string">"的信息吗?"</span>);</div><div class="line">			<span class="keyword">if</span> (flag) &#123;</div><div class="line">				var <span class="variable">$tr</span> = $(this).parent().parent();//,$(this)取出当前对象并转换为jQuery对象</div><div class="line">				//删除，使用Ajax的方式</div><div class="line">				//获取url</div><div class="line">				var url = this.href;</div><div class="line">				//获取删除时间</div><div class="line">				var args = &#123;</div><div class="line">					<span class="string">"time"</span> : new Date()</div><div class="line">				&#125;;</div><div class="line"></div><div class="line">				$.post(url, args, <span class="keyword">function</span>(data) &#123;</div><div class="line">					//若data的返回值为1，则提示删除成功，且把当前行删除</div><div class="line">					<span class="keyword">if</span> (data == <span class="string">"1"</span>) &#123;</div><div class="line">						alert(<span class="string">"删除成功！"</span>);</div><div class="line">						<span class="variable">$tr</span>.remove();//删除页面显示的整行</div><div class="line">					&#125; <span class="keyword">else</span> &#123;</div><div class="line">						//若data的返回值不是1，提示删除失败</div><div class="line">						alert(<span class="string">"删除失败！"</span>);</div><div class="line">					&#125;</div><div class="line"></div><div class="line">				&#125;);</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			//取消超链接的默认行为</div><div class="line">			<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">		&#125;);</div><div class="line">	&#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">	&lt;h4&gt;Employee List Page&lt;/h4&gt;</div><div class="line"></div><div class="line">	&lt;s:<span class="keyword">if</span> <span class="built_in">test</span>=<span class="string">"#request.employees==null || #request.employees.size()==0 "</span>&gt;</div><div class="line">	没有任何员工信息</div><div class="line">	&lt;/s:<span class="keyword">if</span>&gt;</div><div class="line">	&lt;s:<span class="keyword">else</span>&gt;</div><div class="line">		&lt;table border=<span class="string">"1"</span> cellpadding=<span class="string">"10"</span> cellspacing=<span class="string">"0"</span>&gt;</div><div class="line">			&lt;tr&gt;</div><div class="line">				&lt;td&gt;ID&lt;/td&gt;</div><div class="line">				&lt;td&gt;LASTNAME&lt;/td&gt;</div><div class="line">				&lt;td&gt;EMAIL&lt;/td&gt;</div><div class="line">				&lt;td&gt;BIRTH&lt;/td&gt;</div><div class="line">				&lt;td&gt;CREATETIME&lt;/td&gt;</div><div class="line">				&lt;td&gt;DEPT&lt;/td&gt;</div><div class="line">				&lt;td&gt;DELETE&lt;/td&gt;</div><div class="line">			&lt;/tr&gt;</div><div class="line">			&lt;s:iterator value=<span class="string">"#request.employees"</span>&gt;</div><div class="line">				&lt;tr&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;id &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;lastName &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;email &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;birth &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;createTime &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;<span class="variable">$&#123;department.departmentName &#125;</span>&lt;/td&gt;</div><div class="line">					&lt;td&gt;&lt;a href=<span class="string">"emp-delete?id=<span class="variable">$&#123;id &#125;</span>"</span> class=<span class="string">"delete"</span>&gt;Delete&lt;/a&gt; &lt;input</div><div class="line">						<span class="built_in">type</span>=<span class="string">"hidden"</span> value=<span class="string">"<span class="variable">$&#123;lastName &#125;</span>"</span>&gt;&lt;/td&gt;</div><div class="line">					&lt;!-- 设置一个隐藏域 --&gt;</div><div class="line">				&lt;/tr&gt;</div><div class="line">			&lt;/s:iterator&gt;</div><div class="line">		&lt;/table&gt;</div><div class="line">	&lt;/s:<span class="keyword">else</span>&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>修改EmployeeAction.java。<br><img src="/blog/images/img/160924/ssh_17.png" alt=""><br>修改struts.xml配置文件。<br><img src="/blog/images/img/160924/ssh_18.png" alt=""></p>
+<p><a href="http://pan.baidu.com/s/1misM03I" target="_blank" rel="external">获取源代码</a></p>
+<h4 id="建立添加员工页面并绑定部门信息下拉框"><a href="#建立添加员工页面并绑定部门信息下拉框" class="headerlink" title="建立添加员工页面并绑定部门信息下拉框"></a>建立添加员工页面并绑定部门信息下拉框</h4><p>①.显示表单页面：需要先查询所有的部门信息<br>②.使用Struts2的ModelDriven和Preparable拦截器<br>③.时间是一个字符串，需要转为一个Date类型的对象</p>
+<p>在index.jsp添加一个新增员工的链接。<br><img src="/blog/images/img/160924/ssh_19.png" alt=""><br>向EmployeeAction.java类中新增一个input()方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public String <span class="function"><span class="title">input</span></span>()&#123;	</div><div class="line">	<span class="built_in">return</span> INPUT;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在com.leezp.ssh.dao包下面新建一个Dao,DepartmentDao.java。<br>因为EmployeeDao.java和DepartmentDao.java都需要使用相同的代码操作SessionFactory，所以这里将处理SessionFactory的代码提取出来。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">private SessionFactory sessionFactory;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>SessionFactory(SessionFactory sessionFactory) &#123;</div><div class="line">		this.sessionFactory = sessionFactory;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public Session <span class="function"><span class="title">getSession</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> this.sessionFactory.getCurrentSession();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>再com.leezp.ssh.dao包下新建一个BaseDao.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.dao;</div><div class="line"></div><div class="line">import org.hibernate.Session;</div><div class="line">import org.hibernate.SessionFactory;</div><div class="line"></div><div class="line">public class BaseDao &#123;</div><div class="line">	</div><div class="line">	private SessionFactory sessionFactory;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>SessionFactory(SessionFactory sessionFactory) &#123;</div><div class="line">		this.sessionFactory = sessionFactory;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public Session <span class="function"><span class="title">getSession</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> this.sessionFactory.getCurrentSession();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使EmployeeDao.java继承BaseDao.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.dao;</div><div class="line"></div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">import org.hibernate.Session;</div><div class="line">import org.hibernate.SessionFactory;</div><div class="line"></div><div class="line">import com.leezp.ssh.entities.Employee;</div><div class="line"></div><div class="line">public class EmployeeDao extends BaseDao &#123;</div><div class="line"></div><div class="line">	public void delete(Integer id) &#123;</div><div class="line">		// 注意大小写与entities里面一致</div><div class="line">		String hql = <span class="string">" delete from Employee e where e.id=? "</span>;</div><div class="line">		getSession().createQuery(hql).setInteger(0, id).executeUpdate();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public List&lt;Employee&gt; <span class="function"><span class="title">getAll</span></span>() &#123;</div><div class="line">		// 迫切左外连接</div><div class="line">		// Query query =</div><div class="line">		// getSession.createQuery(<span class="string">" from Employee e left outer join fetch e.department o"</span>);</div><div class="line">		// Iterator iter = query.list().iterator();</div><div class="line">		// 说明：</div><div class="line">		// 关键字：left join fetch</div><div class="line">		// 返回结果为Employee类型，再通过Employee对象导航到department对象</div><div class="line">		// String hql = <span class="string">" from Employee e "</span>;</div><div class="line">		String hql = <span class="string">" from Employee e left outer join fetch e.department "</span>;</div><div class="line">		<span class="built_in">return</span> getSession().createQuery(hql).list();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>修改DepartmentDao.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.dao;</div><div class="line"></div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">import com.leezp.ssh.entities.Department;</div><div class="line"></div><div class="line">public class DepartmentDao extends BaseDao &#123;</div><div class="line"></div><div class="line">	public List&lt;Department&gt; <span class="function"><span class="title">getAll</span></span>() &#123;</div><div class="line">		String hql = <span class="string">" from Department "</span>;</div><div class="line">		<span class="built_in">return</span> getSession().createQuery(hql).list();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在com.leezp.ssh.service包下新建DepartmentService.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.service;</div><div class="line"></div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">import com.leezp.ssh.dao.DepartmentDao;</div><div class="line">import com.leezp.ssh.entities.Department;</div><div class="line"></div><div class="line">public class DepartmentService &#123;</div><div class="line"></div><div class="line">	private DepartmentDao departmentDao;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>DepartmentDao(DepartmentDao departmentDao) &#123;</div><div class="line">		this.departmentDao = departmentDao;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public List&lt;Department&gt; <span class="function"><span class="title">getAll</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> departmentDao.getAll();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在IOC容器里配置刚才添加的bean,在applicationContext-beans.xml配置文件里配置bean添加如下图所示代码。<br><img src="/blog/images/img/160924/ssh_22.png" alt=""><br>修改EmployeeAction.java里调用DepartmentService。<br><img src="/blog/images/img/160924/ssh_20.png" alt=""><br>修改struts.xml配置文件添加如下图所示代码。<br><img src="/blog/images/img/160924/ssh_21.png" alt=""><br>在views文件夹下新建emp-input.jsp。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></div><div class="line">	pageEncoding=<span class="string">"UTF-8"</span>%&gt;</div><div class="line">&lt;%@ taglib prefix=<span class="string">"s"</span> uri=<span class="string">"/struts-tags"</span>%&gt;</div><div class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</div><div class="line">&lt;title&gt;Insert title here&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">	&lt;h4&gt;Employee Input Page&lt;/h4&gt;</div><div class="line"></div><div class="line">	&lt;s:form action=<span class="string">"emp-save"</span> method=<span class="string">"post"</span>&gt;</div><div class="line">		&lt;!-- label属性为在页面显示的值 --&gt;</div><div class="line">		&lt;s:textfield name=<span class="string">"lastName"</span> label=<span class="string">"LastName"</span>&gt;&lt;/s:textfield&gt;</div><div class="line">		&lt;s:textfield name=<span class="string">"email"</span> label=<span class="string">"Email"</span>&gt;&lt;/s:textfield&gt;</div><div class="line">		&lt;s:textfield name=<span class="string">"birth"</span> label=<span class="string">"Birth"</span>&gt;&lt;/s:textfield&gt;</div><div class="line"></div><div class="line">		&lt;!-- struts2的下拉框有listKey和listValue两个属性 --&gt;</div><div class="line">		&lt;s:select list=<span class="string">"#request.departments"</span> listKey=<span class="string">"id"</span></div><div class="line">			listValue=<span class="string">"departmentName"</span> name=<span class="string">"department.id"</span> label=<span class="string">"Department"</span>&gt;&lt;/s:select&gt;</div><div class="line">		&lt;s:submit&gt;&lt;/s:submit&gt;</div><div class="line">	&lt;/s:form&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p><a href="http://pan.baidu.com/s/1hrApr2s" target="_blank" rel="external">获取源代码</a></p>
+<h4 id="添加员工"><a href="#添加员工" class="headerlink" title="添加员工"></a>添加员工</h4><p>首先在EmployeeAction.java里面实现ModelDriven和Preparable接口。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.actions;</div><div class="line"></div><div class="line">import java.io.ByteArrayInputStream;</div><div class="line">import java.io.InputStream;</div><div class="line">import java.io.UnsupportedEncodingException;</div><div class="line">import java.util.Date;</div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">import org.apache.struts2.interceptor.RequestAware;</div><div class="line"></div><div class="line">import com.leezp.ssh.entities.Employee;</div><div class="line">import com.leezp.ssh.service.DepartmentService;</div><div class="line">import com.leezp.ssh.service.EmployeeService;</div><div class="line">import com.opensymphony.xwork2.ActionSupport;</div><div class="line">import com.opensymphony.xwork2.ModelDriven;</div><div class="line">import com.opensymphony.xwork2.Preparable;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 实现RequestAware请求域</div><div class="line"> * </div><div class="line"> * @author Lee</div><div class="line"> * </div><div class="line"> */</div><div class="line">public class EmployeeAction extends ActionSupport implements RequestAware,</div><div class="line">		ModelDriven&lt;Employee&gt;, Preparable &#123;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * </div><div class="line">	 */</div><div class="line">	private static final long serialVersionUID = 1L;</div><div class="line"></div><div class="line">	private EmployeeService employeeService;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>EmployeeService(EmployeeService employeeService) &#123;</div><div class="line">		this.employeeService = employeeService;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private DepartmentService departmentService;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>DepartmentService(DepartmentService departmentService) &#123;</div><div class="line">		this.departmentService = departmentService;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">input</span></span>() &#123;</div><div class="line">		request.put(<span class="string">"departments"</span>, departmentService.getAll());</div><div class="line">		<span class="built_in">return</span> INPUT;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">list</span></span>() &#123;</div><div class="line">		request.put(<span class="string">"employees"</span>, employeeService.getAll());</div><div class="line">		<span class="built_in">return</span> <span class="string">"list"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private Integer id;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>Id(Integer id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private InputStream inputStream;</div><div class="line"></div><div class="line">	public InputStream <span class="function"><span class="title">getInputStream</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> inputStream;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">delete</span></span>() &#123;</div><div class="line">		try &#123;</div><div class="line">			employeeService.delete(id);</div><div class="line">			inputStream = new ByteArrayInputStream(<span class="string">"1"</span>.getBytes(<span class="string">"UTF-8"</span>));</div><div class="line">		&#125; catch (UnsupportedEncodingException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			try &#123;</div><div class="line">				inputStream = new ByteArrayInputStream(<span class="string">"0"</span>.getBytes(<span class="string">"UTF-8"</span>));</div><div class="line">			&#125; catch (UnsupportedEncodingException e1) &#123;</div><div class="line">				e1.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		// <span class="built_in">return</span> SUCCESS;</div><div class="line">		// 使用ajax异步，删除后不再需要刷新页面，所以注释掉上一句。</div><div class="line">		<span class="built_in">return</span> <span class="string">"delete"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private Map&lt;String, Object&gt; request;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void <span class="built_in">set</span>Request(Map&lt;String, Object&gt; arg0) &#123;</div><div class="line">		this.request = arg0;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// struts2执行Save()方法之前会先执行prepareSave()方法</div><div class="line">	public void <span class="function"><span class="title">prepareSave</span></span>() &#123;</div><div class="line">		model = new Employee();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 保存员工信息的方法</div><div class="line">	public String <span class="function"><span class="title">save</span></span>() &#123;</div><div class="line">		// System.out.println(model);// 打印model查看</div><div class="line">		model.setCreateTime(new Date());</div><div class="line">		employeeService.saveOrUpdate(model);</div><div class="line">		<span class="built_in">return</span> SUCCESS;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void prepare() throws Exception &#123;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 定义一个model来接受表单提交的值</div><div class="line">	private Employee model;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public Employee <span class="function"><span class="title">getModel</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> model;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>修改struts.xml配置拦截器。<br><img src="/blog/images/img/160924/ssh_23.png" alt=""><br>因为表单提交和回显涉及到要把String日期和Date相互转换，所以在src下新建包com.leezp.ssh.converters。在该包下新建SSHDateConverter.java转换类。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.converters;</div><div class="line"></div><div class="line">import java.sql.Date;</div><div class="line">import java.text.DateFormat;</div><div class="line">import java.text.ParseException;</div><div class="line">import java.text.SimpleDateFormat;</div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">import org.apache.struts2.util.StrutsTypeConverter;</div><div class="line"></div><div class="line">public class SSHDateConverter extends StrutsTypeConverter &#123;</div><div class="line"></div><div class="line">	private DateFormat dateFormat;</div><div class="line"></div><div class="line">	&#123;</div><div class="line">		dateFormat = new SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public Object convertFromString(Map context, String[] values, Class toClass) &#123;</div><div class="line">		<span class="keyword">if</span> (toClass == Date.class) &#123;</div><div class="line">			try &#123;</div><div class="line">				dateFormat.parse(values[0]);</div><div class="line">			&#125; catch (ParseException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">return</span> null;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public String convertToString(Map context, Object o) &#123;</div><div class="line">		<span class="keyword">if</span> (o instanceof Date) &#123;</div><div class="line">			<span class="built_in">return</span> dateFormat.format((Date) o);</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">return</span> null;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在conf源码包下新建xwork-conversion.properties属性文件配置日期转换类。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 复制 SSHDateConverter的全类名</span></div><div class="line">java.util.Date=com.leezp.ssh.converters.SSHDateConverter</div></pre></td></tr></table></figure>
+<p><strong>配置自定义的类型转换器的两种方法：</strong><br>在应用程序里使用一个自定义的类型转换器之前，必须先对它进行配置，这种配置既可以基于字段，也可以基于类型。<br>1.基于字段配置:可以为某个Model(该Model类也可能是Action)的各个属性分别配置一个自定义的转换器。<br>①.创建一个属性文件：ModelClassName-conversion.properties,该文件需和相对应的Model类放在同一个目录下。<br>②.编辑属性文件:<br>field1=customConverter1<br>field2=customConverter2<br>…</p>
+<p>2.基于类型配置<br>①.在WEB-INF/classes/目录下创建xwork-conversion.properties文件。<br>②.在xwork-conversion.properties文件里把每一个需要进行类型转换的类与一个类型转换器关联起来。<br>fullyQualifiedClassName=CustomConvertor1</p>
+<p>修改EmployeeDao.java添加保存的方法。<br><img src="/blog/images/img/160924/ssh_24.png" alt=""><br>修改EmployeeService.java添加保存的方法。<br><img src="/blog/images/img/160924/ssh_25.png" alt=""></p>
+<p><a href="http://pan.baidu.com/s/1o8hngvg" target="_blank" rel="external">获取源代码</a></p>
+<h5 id="添加员工的流程"><a href="#添加员工的流程" class="headerlink" title="添加员工的流程"></a>添加员工的流程</h5><p>访问index.jsp，点击添加员工的超链接&lt;a href=”emp-input”&gt;Add New Employee&lt;/a&gt;，经过struts.xml配置文件解析，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;action name=<span class="string">"emp-*"</span> class=<span class="string">"employeeAction"</span> method=<span class="string">"&#123;1&#125;"</span>&gt;</div><div class="line">	&lt;result name=<span class="string">"input"</span>&gt;/WEB-INF/views/emp-input.jsp</div><div class="line">	&lt;/result&gt;</div><div class="line">&lt;/action&gt;</div></pre></td></tr></table></figure>
+<p>进入EmployeeAction.java的input()方法处理页面请求，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public String <span class="function"><span class="title">input</span></span>() &#123;</div><div class="line">	request.put(<span class="string">"departments"</span>, departmentService.getAll());</div><div class="line">	<span class="built_in">return</span> INPUT;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>获取department的list返回到 emp-input.jsp从而绑定下拉框。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;s:form action=<span class="string">"emp-save"</span> method=<span class="string">"post"</span>&gt;</div><div class="line">&lt;/s:form&gt;</div></pre></td></tr></table></figure>
+<p><strong>把crud方法放在一个action类中，就必定会涉及到一些数据准备的事情，所以用Preparable接口就再合适不过了，实现这个接口的prepare()方法，这个方法会在action类的所有方法执行前执行，另外我们也可以按照它的规则来写一些其它形式的prepare方法，例如aciton中有一个方法叫input(),那么我们可以实现一个prepareInput方法，这样在input()执行前，会执行prepareInput()方法。</strong></p>
+<p>保存操作的流程（ModelDriven和Preparable 拦截器）：<br>prepareSave()-&gt;getModel()将上一步创建的值放到栈顶-&gt;由Preparable拦截器将表单的值赋给栈顶对象对应的属性 -&gt;  Save()<br>可以在struts-default.xml中查看拦截器执行顺序，<br>prepare-&gt;modelDriven-&gt;params(表单参数值赋给栈顶对象对应的属性)-&gt;setParameters -&gt;prepareX() </p>
+<h4 id="ajax检验添加时的用户名是否可用"><a href="#ajax检验添加时的用户名是否可用" class="headerlink" title="ajax检验添加时的用户名是否可用"></a>ajax检验添加时的用户名是否可用</h4><p>修改emp-input.jsp。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></div><div class="line">	pageEncoding=<span class="string">"UTF-8"</span>%&gt;</div><div class="line">&lt;%@ taglib prefix=<span class="string">"s"</span> uri=<span class="string">"/struts-tags"</span>%&gt;</div><div class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</div><div class="line">&lt;title&gt;Insert title here&lt;/title&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"scripts/jquery-1.9.1.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	$(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		$(<span class="string">":input[name=lastName]"</span>).change(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			var val = $(this).val();</div><div class="line">			val = $.trim(val);</div><div class="line">			var <span class="variable">$this</span> = $(this);</div><div class="line">			<span class="keyword">if</span> (val != <span class="string">""</span>) &#123;</div><div class="line">				var url = <span class="string">"emp-validateLastName"</span>;</div><div class="line">				var args = &#123;</div><div class="line">					<span class="string">"lastName"</span> : val,</div><div class="line">					<span class="string">"time"</span> : new Date()</div><div class="line">				&#125;;</div><div class="line">				<span class="variable">$this</span>.nextAll(<span class="string">"font"</span>).remove();//清空节点后内容，防止文字累加</div><div class="line">				$.post(url, args, <span class="keyword">function</span>(data) &#123;</div><div class="line">					//可用</div><div class="line">					<span class="keyword">if</span> (data == <span class="string">"1"</span>) &#123;</div><div class="line">						<span class="variable">$this</span>.after(<span class="string">"&lt;font color='green'&gt;LastName可用!&lt;/font&gt;"</span>);</div><div class="line">					&#125;</div><div class="line">					//不可用</div><div class="line">					<span class="keyword">else</span> <span class="keyword">if</span> (data == <span class="string">"0"</span>) &#123;</div><div class="line">						<span class="variable">$this</span>.after(<span class="string">"&lt;font color='red'&gt;LastName不可用!&lt;/font&gt;"</span>);</div><div class="line">					&#125;//服务器错误</div><div class="line">					<span class="keyword">else</span> &#123;</div><div class="line">						alert(<span class="string">"服务器错误!"</span>);</div><div class="line">					&#125;</div><div class="line">				&#125;);</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				alert(<span class="string">"lastName 不能为空！"</span>);</div><div class="line">				this.focus();</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">	&#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">	&lt;h4&gt;Employee Input Page&lt;/h4&gt;</div><div class="line"></div><div class="line">	&lt;s:form action=<span class="string">"emp-save"</span> method=<span class="string">"post"</span>&gt;</div><div class="line">		&lt;!-- label属性为在页面显示的值 --&gt;</div><div class="line">		&lt;s:textfield name=<span class="string">"lastName"</span> label=<span class="string">"LastName"</span>&gt;&lt;/s:textfield&gt;</div><div class="line">		&lt;s:textfield name=<span class="string">"email"</span> label=<span class="string">"Email"</span>&gt;&lt;/s:textfield&gt;</div><div class="line">		&lt;s:textfield name=<span class="string">"birth"</span> label=<span class="string">"Birth"</span>&gt;&lt;/s:textfield&gt;</div><div class="line"></div><div class="line">		&lt;!-- struts2的下拉框有listKey和listValue两个属性 --&gt;</div><div class="line">		&lt;!-- department.id为属性department的属性 --&gt;</div><div class="line">		&lt;s:select list=<span class="string">"#request.departments"</span> listKey=<span class="string">"id"</span></div><div class="line">			listValue=<span class="string">"departmentName"</span> name=<span class="string">"department.id"</span> label=<span class="string">"Department"</span>&gt;</div><div class="line">		&lt;/s:select&gt;</div><div class="line">		&lt;s:submit&gt;</div><div class="line">		&lt;/s:submit&gt;</div><div class="line">	&lt;/s:form&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>在EmployeeDao.java添加查询用户名重复的方法。<br><img src="/blog/images/img/160924/ssh_26.png" alt=""><br>在EmployeeService.java添加调用它的方法。<br><img src="/blog/images/img/160924/ssh_27.png" alt=""><br>修改EmployeeAction.java。<br><img src="/blog/images/img/160924/ssh_28.png" alt=""><br>修改struts.xml。<br><img src="/blog/images/img/160924/ssh_29.png" alt=""></p>
+<p><a href="http://pan.baidu.com/s/1kUB5j7L" target="_blank" rel="external">获取源代码</a></p>
+<h4 id="员工信息的修改"><a href="#员工信息的修改" class="headerlink" title="员工信息的修改"></a>员工信息的修改</h4><p>修改input.jsp页面，添加了修改链接等。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></div><div class="line">	pageEncoding=<span class="string">"UTF-8"</span>%&gt;</div><div class="line">&lt;%@ taglib prefix=<span class="string">"s"</span> uri=<span class="string">"/struts-tags"</span>%&gt;</div><div class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</div><div class="line">&lt;title&gt;Insert title here&lt;/title&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"scripts/jquery-1.9.1.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	$(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		$(<span class="string">":input[name=lastName]"</span>).change(<span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			var val = $(this).val();</div><div class="line">			val = $.trim(val);</div><div class="line">			var <span class="variable">$this</span> = $(this);</div><div class="line">			<span class="keyword">if</span> (val != <span class="string">""</span>) &#123;</div><div class="line">				var url = <span class="string">"emp-validateLastName"</span>;</div><div class="line">				var args = &#123;</div><div class="line">					<span class="string">"lastName"</span> : val,</div><div class="line">					<span class="string">"time"</span> : new Date()</div><div class="line">				&#125;;</div><div class="line">				<span class="variable">$this</span>.nextAll(<span class="string">"font"</span>).remove();//清空节点后内容，防止文字累加</div><div class="line">				$.post(url, args, <span class="keyword">function</span>(data) &#123;</div><div class="line">					//可用</div><div class="line">					<span class="keyword">if</span> (data == <span class="string">"1"</span>) &#123;</div><div class="line">						<span class="variable">$this</span>.after(<span class="string">"&lt;font color='green'&gt;LastName可用!&lt;/font&gt;"</span>);</div><div class="line">					&#125;</div><div class="line">					//不可用</div><div class="line">					<span class="keyword">else</span> <span class="keyword">if</span> (data == <span class="string">"0"</span>) &#123;</div><div class="line">						<span class="variable">$this</span>.after(<span class="string">"&lt;font color='red'&gt;LastName不可用!&lt;/font&gt;"</span>);</div><div class="line">					&#125;//服务器错误</div><div class="line">					<span class="keyword">else</span> &#123;</div><div class="line">						alert(<span class="string">"服务器错误!"</span>);</div><div class="line">					&#125;</div><div class="line">				&#125;);</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				alert(<span class="string">"lastName 不能为空！"</span>);</div><div class="line">				this.focus();</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">	&#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">	&lt;h4&gt;Employee Input Page&lt;/h4&gt;</div><div class="line"></div><div class="line">	&lt;s:form action=<span class="string">"emp-save"</span> method=<span class="string">"post"</span>&gt;</div><div class="line">		&lt;!-- Edit --&gt;</div><div class="line">		&lt;s:<span class="keyword">if</span> <span class="built_in">test</span>=<span class="string">"id !=null"</span>&gt;</div><div class="line">			&lt;s:textfield name=<span class="string">"lastName"</span> label=<span class="string">"LastName"</span> disabled=<span class="string">"true"</span>&gt;&lt;/s:textfield&gt;</div><div class="line">			&lt;s:hidden name=<span class="string">"id"</span>&gt;&lt;/s:hidden&gt;</div><div class="line">			&lt;%-- </div><div class="line">			&lt;!--通过添加隐藏域的方式把未提交的字段值提交到服务器--&gt;</div><div class="line">			&lt;s:hidden name=<span class="string">"lastName"</span>/&gt;</div><div class="line">			&lt;s:hidden name=<span class="string">"createTime"</span>/&gt;</div><div class="line">			缺点：每个属性都要再另写一行</div><div class="line">			优点：不需要使用查一遍数据库的方式获取数据</div><div class="line">			--%&gt;</div><div class="line">		&lt;/s:<span class="keyword">if</span>&gt;</div><div class="line">		&lt;!-- Add --&gt;</div><div class="line">		&lt;s:<span class="keyword">else</span>&gt;</div><div class="line">			&lt;s:textfield name=<span class="string">"lastName"</span> label=<span class="string">"LastName"</span>&gt;&lt;/s:textfield&gt;</div><div class="line">		&lt;/s:<span class="keyword">else</span>&gt;</div><div class="line"></div><div class="line">		&lt;!-- label属性为在页面显示的值 --&gt;</div><div class="line"></div><div class="line">		&lt;s:textfield name=<span class="string">"email"</span> label=<span class="string">"Email"</span>&gt;&lt;/s:textfield&gt;</div><div class="line">		&lt;s:textfield name=<span class="string">"birth"</span> label=<span class="string">"Birth"</span>&gt;&lt;/s:textfield&gt;</div><div class="line"></div><div class="line">		&lt;!-- struts2的下拉框有listKey和listValue两个属性 --&gt;</div><div class="line">		&lt;!-- department.id为属性department的属性 --&gt;</div><div class="line">		&lt;s:select list=<span class="string">"#request.departments"</span> listKey=<span class="string">"id"</span></div><div class="line">			listValue=<span class="string">"departmentName"</span> name=<span class="string">"department.id"</span> label=<span class="string">"Department"</span>&gt;</div><div class="line">		&lt;/s:select&gt;</div><div class="line">		&lt;s:submit&gt;</div><div class="line">		&lt;/s:submit&gt;</div><div class="line">	&lt;/s:form&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>在EmployeeDao.java里添加获取员工信息的get()方法。<br><img src="/blog/images/img/160924/ssh_30.png" alt=""><br>修改EmployeeService.java。<br><img src="/blog/images/img/160924/ssh_31.png" alt=""><br>修改EmployeeAction.java。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div></pre></td><td class="code"><pre><div class="line">package com.leezp.ssh.actions;</div><div class="line"></div><div class="line">import java.io.ByteArrayInputStream;</div><div class="line">import java.io.InputStream;</div><div class="line">import java.io.UnsupportedEncodingException;</div><div class="line">import java.util.Date;</div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">import org.apache.struts2.interceptor.RequestAware;</div><div class="line"></div><div class="line">import com.leezp.ssh.entities.Employee;</div><div class="line">import com.leezp.ssh.service.DepartmentService;</div><div class="line">import com.leezp.ssh.service.EmployeeService;</div><div class="line">import com.opensymphony.xwork2.ActionSupport;</div><div class="line">import com.opensymphony.xwork2.ModelDriven;</div><div class="line">import com.opensymphony.xwork2.Preparable;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 实现RequestAware请求域</div><div class="line"> * </div><div class="line"> * @author Lee</div><div class="line"> * </div><div class="line"> */</div><div class="line">public class EmployeeAction extends ActionSupport implements RequestAware,</div><div class="line">		ModelDriven&lt;Employee&gt;, Preparable &#123;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * </div><div class="line">	 */</div><div class="line">	private static final long serialVersionUID = 1L;</div><div class="line"></div><div class="line">	private EmployeeService employeeService;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>EmployeeService(EmployeeService employeeService) &#123;</div><div class="line">		this.employeeService = employeeService;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private DepartmentService departmentService;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>DepartmentService(DepartmentService departmentService) &#123;</div><div class="line">		this.departmentService = departmentService;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private String lastName;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>LastName(String lastName) &#123;</div><div class="line">		this.lastName = lastName;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// **注意，这个方法validateLastName()里加参数(String lastName),struts.xml会找不到这个方法而报错**</div><div class="line">	public String validateLastName() throws UnsupportedEncodingException &#123;</div><div class="line">		<span class="keyword">if</span> (employeeService.lastNameIsValid(lastName)) &#123;</div><div class="line">			inputStream = new ByteArrayInputStream(<span class="string">"1"</span>.getBytes(<span class="string">"UTF-8"</span>));</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			inputStream = new ByteArrayInputStream(<span class="string">"0"</span>.getBytes(<span class="string">"UTF-8"</span>));</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">return</span> <span class="string">"ajax-success"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">input</span></span>() &#123;</div><div class="line">		request.put(<span class="string">"departments"</span>, departmentService.getAll());</div><div class="line">		<span class="built_in">return</span> INPUT;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void <span class="function"><span class="title">prepareInput</span></span>() &#123;</div><div class="line">		<span class="keyword">if</span> (id != null) &#123;</div><div class="line">			// 回显到页面</div><div class="line">			model = employeeService.get(id);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">list</span></span>() &#123;</div><div class="line">		request.put(<span class="string">"employees"</span>, employeeService.getAll());</div><div class="line">		<span class="built_in">return</span> <span class="string">"list"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private Integer id;</div><div class="line"></div><div class="line">	public void <span class="built_in">set</span>Id(Integer id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private InputStream inputStream;</div><div class="line"></div><div class="line">	public InputStream <span class="function"><span class="title">getInputStream</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> inputStream;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String <span class="function"><span class="title">delete</span></span>() &#123;</div><div class="line">		try &#123;</div><div class="line">			employeeService.delete(id);</div><div class="line">			inputStream = new ByteArrayInputStream(<span class="string">"1"</span>.getBytes(<span class="string">"UTF-8"</span>));</div><div class="line">		&#125; catch (UnsupportedEncodingException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			try &#123;</div><div class="line">				inputStream = new ByteArrayInputStream(<span class="string">"0"</span>.getBytes(<span class="string">"UTF-8"</span>));</div><div class="line">			&#125; catch (UnsupportedEncodingException e1) &#123;</div><div class="line">				e1.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		// <span class="built_in">return</span> SUCCESS;</div><div class="line">		// 使用ajax异步，删除后不再需要刷新页面，所以注释掉上一句。</div><div class="line">		<span class="built_in">return</span> <span class="string">"ajax-success"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private Map&lt;String, Object&gt; request;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void <span class="built_in">set</span>Request(Map&lt;String, Object&gt; arg0) &#123;</div><div class="line">		this.request = arg0;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// struts2执行Save()方法之前会先执行prepareSave()方法</div><div class="line">	public void <span class="function"><span class="title">prepareSave</span></span>() &#123;</div><div class="line">		// 根据id来判断为save()方法准备的model是new的还是从数据库获取的！</div><div class="line"></div><div class="line">		// add</div><div class="line">		<span class="keyword">if</span> (id == null) &#123;</div><div class="line">			model = new Employee();</div><div class="line">			// edit //防止 id为空</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			model = employeeService.get(id);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 保存员工信息的方法</div><div class="line">	public String <span class="function"><span class="title">save</span></span>() &#123;</div><div class="line">		// System.out.println(model);// 打印model查看</div><div class="line">		<span class="keyword">if</span> (id == null) &#123;</div><div class="line">			// add</div><div class="line">			model.setCreateTime(new Date());</div><div class="line">		&#125;</div><div class="line">		employeeService.saveOrUpdate(model);</div><div class="line">		<span class="built_in">return</span> SUCCESS;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void prepare() throws Exception &#123;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 定义一个model来接受表单提交的值</div><div class="line">	private Employee model;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public Employee <span class="function"><span class="title">getModel</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> model;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://pan.baidu.com/s/1pLqEEjL" target="_blank" rel="external">获取源代码</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>因本人水平有限，本demo还有很多不足之处，还望各位批评指正。</p>
+<p><strong>参考文献</strong><br><a href="http://blog.csdn.net/xiazdong/article/details/6895465/" target="_blank" rel="external">JavaBean中DAO设计模式介绍</a><br><a href="http://blog.csdn.net/canduecho/article/details/4149924" target="_blank" rel="external">Hibernate高级查询方法</a><br><a href="http://blog.csdn.net/heart_2015/article/details/51331948" target="_blank" rel="external">Hibernate学习笔记-懒加载Lazy-true</a><br><a href="http://www.cnblogs.com/hannover/p/4109779.html" target="_blank" rel="external">JQuery this和$(this)的区别及获取$(this)子元素对象的方法</a><br><a href="http://blog.csdn.net/u012160235/article/details/20208323" target="_blank" rel="external">Preparable接口和自定义拦截器总结</a><br><a href="http://blog.csdn.net/chenleixing/article/details/44573495" target="_blank" rel="external">Java过滤器与SpringMVC拦截器之间的关系与区别</a><br><a href="http://www.cnblogs.com/MPPC/p/6123088.html" target="_blank" rel="external">ModelDriven拦截器、Preparable 拦截器</a><br><a href="http://peirenlei.iteye.com/blog/411469" target="_blank" rel="external">关于struts2/webwork中prepare接口中的二次绑定</a><br><a href="http://blog.csdn.net/hackerain/article/details/7013800" target="_blank" rel="external">hibernate——Session接口中定义的saveOrUpdate()方法浅析</a><br><a href="http://blog.csdn.net/itmyhome1990/article/details/7104080" target="_blank" rel="external">Hibernate之Query接口的uniqueResult()方法</a><br><a href="http://blog.csdn.net/randomnet/article/details/18728073" target="_blank" rel="external">懒加载异常的解决办法</a></p>
+<p><strong>版权声明：本文为博主原创文章，转载请注明出处 <a href="http://leezp.space" target="_blank" rel="external">Leezp’s Blog</a></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/blog/images/weixin-gongzhonghao.jpg" alt="Lee wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将鼓励我继续创作,我一直在期待那个最帅的人出现！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/blog/images/wechat-image.png" alt="Lee WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/blog/images/alipay-image.png" alt="Lee Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/java/" rel="tag"># java</a>
+          
+            <a href="/blog/tags/ssh/" rel="tag"># ssh</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2016/09/17/一起学习Spring4.0（八）/" rel="next" title="一起学习Spring4.0（八）Spring整合Struts2">
+                <i class="fa fa-chevron-left"></i> 一起学习Spring4.0（八）Spring整合Struts2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2016/12/31/离线搭建docker环境/" rel="prev" title="离线搭建Docker环境">
+                离线搭建Docker环境 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/24/ssh整合示例/"
+     data-title="ssh整合示例"
+     data-content=""
+     data-url="http://www.leezp.space/blog/blog/2016/09/24/ssh整合示例/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/24/ssh整合示例/"
+           data-title="ssh整合示例" data-url="http://www.leezp.space/blog/blog/2016/09/24/ssh整合示例/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/images/avatar.gif"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">独自在冷风中</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/blog/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/leezp" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-weibo-url" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-douban-url" target="_blank" title="DouBan">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  DouBan
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-zhihu-url" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  ZhiHu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加入Spring"><span class="nav-number">2.1.</span> <span class="nav-text">加入Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加入jar包"><span class="nav-number">2.1.1.</span> <span class="nav-text">加入jar包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置web-xml文件"><span class="nav-number">2.1.2.</span> <span class="nav-text">配置web.xml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加入Spring的配置文件"><span class="nav-number">2.1.3.</span> <span class="nav-text">加入Spring的配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入Hibernate"><span class="nav-number">2.2.</span> <span class="nav-text">加入Hibernate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入Struts2"><span class="nav-number">2.3.</span> <span class="nav-text">加入Struts2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加入jar包-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">加入jar包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在web-xml文件中配置Struts2的Filter"><span class="nav-number">2.3.2.</span> <span class="nav-text">在web.xml文件中配置Struts2的Filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加入Struts2的配置文件"><span class="nav-number">2.3.3.</span> <span class="nav-text">加入Struts2的配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Struts2整合Spring"><span class="nav-number">2.3.4.</span> <span class="nav-text">Struts2整合Spring</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务需求"><span class="nav-number">2.4.</span> <span class="nav-text">业务需求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取所有的员工信息"><span class="nav-number">2.4.1.</span> <span class="nav-text">获取所有的员工信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除员工信息"><span class="nav-number">2.4.2.</span> <span class="nav-text">删除员工信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除时弹出“确定删除吗？”提示信息并使用ajax异步删除"><span class="nav-number">2.4.3.</span> <span class="nav-text">删除时弹出“确定删除吗？”提示信息并使用ajax异步删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建立添加员工页面并绑定部门信息下拉框"><span class="nav-number">2.4.4.</span> <span class="nav-text">建立添加员工页面并绑定部门信息下拉框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加员工"><span class="nav-number">2.4.5.</span> <span class="nav-text">添加员工</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加员工的流程"><span class="nav-number">2.4.5.1.</span> <span class="nav-text">添加员工的流程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ajax检验添加时的用户名是否可用"><span class="nav-number">2.4.6.</span> <span class="nav-text">ajax检验添加时的用户名是否可用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#员工信息的修改"><span class="nav-number">2.4.7.</span> <span class="nav-text">员工信息的修改</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leezp"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCSR37sVQgtQ3I6tDvMoemUp-gzGzoHsz", "PEz2OiJWtAgYkJKI5PNMWNvI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
