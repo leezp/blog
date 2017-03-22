@@ -181,6 +181,68 @@
   </entry>
   
   <entry>
+    <title>快速搭建Maven环境并创建web项目</title>
+    <link href="http://www.leezp.space/blog/2016/10/04/maven%E7%8E%AF%E5%A2%83%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA/"/>
+    <id>http://www.leezp.space/blog/2016/10/04/maven环境快速搭建/</id>
+    <published>2016-10-04T02:10:10.000Z</published>
+    <updated>2017-03-22T08:55:34.682Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>Maven是一个项目管理工具，它能够很方便的帮你管理项目报告，生成站点，管理JAR文件，等等。</p>
+<a id="more"></a>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>登录<a href="http://maven.apache.org/download.cgi" target="_blank" rel="external">Maven官网</a>下载Maven。<br>我安装的Maven版本是apache-maven-3.3.9。<br>值得注意的是，Maven需要在java环境运行，因此你的电脑应该装有jdk。</p>
+<h2 id="配置Maven环境"><a href="#配置Maven环境" class="headerlink" title="配置Maven环境"></a>配置Maven环境</h2><p>将下载文件解压，然后设置maven环境。<br>如果你配置过jdk的话，这里对你应该不难。如我的maven环境为：D:\apache-maven-3.3.9<br>我的电脑—-属性—-高级—-环境变量—-系统环境变量—-新建<br>变量名：maven_HOME<br>变量值：D:\apache-maven-3.3.9<br>找到path<br>在环境变量值尾部加入：;%maven_HOME%\bin;—前面注意分号<br>打开命令提示符（开始—运行—cmd）,检查我们的java环境和maven环境是否有误。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mvn -v</div></pre></td></tr></table></figure>
+<p><img src="/blog/images/img/161004/maven.png" alt=""></p>
+<h2 id="修改仓库位置"><a href="#修改仓库位置" class="headerlink" title="修改仓库位置"></a>修改仓库位置</h2><p>maven里面有一个repository的概念，仓库用于存放我们项目所依赖的所有jar包,当我们的项目依赖于某个jar时，maven会去repository里面去找。repository分两种，一种是远程的，一种是本地的。如果有几个project都用到junit，我们可以把junit放在repository里面，几个project可以公用，节约存储空间而且方便管理，这个repository的位置可以在pom.xml里面设置。<br>本地的默认的路径是安装用户的目录下的 .m2\repository文件夹，下面来修改我们的仓库地址。<br>我的仓库路径：D:_MavenRepository—-这个路径是我自己创建，你可以将路径创建在任何位置。<br>我们打开…\apache-maven-3.3.9\conf\目录下的setting.xml文件，找到localRepository标签，此时是被注释掉的，我们解除注释，然后配置一个路径设置成我们创建的仓库路径。<br><img src="/blog/images/img/161004/maven_2.png" alt=""><br>打开命令提示符，初始化Maven仓库。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mvn <span class="built_in">help</span>:system</div></pre></td></tr></table></figure>
+<p>如果运行的过程中没有错误，打开我们仓库（D:_MavenRepository）会发现里面多了一些文件。这些文件就是我们从maven的中央仓库下载到本地仓库的。<br><img src="/blog/images/img/161004/maven_3.png" alt=""><br>上面的这个命令会打印出所有的java系统属性和环境变量。这些信息对我们日常的编程工作很有帮助。</p>
+<h2 id="创建一个Maven项目"><a href="#创建一个Maven项目" class="headerlink" title="创建一个Maven项目"></a>创建一个Maven项目</h2><h3 id="用命令行创建Maven项目"><a href="#用命令行创建Maven项目" class="headerlink" title="用命令行创建Maven项目"></a>用命令行创建Maven项目</h3><p>创建一个存放Maven项目的文件夹，我这里是在D盘创建的，命名为_MavenPrj。<br>切换到Maven目录下（注意：<strong>跳过这步操作会将项目建立在默认的C/Users/CurrentUser/ 目录下</strong>，就很尴尬了。）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> _MavenPrj</div></pre></td></tr></table></figure>
+<p>通过命令行方式创建一个普通项目：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mvn archetype:generate -DgroupId=com.lee.test -DartifactId=<span class="built_in">test</span>Maven -DpackageName=com.lee.test -Dversion=1.0</div></pre></td></tr></table></figure>
+<p>1)archetype:generate， 这是一个maven的plugin，用来从一个archetype创建一个project。<br>2)-DgroupId和-DartifactId用来放在pom.xml文件里面，作为当前创建的project的描述信息。</p>
+<p>因为是第一次构建项目，所有依赖的jar包都要从maven的中央仓库下载，所以需要时间等待。等以后我们的本地仓库中积累了我们常用的jar包后，我们的开发将变得非常规范和方便。<br>中间如果有输入提示信息，直接回车使用默认值就可以了。<br><img src="/blog/images/img/161004/maven_4.PNG" alt=""><br><img src="/blog/images/img/161004/maven_5.png" alt=""><br><img src="/blog/images/img/161004/maven_6.png" alt=""><br>这条命令执行完后，会在你的当前目录下生成一个名为testMaven的目录：<br><img src="/blog/images/img/161004/maven_7.png" alt=""></p>
+<h4 id="创建项目时卡顿的解决办法"><a href="#创建项目时卡顿的解决办法" class="headerlink" title="创建项目时卡顿的解决办法"></a>创建项目时卡顿的解决办法</h4><p>如果你在执行命令行时卡在<code>Generating project in Interactive mode</code>这一步，是因为maven在从远程拉取信息，使用 -DarchetypeCatalog=internal 参数让它不要从远程服务器上取catalog。添加这句话之后,就不会卡死了。就会进入交互阶段,一步步询问。每一步如果有默认选项直接按enter即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mvn archetype:generate -DarchetypeCatalog=internal</div></pre></td></tr></table></figure>
+<p>按照交互提示依次输入groupId、artifactId、version、package如下图。<br><img src="/blog/images/img/161004/maven_12.png" alt=""><br>也可以使用下面的命令跳过填写groupId、artifactId、version、package阶段，直接生成项目。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.lee.test -DartifactId=Demo -Dpackage=com.lee.test -Dversion=1.0-SNAPSHOT -DarchetypeCatalog=internal</div></pre></td></tr></table></figure>
+<h4 id="了解pom-xml文件"><a href="#了解pom-xml文件" class="headerlink" title="了解pom.xml文件"></a>了解pom.xml文件</h4><p>另外maven还生成了一个重要的文件pom.xml，maven就是通过这个文件来来管理整个project，可以理解位类似于eclipse的.project文件。默认生成的pom.xml文件的内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;project xmlns=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">  xsi:schemaLocation=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</div><div class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</div><div class="line"></div><div class="line">  &lt;groupId&gt;com.lee.test&lt;/groupId&gt;</div><div class="line">  &lt;artifactId&gt;<span class="built_in">test</span>Maven&lt;/artifactId&gt;</div><div class="line">  &lt;version&gt;1.0&lt;/version&gt;</div><div class="line">  &lt;packaging&gt;jar&lt;/packaging&gt;</div><div class="line"></div><div class="line">  &lt;name&gt;<span class="built_in">test</span>Maven&lt;/name&gt;</div><div class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</div><div class="line"></div><div class="line">  &lt;properties&gt;</div><div class="line">    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</div><div class="line">  &lt;/properties&gt;</div><div class="line"></div><div class="line">  &lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;junit&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;junit&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;3.8.1&lt;/version&gt;</div><div class="line">      &lt;scope&gt;<span class="built_in">test</span>&lt;/scope&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">  &lt;/dependencies&gt;</div><div class="line">&lt;/project&gt;</div></pre></td></tr></table></figure>
+<p>Ø project：pom.xml文件中的顶层元素；<br>Ø modelVersion：指明POM使用的对象模型的版本。这个值很少改动。<br>Ø groupId：指明创建项目的组织或者小组的唯一标识。GroupId是项目的关键标识，典型的，此标识以组织的完全限定名来定义。比如，org.apache.maven.plugins是所有Maven插件项目指定的groupId。<br>Ø artifactId：指明此项目产生的主要产品的基本名称。项目的主要产品通常为一个JAR文件。第二，像源代码包通常使用artifactId作为最后名称的一部分。典型的产品名称使用这个格式： <artifactid>- <version>. <extension>(比如：myapp-1.0.jar)。<br>Ø version：项目产品的版本号。Maven帮助你管理版本，可以经常看到SNAPSHOT这个版本，表明项目处于开发阶段。<br>Ø packaging：这个project的打包的类型，一般是war、jar等值。<br>Ø name：项目的显示名称，通常用于maven产生的文档中。<br>Ø url：指定项目站点，通常用于maven产生的文档中。<br>Ø description：描述此项目，通常用于maven产生的文档中。</extension></version></artifactid></p>
+<p>对于一个项目中只有下面的一部分是是我们需要关注的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;groupId&gt;com.lee.test&lt;/groupId&gt;</div><div class="line"></div><div class="line">&lt;artifactId&gt;<span class="built_in">test</span>Maven&lt;/artifactId&gt;</div><div class="line"></div><div class="line">&lt;version&gt;1.0&lt;/version&gt;</div></pre></td></tr></table></figure>
+<h4 id="编译项目代码"><a href="#编译项目代码" class="headerlink" title="编译项目代码"></a>编译项目代码</h4><p>我们的项目已经创建完成。但我们点开目录发现，它并不是我们eclipse所需要的项目目录格式。我们需要把它构建成我们eclipse可以导入的项目。</p>
+<p>在命令提示符下切换到我们的创建的项目目录（D:_MavenPrj\testMaven）下，执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mvn clean compile</div></pre></td></tr></table></figure>
+<p>Clean 告诉maven清理输出目录target/，compile告诉maven编译项目主代码。<br><img src="/blog/images/img/161004/maven_8.png" alt=""><br>编译完后maven会创建一个target目录去保存编译结果。 我们需要编译成一个什么样的内容，以及要输出到什么地方等等，都是可以在pom.xml文件里面配置的，但是因为我们目前并没有指定这些内容，所以maven会使用默认值。<br>不要急，我们又需要一段时间来下载相关jar包。第一次用maven要学会淡定。</p>
+<p>项目是编译完了，但项目的目录结构还不是我们想要的eclipse的项目结构，是不能导入到eclipse中的。所以，还需要执行一个命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn eclipse:eclipse</div></pre></td></tr></table></figure>
+<p>命令执行完成后就得到我们需要的项目目录了。<br><img src="/blog/images/img/161004/maven_9.png" alt=""></p>
+<h3 id="用Eclipse创建Maven项目"><a href="#用Eclipse创建Maven项目" class="headerlink" title="用Eclipse创建Maven项目"></a>用Eclipse创建Maven项目</h3><p>第一次使用要先配置Eclipse中的Maven仓库位置。</p>
+<p>打开我们的eclipse。<br>查看eclipse指向的maven仓库路径：Window-&gt; Perferences-&gt; java-&gt; Build Path-&gt; Classpath Variables，观察M2_REPO的值，如果不是你自定义的本地仓库的路径，那么需要对其进行配置。<br><img src="/blog/images/img/161004/maven_10.png" alt=""><br>配置方法：Window-&gt; Perferences-&gt; Maven-&gt; installations-&gt; 然后点击Add，添加自己安装的maven，找到自己安装的maven文件的根目录，并点击Apply -&gt; OK。<br><img src="/blog/images/img/161004/maven_11.png" alt=""></p>
+<p>下面来用Eclipse创建一个Maven的webapp项目。</p>
+<p>开启Eclipse，右键new -&gt; other，如下图找到Maven Project。<br><img src="/blog/images/img/161004/maven_13.png" alt=""><br>选择Maven Project，显示创建maven项目的窗口，勾选如下图所示，Create a simple project。<br><img src="/blog/images/img/161004/maven_14.png" alt=""><br>输入Maven项目的基本信息，如下图所示。<br><img src="/blog/images/img/161004/maven_15.png" alt=""><br>完成maven项目的创建，生成相应的maven项目结构，如下图。<br><img src="/blog/images/img/161004/maven_16.png" alt=""><br>这时还要对项目属性进行一些设置。<br>选择项目，右键选择Properties，进入属性页面，点击Project Facets，如下图。<br><img src="/blog/images/img/161004/maven_17.png" alt=""><br>因为我的jdk版本是1.7，所以我选择java版本为1.7。<br><strong>点击 Dynamic Web Module 前的复选框，将它去掉，点击Apply</strong>。<br><img src="/blog/images/img/161004/maven_18.png" alt=""><br>选择Dynamic Web Module 的版本为3.0(跟jdk1.7对应)。<br><strong>在这个页面再次勾选 Dynamic Web Module 前的复选框</strong>，会看到最下面出现了 Further configuration available… 的超链接。<br><img src="/blog/images/img/161004/maven_19.png" alt=""><br>点击 Further configuration available…，如下图。<br><img src="/blog/images/img/161004/maven_20.png" alt=""><br>配置src/main/webapp，并勾选生成web.xml的选项，如下图。<br><img src="/blog/images/img/161004/maven_21.png" alt=""><br>点击OK,如下所示，webapp目录结构显示出来了：<br><img src="/blog/images/img/161004/maven_22.png" alt=""><br>此时还需要检查src/main/webapp为“/”项目的根目录，如果不是，需要配置，如下图。<br><img src="/blog/images/img/161004/maven_23.png" alt=""><br>在webapp文件夹下新建一个jsp页面，index.jsp。写一句话 hello world!<br><img src="/blog/images/img/161004/maven_24.png" alt=""><br>Run As -&gt; Run on Server，运行服务器。<br><img src="/blog/images/img/161004/maven_25.png" alt=""><br>大功告成！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Maven搭建的过程，总的来说并不难，一步一步下来即可。我相信一定有人有比我更好更方便的搭建方式，本文仅抛砖引玉，欢迎交流学习。</p>
+<iframe src="https://music.daoapp.io/iframe?song=30431378&qnarrow=1&qssl=1&max_width=84px&autoplay=1" width="84px" height="84px" frameborder="0" marginwidth="0" marginheight="0"></iframe>
+
+<p><strong>参考文献</strong><br><a href="http://shmilyaw-hotmail-com.iteye.com/blog/2166228" target="_blank" rel="external">Maven学习总结:基本概念</a><br><a href="http://www.cnblogs.com/fnng/archive/2011/12/02/2272610.html" target="_blank" rel="external">maven环境快速搭建</a><br><a href="http://www.cnblogs.com/weidiao/p/5838299.html" target="_blank" rel="external">Maven使用archetype迅速生成项目骨架</a><br><a href="http://blog.csdn.net/ya_1249463314/article/details/61617590" target="_blank" rel="external">eclipse创建maven web项目时，index.jsp报错</a><br><a href="http://www.cnblogs.com/candle806/p/3439469.html" target="_blank" rel="external">Eclipse+Maven创建webapp项目&lt;一&gt;</a></p>
+<p><strong>版权声明：本文为博主原创文章，转载请注明出处 <a href="http://leezp.space" target="_blank" rel="external">Leezp’s Blog</a></strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Maven是一个项目管理工具，它能够很方便的帮你管理项目报告，生成站点，管理JAR文件，等等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="maven" scheme="http://www.leezp.space/blog/categories/maven/"/>
+    
+    
+      <category term="Maven" scheme="http://www.leezp.space/blog/tags/Maven/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ssh整合示例</title>
     <link href="http://www.leezp.space/blog/2016/09/24/ssh%E6%95%B4%E5%90%88%E7%A4%BA%E4%BE%8B/"/>
     <id>http://www.leezp.space/blog/2016/09/24/ssh整合示例/</id>
