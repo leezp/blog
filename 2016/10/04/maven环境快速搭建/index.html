@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/161004/maven_23.png">
 <meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/161004/maven_24.png">
 <meta property="og:image" content="http://www.leezp.space/blog/blog/images/img/161004/maven_25.png">
-<meta property="og:updated_time" content="2017-03-22T08:55:34.682Z">
+<meta property="og:updated_time" content="2017-03-24T05:56:16.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速搭建Maven环境并创建web项目">
 <meta name="twitter:description" content="Maven是一个项目管理工具，它能够很方便的帮你管理项目报告，生成站点，管理JAR文件，等等。">
@@ -475,9 +475,9 @@
 <p>下面来用Eclipse创建一个Maven的webapp项目。</p>
 <p>开启Eclipse，右键new -&gt; other，如下图找到Maven Project。<br><img src="/blog/images/img/161004/maven_13.png" alt=""><br>选择Maven Project，显示创建maven项目的窗口，勾选如下图所示，Create a simple project。<br><img src="/blog/images/img/161004/maven_14.png" alt=""><br>输入Maven项目的基本信息，如下图所示。<br><img src="/blog/images/img/161004/maven_15.png" alt=""><br>完成maven项目的创建，生成相应的maven项目结构，如下图。<br><img src="/blog/images/img/161004/maven_16.png" alt=""><br>这时还要对项目属性进行一些设置。<br>选择项目，右键选择Properties，进入属性页面，点击Project Facets，如下图。<br><img src="/blog/images/img/161004/maven_17.png" alt=""><br>因为我的jdk版本是1.7，所以我选择java版本为1.7。<br><strong>点击 Dynamic Web Module 前的复选框，将它去掉，点击Apply</strong>。<br><img src="/blog/images/img/161004/maven_18.png" alt=""><br>选择Dynamic Web Module 的版本为3.0(跟jdk1.7对应)。<br><strong>在这个页面再次勾选 Dynamic Web Module 前的复选框</strong>，会看到最下面出现了 Further configuration available… 的超链接。<br><img src="/blog/images/img/161004/maven_19.png" alt=""><br>点击 Further configuration available…，如下图。<br><img src="/blog/images/img/161004/maven_20.png" alt=""><br>配置src/main/webapp，并勾选生成web.xml的选项，如下图。<br><img src="/blog/images/img/161004/maven_21.png" alt=""><br>点击OK,如下所示，webapp目录结构显示出来了：<br><img src="/blog/images/img/161004/maven_22.png" alt=""><br>此时还需要检查src/main/webapp为“/”项目的根目录，如果不是，需要配置，如下图。<br><img src="/blog/images/img/161004/maven_23.png" alt=""><br>在webapp文件夹下新建一个jsp页面，index.jsp。写一句话 hello world!<br><img src="/blog/images/img/161004/maven_24.png" alt=""><br>Run As -&gt; Run on Server，运行服务器。<br><img src="/blog/images/img/161004/maven_25.png" alt=""><br>大功告成！</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Maven搭建的过程，总的来说并不难，一步一步下来即可。我相信一定有人有比我更好更方便的搭建方式，本文仅抛砖引玉，欢迎交流学习。</p>
-<iframe src="https://music.daoapp.io/iframe?song=30431378&qnarrow=1&qssl=1&max_width=84px&autoplay=1" width="84px" height="84px" frameborder="0" marginwidth="0" marginheight="0"></iframe>
+<iframe src="https://music.daoapp.io/iframe?song=417833356&qnarrow=1&qssl=1&max_width=84px&autoplay=1" width="84px" height="84px" frameborder="0" marginwidth="0" marginheight="0"></iframe>
 
-<p><strong>参考文献</strong><br><a href="http://shmilyaw-hotmail-com.iteye.com/blog/2166228" target="_blank" rel="external">Maven学习总结:基本概念</a><br><a href="http://www.cnblogs.com/fnng/archive/2011/12/02/2272610.html" target="_blank" rel="external">maven环境快速搭建</a><br><a href="http://www.cnblogs.com/weidiao/p/5838299.html" target="_blank" rel="external">Maven使用archetype迅速生成项目骨架</a><br><a href="http://blog.csdn.net/ya_1249463314/article/details/61617590" target="_blank" rel="external">eclipse创建maven web项目时，index.jsp报错</a><br><a href="http://www.cnblogs.com/candle806/p/3439469.html" target="_blank" rel="external">Eclipse+Maven创建webapp项目&lt;一&gt;</a></p>
+<p><strong>参考文献</strong><br><a href="http://shmilyaw-hotmail-com.iteye.com/blog/2166228" target="_blank" rel="external">Maven学习总结:基本概念</a><br><a href="http://www.cnblogs.com/fnng/archive/2011/12/02/2272610.html" target="_blank" rel="external">maven环境快速搭建</a><br><a href="http://www.cnblogs.com/weidiao/p/5838299.html" target="_blank" rel="external">Maven使用archetype迅速生成项目骨架</a><br><a href="http://blog.csdn.net/ya_1249463314/article/details/61617590" target="_blank" rel="external">eclipse创建maven web项目时，index.jsp报错</a><br><a href="http://www.cnblogs.com/candle806/p/3439469.html" target="_blank" rel="external">Eclipse+Maven创建webapp项目&lt;一&gt;</a><br><a href="http://www.imooc.com/learn/443" target="_blank" rel="external">项目管理利器——maven</a></p>
 <p><strong>版权声明：本文为博主原创文章，转载请注明出处 <a href="http://leezp.space" target="_blank" rel="external">Leezp’s Blog</a></strong></p>
 
       
@@ -486,11 +486,6 @@
     <div>
       
         
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/blog/images/weixin-gongzhonghao.jpg" alt="Lee wechat" style="width: 200px; max-width: 100%;"/>
-    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
-</div>
-
 
       
     </div>
@@ -642,7 +637,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/blog/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -651,7 +646,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/blog/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -660,7 +655,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -736,7 +731,7 @@
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                  <a href="http://www.importnew.com/" title="ImportNew" target="_blank">ImportNew</a>
                 </li>
               
             </ul>
