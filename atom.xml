@@ -81,7 +81,7 @@
     <link href="http://www.leezp.space/blog/2017/01/11/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAphp%E7%8E%AF%E5%A2%83%E5%B9%B6%E4%BD%BF%E7%94%A8phpstorm%E8%B0%83%E8%AF%95php%E4%BB%A3%E7%A0%81/"/>
     <id>http://www.leezp.space/blog/2017/01/11/快速搭建php环境并使用phpstorm调试php代码/</id>
     <published>2017-01-11T11:30:02.000Z</published>
-    <updated>2017-04-05T09:28:33.024Z</updated>
+    <updated>2017-04-13T09:09:56.683Z</updated>
     
     <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>教你从零基础升级成会完美调试php的大神！</p>
 <a id="more"></a>
@@ -125,7 +125,7 @@
 <h2 id="php-debug"><a href="#php-debug" class="headerlink" title="php debug"></a>php debug</h2><p>说到这里又非常有趣了。</p>
 <p>1.检查谷歌浏览器扩展插件是否下载了xdebug插件。<br>2.检查本地php下安装对应php版本的xdebug.dll文件。<br>3.启动Apache服务器。<br>4.phpstorm里打开调试的监听器<br><img src="/blog/images/img/170111/phpStorm_14.png" alt=""><br><img src="/blog/images/img/170111/phpStorm_15.png" alt=""><br>5.加断点<br>6.点击phpStorm里的Chrome浏览器图标，像run 项目一样，就自动进入debug模式了。<br><img src="/blog/images/img/170111/phpStorm_16.png" alt=""><br>7.不想debug？ 关掉phpstorm里debug监听器即可，这时候点击 浏览器图标就只是run了。</p>
 <p><br><br>配置好之后调试php就一个字，爽！！！</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇博客是博主良心之作。教程里有特别多的细节和注意点，应用好这些注意点可以极大方便你的php开发，调试。让你拥有不弱于VS/Eclipse 的用户体验！！！希望各位看官在转载之余不忘写明出处，本人将不胜感激。<br><br><br><strong>参考文献</strong><br><a href="http://www.cnblogs.com/derrck/p/5195946.html" target="_blank" rel="external">PHP 设置调试工具XDebug PHPStorm IDE</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇博客是笔者良心之作。教程里有特别多的细节和注意点，应用好这些注意点可以极大方便你的php开发，调试。让你拥有不弱于VS/Eclipse的用户体验！！！如果各位看官觉得有帮助请动动手指转载一下，本人将不胜感激。<br><br><br><strong>参考文献</strong><br><a href="http://www.cnblogs.com/derrck/p/5195946.html" target="_blank" rel="external">PHP 设置调试工具XDebug PHPStorm IDE</a></p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="http://www.xiami.com/play?ids=/song/playlist/id/1795434955"></iframe>
 
 <p><strong>版权声明：本文为博主原创文章，转载请注明出处 <a href="http://leezp.space" target="_blank" rel="external">Leezp’s Blog</a></strong></p>
@@ -238,6 +238,67 @@
     
     
       <category term="Docker" scheme="http://www.leezp.space/blog/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jdbc复习笔记</title>
+    <link href="http://www.leezp.space/blog/2016/10/07/jdbc%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://www.leezp.space/blog/2016/10/07/jdbc复习笔记/</id>
+    <published>2016-10-07T05:02:01.000Z</published>
+    <updated>2017-04-19T02:34:42.327Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>jdbc复习笔记。</p>
+<a id="more"></a>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p><a href="http://pan.baidu.com/s/1i5R0pYP" target="_blank" rel="external">commons-dbcp-1.4-bin.zip</a><br><a href="http://pan.baidu.com/s/1qXRBNnI" target="_blank" rel="external">commons-dbcp-1.4-src.zip</a><br><a href="http://pan.baidu.com/s/1i5gdd45" target="_blank" rel="external">commons-pool-1.5.6.jar</a><br><a href="http://pan.baidu.com/s/1c1Twb1Q" target="_blank" rel="external">c3p0-0.9.1.2.jar</a><br><a href="http://pan.baidu.com/s/1eSDZnSu" target="_blank" rel="external">c3p0-0.9.1.2.src.zip</a></p>
+<h2 id="持久化和JDBC概述"><a href="#持久化和JDBC概述" class="headerlink" title="持久化和JDBC概述"></a>持久化和JDBC概述</h2><h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><p>持久化（persistence），把数据保存到可掉电式存储设备中以供之后使用。<br>大多数情况下，特别是企业级应用，数据持久化意味着将内存中的数据保存到硬盘中加以“固化”，而持久化的实现过程大多通过各种关系型数据库来完成。<br>持久化的主要应用是将内存中的数据存储在关系型数据库中，当然也可以存储在磁盘文件、XML数据文件中。</p>
+<p>在Java中，数据库存取技术只能通过JDBC访问数据库：<br>JDBC访问数据库的形式主要有两种：<br>1).直接使用JDBC的API去访问数据库服务器（MySQL/Oracle）。<br>2).间接使用JDBC的API去访问数据库服务器。<br>第三方O/R Mapping工具，如Hibernate,Mybatis等（底层依然是JDBC）。<br>JDBC是java访问数据库的基石，其他技术都是对JDBC的封装。</p>
+<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><p>JDBC是一种用于执行SQL语句的java API，可以为多种关系型数据库提供统一访问，它由一组用java语言编写的类和接口组成。JDBC提供了一种基准，据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序。<br>JDBC为访问不同的数据库提供了一种统一的途径，为开发者屏蔽了一些细节问题。JDBC的目标是使java程序员使用JDBC可以连接任何提供了JDBC驱动程序的数据库系统，这样就使得程序员无需对特定的数据库系统有过多了解，加快开发过程。<br><img src="/blog/images/img/161007/1.png" alt=""><br>java.sql包装是JDBC的API。<br><strong>在开发中使用到的关于JDBC的类/接口全部引入的是java.sql/javax.sql包中的，不要使用各大数据库提供的API。</strong></p>
+<h4 id="获取JDBC的连接对象"><a href="#获取JDBC的连接对象" class="headerlink" title="获取JDBC的连接对象"></a>获取JDBC的连接对象</h4><p>1.加载注册驱动<br>Class.forName(“驱动实现类的全限定名”);<br>MySQL:Class.forName(“com.mysql.jdbc.Driver”);<br><strong>为啥写上这一句话，就会把驱动进行加载注册？</strong><br>步骤1：把com.mysql.jdbc.Driver这份字节码加载进JVM—-&gt;创建Class对象。<br>步骤2：当一份字节码被加载进JVM，就会执行字节码中的静态代码块。<br>见com.mysql.jdbc.Driver源码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">static &#123;</div><div class="line">		try &#123;</div><div class="line">			java.sql.DriverManager.registerDriver(new Driver());</div><div class="line">		&#125; catch (SQLException E) &#123;</div><div class="line">			throw new RuntimeException(<span class="string">"Can't register driver!"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>步骤3：静态代码块中，就是使用DriverManager.registerDriver(new Driver())注册驱动的。</p>
+<p>2.使用DriverManager获取连接<br>Connection conn=DriverManager.getConnection(String url,String user,String password);</p>
+<p><strong>跟据官方API，从JDBC4.0（jdk1.6）开始，数据库连接驱动包里必须包含注册驱动那句话，所以省略它不会报错。建议仍然手动注册，兼容java5。</strong></p>
+<h2 id="常用接口"><a href="#常用接口" class="headerlink" title="常用接口"></a>常用接口</h2><h3 id="Connection接口"><a href="#Connection接口" class="headerlink" title="Connection接口"></a>Connection接口</h3><p>表示JDBC的连接对象。</p>
+<h3 id="Statement接口"><a href="#Statement接口" class="headerlink" title="Statement接口"></a>Statement接口</h3><p>用于执行静态SQL(写死的SQL)语句。<br>常用方法：<br> int executeUpdate(String sql)<br> ResultSet executeQuery(String sql)<br> close()</p>
+<h4 id="PreparedStatement和Statement区别"><a href="#PreparedStatement和Statement区别" class="headerlink" title="PreparedStatement和Statement区别"></a>PreparedStatement和Statement区别</h4><p>PreparedStatement比Statement优势：<br>1.代码可读性/维护性更高。<br>2.PreparedStatement是预编译语句对象，PreparedStatement的执行性能更高。<br><img src="/blog/images/img/161007/2.png" alt=""><br>3.安全性更高，防止SQL注入问题。</p>
+<h3 id="ResultSet接口"><a href="#ResultSet接口" class="headerlink" title="ResultSet接口"></a>ResultSet接口</h3><p>表示查询的结果集(查询结果的封装对象)，是通过执行查询语句得到的。<br>常用方法：<br> boolean next()<br> Xxx getXxx(int columnIndex) : 获取当前行的第几列的数据，从1开始(不建议)。<br> <strong>Xxx getXxx(String columnName)</strong> : 获取当前行的执行列名对应列的数据，可以使用别名，注意：Xxx是数据类型，比如String，long，int，boolean等。<br> Object getObject(int/String columnIndex) : 获取某一列的数据，统统使用Object来接收。<br> close()</p>
+<p>ResultSet对象具有指向其当前数据行的光标。<br>最初，光标被置于第一行之前，next方法将光标移动到下一行。<br>因为该方法在ResultSet对象没有下一行时返回false，所以可以在while循环中使用它来迭代结果集。</p>
+<p>从ResultSet中取出数据，实质上是取出当前指针指向的当前行的数据。</p>
+<p>其实，在表中，一行数据就是一个对象。可以使用一个对象来封装表中的一行数据。比如：使用Product对象，可以封装一行商品数据。若要封装多行，可以使用List<product>搞定。</product></p>
+<h2 id="JDBC事务的细节"><a href="#JDBC事务的细节" class="headerlink" title="JDBC事务的细节"></a>JDBC事务的细节</h2><p>1.在JDBC中事务是默认自动提交的。在执行DML语句的时候就已经提交事务了。<br>2.事务只对DML语句有效，对于DDL(查询)没效果，查询不会涉及到修改数据库。<br>3.回滚事务在释放资源，释放锁机制。（InnoDB：行锁；MyISAM：表锁）<br>4.在Mysql中，MyISAM不支持外键，不支持事务；InnoDB都支持。</p>
+<p>在Spring中有专门的事务管理器（TransactionManager）。</p>
+<h2 id="批量操作-batch"><a href="#批量操作-batch" class="headerlink" title="批量操作(batch)"></a>批量操作(batch)</h2><p>当需要成批插入或者更新记录时，可以采用java的批量更新机制，这一机制允许多条语句一次性提交给数据库批量处理。通常情况下比单独提交处理更有效率。<br>JDBC的批量处理语句包括下面两个方法：<br>addBatch(String) – 添加需要处理的SQL语句或是参数。<br>executeBatch() – 执行批量处理语句。<br>通常我们会遇到两种批量执行SQL语句的情况：<br>多条SQL语句的批量处理。Statement<br>一个SQL语句的批量传参。PreparedStatement</p>
+<p>Mysql不支持PreparedStatement的性能优化，也不支持批量操作性能优化。<br><strong>Statement</strong>:<br>Statement批处理，一次性可以执行多条sql语句，需要编译多次。<br>应用场景：系统初始化（创建表，创建数据等）。<br>批量处理sql语句， int[] st.executeBatch()<br>清除缓存， st.clearBatch()<br><strong>PreparedStatement</strong>:<br>PreparedStatement批处理，执行一条sql语句，编译一次，执行sql语句的参数不同。<br>应用场景：表数据初始化。<br>添加批量参数， ps.addBatch()  —添加实际参数，执行之前，需要执行 ps.setXxx()设置实际参数执行批处理， int[] ps.executeBatch()<br>清除缓存： ps.clearBatch()<br>清除参数： ps.clearParameter()</p>
+<h2 id="大数据类型（BLOB和TEXT）"><a href="#大数据类型（BLOB和TEXT）" class="headerlink" title="大数据类型（BLOB和TEXT）"></a>大数据类型（BLOB和TEXT）</h2><h3 id="BLOB"><a href="#BLOB" class="headerlink" title="BLOB"></a>BLOB</h3><p>TINYBLOB，BLOB，MEDIUMBLOB，LONGBLOB都是二进制类型，唯一的不同就是容量不同。<br><img src="/blog/images/img/161007/3.PNG" alt=""><br>可以把二进制的数据保存到数据库，比如可以把一个音频，视频，图片存到数据库中。<br>注意：在开发中往往把二进制文件的保存路径存储到数据库中，而不是把数据存储到数据库。</p>
+<h3 id="TEXT"><a href="#TEXT" class="headerlink" title="TEXT"></a>TEXT</h3><p>用于保存文字比较多（博客/小说）。<br><img src="/blog/images/img/161007/4.png" alt=""><br>TINYTEXT，TEXT，MEDIUMTEXT，LONGTEXT，对应着java中的String，在java代码中没有变化。</p>
+<h2 id="获取自动生成的主键"><a href="#获取自动生成的主键" class="headerlink" title="获取自动生成的主键"></a>获取自动生成的主键</h2><p>Statement:<br>int executeUpdate(String sql): 执行DML/SQL语句<br>int executeUpdate(String sql,int autoGeneratedKeys):<br>  参数： autoGeneratedKeys:是否需要返回自动生成的主键<br>   Statement.RETURN_GENERATED_KEYS:要返回<br>   Statement.NO_GENERATED_KEYS:不返回<br>ResultSet getGeneratedKeys() :获取自动生成的主键</p>
+<p>PreparedStatement:<br>conn.prepareStatement(String sql,int autoGeneratedKeys);<br>ResultSet getGeneratedKeys() :获取自动生成的主键</p>
+<h2 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h2><p>目的：重复利用Connection资源。</p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在java中，使用javax.sql.DataSource来表示连接池对象。<br>DataSource:数据源，其实就是连接池，Connection Pool。</p>
+<p>为什么必须使用数据库连接池：<br>普通的JDBC数据库连接使用DriverManager来获取，每次向数据库建立连接的时候都要将Connection加载到内存中，再验证用户名和密码。需要数据库连接的时候，就向数据库要求一个，执行完成后再断开连接，这样的方式将会消耗大量的资源和时间，数据库的连接资源并没有得到很好的重复利用，若同时有几百人甚至几千人在线，频繁的进行数据库连接操作将占用很多的系统资源，严重的甚至会造成服务器的崩溃。<br>对于每一次数据库连接，使用完后都得断开，否则，如果程序出现异常而未能关闭，将会导致数据库系统中的内存泄露，最终将导致重启数据库。<br>这种开发不能控制被创建的连接对象数，系统资源会被毫无顾忌的分配出去，如连接过多，也可能导致内存泄露，服务器崩溃。<br>连接池的技术比较多，SUN公司仅仅是提供了DataSource的接口，不提供任何实现。由各大服务器厂商提供DataSource的实现（Tomcat,WebLogic）。</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>eg:<br> 初始化连接数=5<br>   设置事先先在连接池存储个5个Connection对象。<br> 设置最大连接数=10<br>   设置在连接池中最多有10个Connection对象。<br> 最小连接数=2<br>   设置在连接池中最少有两个Connection对象。<br> 超时时间=5min<br>   设置一个客户如果5分钟没有动作，则会被自动释放。<br> 客户的最大等待时间=2min<br>   设置客户最多有两分钟时间去获取Connection对象，若超过2分钟，还没获取到，则系统提示，稍后再试…</p>
+<h3 id="使用连接池和不使用连接池在代码上的区别"><a href="#使用连接池和不使用连接池在代码上的区别" class="headerlink" title="使用连接池和不使用连接池在代码上的区别"></a>使用连接池和不使用连接池在代码上的区别</h3><p>不使用连接池：使用DriverManager来获取Connection对象。<br>Connection conn=DriverManager.getConnection(url,username,password);<br>使用连接池：直接找连接池（DataSource对象），取出Connection即可。<br>在创建DataSource对象时，设置连接数据库的url,user,password。<br>Connection conn=DataSource对象.getConnection();<br>接下来的代码和以前相同。</p>
+<p>释放连接：<br>代码：Connection对象.close();<br>不使用连接池：直接和数据库服务器建立连接关系，而断开也是和数据库服务器断开连接。<br>使用连接池：直接和连接池建立连接关系，而断开也是把Connection对象还给连接池，供其他客户使用。没有真正的和数据库断开。如此一来，一个Connection对象就得到了充分的利用。</p>
+<h3 id="常见的连接池技术"><a href="#常见的连接池技术" class="headerlink" title="常见的连接池技术"></a>常见的连接池技术</h3><p>dbcp:Spring推荐的连接池技术<br>c3p0:Hibernate推荐的连接池技术</p>
+<h4 id="dbcp"><a href="#dbcp" class="headerlink" title="dbcp"></a>dbcp</h4><p>准备：<br>1.拷贝jar包。commons-dbcp-1.4.jar，commons-pool-1.5.6.jar。<br>2.阅读文档。解压commons-dbcp-1.4-src.zip，查看commons-dbcp-1.4-src -&gt; doc -&gt; BasicDataSourceExample.java，里面有连接池的使用案例。<br>步骤：<br>1.创建DataSource对象。<br>2.从DataSource对象中获取Connection对象。<br>3.接下来使用Connection就和以前相同。</p>
+<p>注意：dbcp.properties中的key必须是BasicDataSource对象里的属性（setter）。否则无法把对应的配置信息，设置到DBCP连接池中。<br>dbcp.properties:<br> driverClassName=<br> url=<br> username=<br> password=<br> initialSize=<br> //连接池的最大值<br> maxActive=<br> //连接池的最大空闲数<br> maxIdle=</p>
+<h4 id="c3p0"><a href="#c3p0" class="headerlink" title="c3p0"></a>c3p0</h4><p>准备：<br>1.拷贝jar包。c3p0-0.9.1.2.jar。<br>2.阅读文档。解压c3p0-0.9.1.2.src.zip，查看c3p0-0.9.1.2.src -&gt; src -&gt; doc -&gt; index.html -&gt; Quickstart，里面有连接池的使用案例。<br>步骤：<br>1.创建DataSource对象。<br>2.从DataSource对象中获取Connection对象。<br>3.接下来使用Connection就和以前相同。</p>
+<p><strong>注意</strong>：<br>1.文件名称必须叫作c3p0.properties。<br>2.c3p0.properties必须放在CLASSPATH的根路径下。<br>3.c3p0.properties文件中的key必须以”c3p0.”作为前缀。<br>4.c3p0.properties文件中的key必须是ComboPooledDataSource类的属性名。</p>
+<p><a href="http://pan.baidu.com/s/1miPs2BQ" target="_blank" rel="external">源代码1</a><br><a href="http://pan.baidu.com/s/1hsBn10S" target="_blank" rel="external">源代码2</a></p>
+<p><strong>参考文献</strong><br><a href="http://www.cnblogs.com/zmc/p/6188040.html" target="_blank" rel="external">c3p0三种配置方式</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;jdbc复习笔记。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="jdbc" scheme="http://www.leezp.space/blog/categories/jdbc/"/>
+    
+    
+      <category term="jdbc" scheme="http://www.leezp.space/blog/tags/jdbc/"/>
     
   </entry>
   
