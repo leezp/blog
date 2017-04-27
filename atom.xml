@@ -242,11 +242,65 @@
   </entry>
   
   <entry>
+    <title>mybatis学习笔记</title>
+    <link href="http://www.leezp.space/blog/2016/10/15/mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://www.leezp.space/blog/2016/10/15/mybatis学习笔记/</id>
+    <published>2016-10-15T06:06:08.000Z</published>
+    <updated>2017-04-27T08:35:20.202Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>mybatis笔记整理。</p>
+<a id="more"></a>
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p>框架是一系列jar包，本质是对JDK功能的扩展。<br>框架是一组程序的集合，包含了一系列的最佳实践，作用是解决某一个领域的问题。<br>最佳实践：实际上是无数程序员经历过无数次尝试之后，总结出来的处理特定问题的特定方法，如果把程序员的自由发挥看作是一条通往成功的途径，最佳实践就是其中的最短路径，能极大的解放生产力。<br>最佳实践三要素：可读性，可维护性，可拓展性。</p>
+<h3 id="Web开发中的最佳实践-分层开发模式"><a href="#Web开发中的最佳实践-分层开发模式" class="headerlink" title="Web开发中的最佳实践(分层开发模式)"></a>Web开发中的最佳实践(分层开发模式)</h3><p>JavaEE开发根据职责的纵向划分为：表现层，业务层，持久层。<br>表现层（Predentation Layer）：web/mvc：负责处理与界面交互的相关操作，控制界面跳转（Struts2）<br>业务层（Business Layer）:service：负责复杂的业务逻辑计算和判断（Spring）<br>持久层（Persistent Layer）:dao：负责将业务逻辑数据进行持久化存储（Hibernate/MyBatis）</p>
+<h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><p>对象关系映射（Object Relational Mapping,简称ORM/OR Mapping）。<br>是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。<br>简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将java程序中的对象自动持久化到关系数据库中。<br>避免直接使用SQL语句对关系型数据库中的数据进行操作。<br>减少代码编写量，提高产品质量。<br>ORM主要解决对象–关系的映射。</p>
+<p>面向对象概念    面向关系概念<br>类             表<br>对象           表的行（记录）<br>属性                表的列（字段）</p>
+<h3 id="ORM的实现思想"><a href="#ORM的实现思想" class="headerlink" title="ORM的实现思想"></a>ORM的实现思想</h3><p>将关系数据库中表中的记录映射成为对象，以对象的形式展现。程序员可以把对数据库的操作转化为对对象的操作，因此ORM的目的是为了方便开发人员以面向对象的思想来实现对数据库的操作。</p>
+<p>ORM采用元数据来描述对象–关系映射细节。<br>元数据通常采用XML格式，并且存放在专门的对象–关系映射文件中。</p>
+<p>目前流行的ORM框架：<br>1.JPA:本身是一种ORM规范，不是ORM框架，由各大ORM框架提供实现。<br>2.Hibernate:目前最流行的ORM框架，设计灵巧，性能优秀，文档丰富。<br>3.Mybatis:提供的持久层框架包括SQL Maps和Data Access Objects(DAO)，允许开发人员直接编写SQL等。</p>
+<h3 id="mybatis优势"><a href="#mybatis优势" class="headerlink" title="mybatis优势"></a>mybatis优势</h3><p>mybatis支持普通的SQL查询，存储过程和高级映射的优秀持久层框架。<br>mybatis清除了几乎所有的JDBC代码和参数的手工设置以及结果集的检索。<br>mybatis使用简单的XML或注解用于配置和映射，将接口和java的POJOs(Plain Old Java Objects，普通的java对象)映射成数据库中的记录。</p>
+<h2 id="使用mybatis"><a href="#使用mybatis" class="headerlink" title="使用mybatis"></a>使用mybatis</h2><p>1.提供Product对象，IProductDAO，ProductDAOImpl(未实现)，ProductDAOTest。<br>2.使用框架第一步：拷贝jar包。<br>①：mysql驱动<br>②：mybatis核心包：mybatis-3.2.6.jar<br>③：mybatis依赖jar：mybatis目录\lib中所有jar（使用了log4j.properties就可以不用commons-logging-1.1.1.jar）。<br>3.建立mybatis主配置文件。<br>4.建立对象映射配置文件。<br>5.在主配置文件中关联映射文件。<br>6.在对象映射配置文件中写sql。<br>7.加载mybatis主配置文件。</p>
+<p>sqlSessionFactory使用步骤（Hibernate/Mybatis）：<br>1.从配置文件（通常是XML配置文件中）得到SessionFactory(相当于DataSource)。<br>2.由SessionFactory产生session(相当于connection，和web中的HttpSession无关)。<br>3.在session中完成对数据的增删改查和事务提交等。<br>4.在用完后关闭session。</p>
+<p><strong>sqlSessionFactory一旦被创建，应该在你的应用程序执行期间都存在，没有理由来处理或重新创建它。因此SqlSessionFactory的最佳范围是应用范围，有很多方法可以做到，最简单的就是使用单例模式或者静态单例模式。然而这两种方法都不认为是最佳实践。可以考虑依赖注入容器，比如Spring或Google Guice，这样的框架允许你创建支持程序来管理单例sqlSessionFactory的生命周期。</strong></p>
+<p>SqlSession:<br>每个线程都应该有它自己的SqlSession实例。SqlSession的实例不能被共享，也是线程不安全的。因此最佳的范围是请求或方法范围。绝对不能将SqlSession实例的引用放在一个类的静态字段甚至是实例字段中。也绝不能将SqlSession实例的引用放在任何类型的管理范围中，比如Servlet架构中的HttpSession。如果你现在正用任意的Web框架，要考虑SqlSession放在一个和Http请求对象相似的范围内。换句话说，基于收到的HTTP请求，你可以打开了一个SqlSession，然后返回响应，就可以关闭它了。关闭Session很重要，你应该确保使用finally块来关闭它。</p>
+<p><a href="http://pan.baidu.com/s/1pLJhcIv" target="_blank" rel="external">源代码1</a></p>
+<h3 id="log4j简介"><a href="#log4j简介" class="headerlink" title="log4j简介"></a>log4j简介</h3><p>Log4j有三个主要的组件：Loggers(记录器)，Appenders(输出源)和Layouts(布局)。可简单理解为日志类别，日志要输出的地方和日志以何种形式输出，综合使用这三个组件可以轻松地记录信息的类型和级别，并可以在运行时控制日志输出的样式和位置。</p>
+<h2 id="配置优化"><a href="#配置优化" class="headerlink" title="配置优化"></a>配置优化</h2><p>1.抽取MybatisUtil。<br>2.添加db.properties属性文件。<br>3.在mybatis主配置文件(MyBatis-config.xml)配置类型别名typeAliases。<br>4.列名和属性名不同resultMap。</p>
+<p><a href="http://pan.baidu.com/s/1eRTY6Xk" target="_blank" rel="external">源代码2</a><br><a href="http://pan.baidu.com/s/1hsaGfru" target="_blank" rel="external">源代码3</a></p>
+<h3 id="多条件查询"><a href="#多条件查询" class="headerlink" title="多条件查询"></a>多条件查询</h3><p>1.建立高级查询表单对象:XxxQuery/XxxQueryObject(Xxx表示对象名称)。ProductQueryObject(商品的高级查询对象)，封装了商品高级查询表单的数据。该类存放于query包中，query包和dao包同级。<br>2.在IProductDAO中，定义高级查询方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;Product&gt; query(ProductQueryObject qo);</div></pre></td></tr></table></figure>
+<p>3.在ProductDAOImpl中提供高级查询方法的实现。</p>
+<p><a href="http://pan.baidu.com/s/1eSDZLNO" target="_blank" rel="external">Mybatis-query1</a></p>
+<p><strong>上述查询方法的缺点</strong><br>1.从责任分离上考虑，DAO是不应该做SQL拼接的(DAO是负责做CRUD的，因为查询对象(ProductQueryObject)拥有查询信息，应该把拼接sql责任交给它)。</p>
+<p><a href="http://pan.baidu.com/s/1bG94SI" target="_blank" rel="external">Mybatis-query2</a></p>
+<p>2.使用了where 1=1,降低性能。</p>
+<p><a href="http://pan.baidu.com/s/1eR6XVB8" target="_blank" rel="external">Mybatis-query3</a></p>
+<p>3.拼sql依旧麻烦。</p>
+<p><a href="http://pan.baidu.com/s/1bJrw8u" target="_blank" rel="external">Mybatis-query4</a></p>
+<h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><p>逻辑分页(假分页):一次性把内存中符合条件的数据全部查询出来，存放在内存，在翻页的时候，直接从内存中去截取。<br>优点：翻页很快<br>缺点：若数据量大，可能造成内存溢出。</p>
+<p>物理分页(真分页):<br>每次翻页都从数据库中去截取数据。<br>优点：不会造成内存溢出<br>缺点：翻页较慢</p>
+<p>通过SQL查询出来的数据：<br>1.查询当前的结果集<br>2.查询结果总数</p>
+<p><a href="http://pan.baidu.com/s/1miJTkgC" target="_blank" rel="external">Mybatis-query5</a><br><a href="http://pan.baidu.com/s/1skGKUex" target="_blank" rel="external">Mybatis-query6</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;mybatis笔记整理。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="mybatis" scheme="http://www.leezp.space/blog/categories/mybatis/"/>
+    
+    
+      <category term="mybatis" scheme="http://www.leezp.space/blog/tags/mybatis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>jdbc复习笔记</title>
     <link href="http://www.leezp.space/blog/2016/10/07/jdbc%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://www.leezp.space/blog/2016/10/07/jdbc复习笔记/</id>
     <published>2016-10-07T05:02:01.000Z</published>
-    <updated>2017-04-19T02:34:42.327Z</updated>
+    <updated>2017-04-21T02:45:17.872Z</updated>
     
     <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>jdbc复习笔记。</p>
 <a id="more"></a>
@@ -285,8 +339,8 @@
 <p>注意：dbcp.properties中的key必须是BasicDataSource对象里的属性（setter）。否则无法把对应的配置信息，设置到DBCP连接池中。<br>dbcp.properties:<br> driverClassName=<br> url=<br> username=<br> password=<br> initialSize=<br> //连接池的最大值<br> maxActive=<br> //连接池的最大空闲数<br> maxIdle=</p>
 <h4 id="c3p0"><a href="#c3p0" class="headerlink" title="c3p0"></a>c3p0</h4><p>准备：<br>1.拷贝jar包。c3p0-0.9.1.2.jar。<br>2.阅读文档。解压c3p0-0.9.1.2.src.zip，查看c3p0-0.9.1.2.src -&gt; src -&gt; doc -&gt; index.html -&gt; Quickstart，里面有连接池的使用案例。<br>步骤：<br>1.创建DataSource对象。<br>2.从DataSource对象中获取Connection对象。<br>3.接下来使用Connection就和以前相同。</p>
 <p><strong>注意</strong>：<br>1.文件名称必须叫作c3p0.properties。<br>2.c3p0.properties必须放在CLASSPATH的根路径下。<br>3.c3p0.properties文件中的key必须以”c3p0.”作为前缀。<br>4.c3p0.properties文件中的key必须是ComboPooledDataSource类的属性名。</p>
-<p><a href="http://pan.baidu.com/s/1miPs2BQ" target="_blank" rel="external">源代码1</a><br><a href="http://pan.baidu.com/s/1hsBn10S" target="_blank" rel="external">源代码2</a></p>
-<p><strong>参考文献</strong><br><a href="http://www.cnblogs.com/zmc/p/6188040.html" target="_blank" rel="external">c3p0三种配置方式</a></p>
+<p><a href="http://pan.baidu.com/s/1miPs2BQ" target="_blank" rel="external">源代码1</a><br><a href="http://pan.baidu.com/s/1hsBn10S" target="_blank" rel="external">源代码2</a><br><a href="http://pan.baidu.com/s/1i5IDcdJ" target="_blank" rel="external">数据库文件</a></p>
+<p><strong>参考文献</strong><br><a href="http://www.cnblogs.com/zmc/p/6188040.html" target="_blank" rel="external">c3p0三种配置方式</a><br><a href="http://blog.csdn.net/xwq911/article/details/49150043" target="_blank" rel="external">Connection实例是线程安全的吗</a></p>
 ]]></content>
     
     <summary type="html">
