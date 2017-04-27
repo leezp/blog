@@ -246,7 +246,7 @@
     <link href="http://www.leezp.space/blog/2016/10/15/mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://www.leezp.space/blog/2016/10/15/mybatis学习笔记/</id>
     <published>2016-10-15T06:06:08.000Z</published>
-    <updated>2017-04-27T08:35:20.202Z</updated>
+    <updated>2017-04-27T09:11:32.757Z</updated>
     
     <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>mybatis笔记整理。</p>
 <a id="more"></a>
@@ -262,7 +262,7 @@
 <p>sqlSessionFactory使用步骤（Hibernate/Mybatis）：<br>1.从配置文件（通常是XML配置文件中）得到SessionFactory(相当于DataSource)。<br>2.由SessionFactory产生session(相当于connection，和web中的HttpSession无关)。<br>3.在session中完成对数据的增删改查和事务提交等。<br>4.在用完后关闭session。</p>
 <p><strong>sqlSessionFactory一旦被创建，应该在你的应用程序执行期间都存在，没有理由来处理或重新创建它。因此SqlSessionFactory的最佳范围是应用范围，有很多方法可以做到，最简单的就是使用单例模式或者静态单例模式。然而这两种方法都不认为是最佳实践。可以考虑依赖注入容器，比如Spring或Google Guice，这样的框架允许你创建支持程序来管理单例sqlSessionFactory的生命周期。</strong></p>
 <p>SqlSession:<br>每个线程都应该有它自己的SqlSession实例。SqlSession的实例不能被共享，也是线程不安全的。因此最佳的范围是请求或方法范围。绝对不能将SqlSession实例的引用放在一个类的静态字段甚至是实例字段中。也绝不能将SqlSession实例的引用放在任何类型的管理范围中，比如Servlet架构中的HttpSession。如果你现在正用任意的Web框架，要考虑SqlSession放在一个和Http请求对象相似的范围内。换句话说，基于收到的HTTP请求，你可以打开了一个SqlSession，然后返回响应，就可以关闭它了。关闭Session很重要，你应该确保使用finally块来关闭它。</p>
-<p><a href="http://pan.baidu.com/s/1pLJhcIv" target="_blank" rel="external">源代码1</a></p>
+<p><a href="http://pan.baidu.com/s/1pLJhcIv" target="_blank" rel="external">源代码1</a><br><a href="http://pan.baidu.com/s/1misiSK4" target="_blank" rel="external">数据库文件</a></p>
 <h3 id="log4j简介"><a href="#log4j简介" class="headerlink" title="log4j简介"></a>log4j简介</h3><p>Log4j有三个主要的组件：Loggers(记录器)，Appenders(输出源)和Layouts(布局)。可简单理解为日志类别，日志要输出的地方和日志以何种形式输出，综合使用这三个组件可以轻松地记录信息的类型和级别，并可以在运行时控制日志输出的样式和位置。</p>
 <h2 id="配置优化"><a href="#配置优化" class="headerlink" title="配置优化"></a>配置优化</h2><p>1.抽取MybatisUtil。<br>2.添加db.properties属性文件。<br>3.在mybatis主配置文件(MyBatis-config.xml)配置类型别名typeAliases。<br>4.列名和属性名不同resultMap。</p>
 <p><a href="http://pan.baidu.com/s/1eRTY6Xk" target="_blank" rel="external">源代码2</a><br><a href="http://pan.baidu.com/s/1hsaGfru" target="_blank" rel="external">源代码3</a></p>
