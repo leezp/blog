@@ -1,0 +1,1278 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="sql语句,sqlserver," />
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Leezp's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="15年10月份，大概一年半以前的某个工作日凌晨2点钟开始整理的sql语句。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqlserver常用SQL语句整理">
+<meta property="og:url" content="http://www.leezp.space/blog/2017/04/20/sqlserver常用SQL语句整理/index.html">
+<meta property="og:site_name" content="Leezp's Blog">
+<meta property="og:description" content="15年10月份，大概一年半以前的某个工作日凌晨2点钟开始整理的sql语句。">
+<meta property="og:updated_time" content="2017-05-03T01:22:58.637Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sqlserver常用SQL语句整理">
+<meta name="twitter:description" content="15年10月份，大概一年半以前的某个工作日凌晨2点钟开始整理的sql语句。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.leezp.space/blog/2017/04/20/sqlserver常用SQL语句整理/"/>
+
+
+
+
+
+  <title> sqlserver常用SQL语句整理 | Leezp's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1d55f14ba137e7fe86312476de83b077";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Leezp's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Mr.Lee</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.leezp.space/blog/blog/2017/04/20/sqlserver常用SQL语句整理/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Leezp">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/blog/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Leezp's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Leezp's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                sqlserver常用SQL语句整理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-20T20:08:07+08:00">
+                2017-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/sql语句/" itemprop="url" rel="index">
+                    <span itemprop="name">sql语句</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2017/04/20/sqlserver常用SQL语句整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/20/sqlserver常用SQL语句整理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/blog/2017/04/20/sqlserver常用SQL语句整理/" class="leancloud_visitors" data-flag-title="sqlserver常用SQL语句整理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>15年10月份，大概一年半以前的某个工作日凌晨2点钟开始整理的sql语句。</p>
+<a id="more"></a>
+<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">CREATE DATABASE 数据库名</div><div class="line">ON PRIMARY     --默认就属于PRIMARY主文件组，可省略</div><div class="line">(</div><div class="line"> NAME=<span class="string">'  '</span>,  --主数据文件的逻辑名</div><div class="line"> FILENAME=<span class="string">'D:\project\stuDB_data.mdf'</span>,  --主数据文件的物理名</div><div class="line"> SIZE=5mb,  --主数据文件初始大小</div><div class="line"> MAXSIZE=100mb,  --主数据文件增长的最大值</div><div class="line"> FILEGROWTH=15%   --主数据文件的增长率</div><div class="line">)</div><div class="line">LOG ON</div><div class="line">(</div><div class="line">  NAME=<span class="string">'  '</span>,</div><div class="line">  FILENAME=<span class="string">'D:\project\stuDB_log.ldf'</span>,</div><div class="line">  SIZE=2mb,</div><div class="line">  FILEGROWTH=1MB</div><div class="line">)</div><div class="line">GO</div></pre></td></tr></table></figure>
+<h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DROP DATABASE 数据库名 </div><div class="line">USE master  --设置当前数据库为master，以便访问sysdatabases表</div><div class="line">GO</div><div class="line">IF  EXISTS（SELECT * FROM  sysdatabases WHERE  name =<span class="string">'stuDB'</span>）</div><div class="line">   DROP DATABASE stuDB</div></pre></td></tr></table></figure>
+<h2 id="SqlServer的主要数据类型"><a href="#SqlServer的主要数据类型" class="headerlink" title="SqlServer的主要数据类型"></a>SqlServer的主要数据类型</h2><p>Image:可用来存储图像<br>Char:固定长度的非Unicode字符数据<br>Varchar:可变长度非 Unicode 数据<br>Nchar: 固定长度的Unicode 数据<br>Nvarchar:可变长度的Unicode 数据<br>DataTime：日期和时间<br>int,smallint:整数<br>Money:货币数据类型<br>Bit:布尔</p>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE  表名</div><div class="line"> (</div><div class="line">    字段1 数据类型 列的特征，</div><div class="line">    字段2 数据类型 列的特征，</div><div class="line">     ...</div><div class="line">)</div><div class="line"></div><div class="line">USE stuDB   -数据库名 </div><div class="line">GO</div><div class="line">CREATE  TABLE  stuInfo    /*-创建学员信息表-*/</div><div class="line">(</div><div class="line"> stuName  VARCHAR(20)  NOT  NULL ,  --姓名，非空（必填）</div><div class="line"> stuNo   CHAR(6)  NOT  NULL,   --学号，非空（必填）</div><div class="line"> stuAge  INT  NOT  NULL,  --年龄，INT类型默认为4个字节</div><div class="line"> stuID  NUMERIC(18,0),     --身份证号</div><div class="line"> stuSeat   SMALLINT  IDENTITY (1,1),   --座位号，自动编号</div><div class="line"> stuAddress   TEXT   --住址，允许为空，即可选输入</div><div class="line">) </div><div class="line">GO</div></pre></td></tr></table></figure>
+<p>创建表：保证数据的完整性 = 实施完整性约束</p>
+<h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">DROP TABLE 表名</div><div class="line">USE stuDB   --将当前数据库设置为stuDB ，以便在stuDB数据库中建表</div><div class="line">GO</div><div class="line">IF EXISTS（SELECT * FROM  sysobjects  WHERE  name=’stuInfo’ ）</div><div class="line">    DROP  TABLE  stuInfo</div><div class="line">CREATE  TABLE  stuInfo   /*-创建学员信息表-*/</div><div class="line">(</div><div class="line">…..</div><div class="line">) </div><div class="line">GO</div></pre></td></tr></table></figure>
+<h2 id="添加约束"><a href="#添加约束" class="headerlink" title="添加约束"></a>添加约束</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE 表名  </div><div class="line">     ADD CONSTRAINT 约束名  约束类型  具体的约束说明</div><div class="line">--	主键（Primary Key）约束：如 PK_stuNo</div><div class="line">--	唯一（Unique Key）约束：如 UQ_stuID(允许为空,不能重复)</div><div class="line">--	默认（Default Key）约束：如 DF_stuAddress(当插入记录时该字段没有赋值，会使用默认值)</div><div class="line">--	检查（Check Key）约束：如 CK_stuAge(列字段的内容必须符合要求,通常是一个取值范围)</div><div class="line">--	外键(Foreign Key)约束：如 FK_stuNo </div><div class="line">ALTER TABLE stuInfo </div><div class="line">     ADD CONSTRAINT PK_stuNo PRIMARY KEY (stuNo)</div><div class="line">ALTER TABLE stuInfo </div><div class="line">    ADD CONSTRAINT UQ_stuID UNIQUE (stuID)</div><div class="line">ALTER TABLE stuInfo </div><div class="line">    ADD CONSTRAINT DF_stuAddress </div><div class="line">          DEFAULT (<span class="string">'地址不详'</span>) FOR stuAddress</div><div class="line">ALTER TABLE stuInfo </div><div class="line">    ADD CONSTRAINT CK_stuAge </div><div class="line">        CHECK(stuAge BETWEEN 15 AND 40)</div><div class="line">ALTER TABLE stuMarks</div><div class="line">   ADD CONSTRAINT FK_stuNo          </div><div class="line">       FOREIGN KEY(stuNo) REFERENCES stuInfo(stuNo)</div><div class="line">GO</div></pre></td></tr></table></figure>
+<h2 id="主外键关系"><a href="#主外键关系" class="headerlink" title="主外键关系"></a>主外键关系</h2><ol>
+<li>当主表中没有对应的记录时，不能将记录添加到子表<br>成绩表中不能出现在学员信息表中不存在的学号；</li>
+<li>不能更改主表中的值而导致子表中的记录孤立<br>把学员信息表中的学号改变了，学员成绩表中的学号也应当随之改变；</li>
+<li>子表存在与主表对应的记录，不能从主表中删除该行<br>不能把有成绩的学员删除了</li>
+<li>删除主表前，先删子表<br>先删学员成绩表、后删除学员信息表</li>
+</ol>
+<h2 id="删除约束"><a href="#删除约束" class="headerlink" title="删除约束"></a>删除约束</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE 表名  </div><div class="line">      DROP CONSTRAINT 约束名</div></pre></td></tr></table></figure>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>= &gt; &lt; &gt;= &lt;= &lt;&gt;不等于 !</p>
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">‘&#95;’</td>
+<td style="text-align:left">一个字符</td>
+<td style="text-align:left">A Like ‘C&#95;’</td>
+</tr>
+<tr>
+<td style="text-align:left">%</td>
+<td style="text-align:left">任意长度的字符串</td>
+<td style="text-align:left">B Like ‘CO&#95;%’</td>
+</tr>
+<tr>
+<td style="text-align:left">[ ]</td>
+<td style="text-align:left">括号中所指定范围内的一个字符</td>
+<td style="text-align:left">C Like ‘9W0[1-2]’</td>
+</tr>
+<tr>
+<td style="text-align:left">[^]</td>
+<td style="text-align:left">不在括号中所指定范围内的一个字符</td>
+<td style="text-align:left">D Like ‘%[A-D][^1-2]’</td>
+</tr>
+</tbody>
+</table>
+<h2 id="逻辑表达式"><a href="#逻辑表达式" class="headerlink" title="逻辑表达式"></a>逻辑表达式</h2><table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">AND</td>
+<td style="text-align:left">逻辑与</td>
+<td style="text-align:left">1 AND 1 = 1; 1 AND 0 = 0; 0 AND 0 = 0;</td>
+</tr>
+<tr>
+<td style="text-align:left">OR</td>
+<td style="text-align:left">逻辑或</td>
+<td style="text-align:left">1 OR 1 = 1; 1OR 0 = 1; 0 OR 0 = 0;</td>
+</tr>
+<tr>
+<td style="text-align:left">NOT</td>
+<td style="text-align:left">逻辑非</td>
+<td style="text-align:left">NOT 1 = 0; NOT 0 = 1;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="插入数据行"><a href="#插入数据行" class="headerlink" title="插入数据行"></a>插入数据行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">InSert  [INTO] &lt;表名&gt;  [列名] Values &lt;值列表&gt;</div><div class="line">INSERT INTO 	Table_1 (id,loginId,LoginPwd) </div><div class="line">values (3,4,5)</div></pre></td></tr></table></figure>
+<h3 id="插入多行数据-一个表中数据引入另一个表-建临时表"><a href="#插入多行数据-一个表中数据引入另一个表-建临时表" class="headerlink" title="插入多行数据(一个表中数据引入另一个表/建临时表)"></a>插入多行数据(一个表中数据引入另一个表/建临时表)</h3><p>应用：复制学员表Student为Table_1，包含表结构和全部的数据<br>语法：<br>Insert Into &lt;表名&gt;(列名)<br>Select &lt;列名&gt;<br>From &lt;源表名&gt;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">INSERT INTO Table_1(id, loginId, LoginPwd) </div><div class="line">SELECT Id,Name,Number</div><div class="line">FROM Student</div><div class="line"></div><div class="line">INSERT INTO tb_TB(id, number, 数学成绩) </div><div class="line">SELECT A.id,A.学号,A.数学成绩 </div><div class="line">FROM (SELECT  id,number As 学号,Math As 数学成绩</div><div class="line">FROM tb_Score</div><div class="line">WHERE Math between 60 and 100</div><div class="line">ORDER BY tb_Score.number           ------</div><div class="line">) A</div></pre></td></tr></table></figure>
+<font color="red">除非另外还指定了TOP 或FOR XML，否则，ORDER BY 子句在视图、内联函数、派生表、子查询和公用表表达式中无效。</font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">INSERT INTO tb_TB(id, number, 数学成绩) </div><div class="line">SELECT A.id,A.学号,A.数学成绩 </div><div class="line">FROM (SELECT  id,number As 学号,Math As 数学成绩</div><div class="line">FROM tb_Score</div><div class="line">WHERE Math between 60 and 100</div><div class="line">--ORDER BY tb_Score.number</div><div class="line">) A</div></pre></td></tr></table></figure>
+<p>//(9 行受影响)  </p>
+<p><font color="blue">一般常用的创建临时表的方法是:</font><br>Select &lt;列名&gt;<br>Into &lt;表名&gt;(列名)<br>From &lt;源表名&gt;      –若不存在自己创建，若存在提示已存在</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">select  A.id,A.学号,A.数学成绩 </div><div class="line">into tb_TB</div><div class="line">from(SELECT  id,number As 学号,Math As 数学成绩</div><div class="line">FROM tb_Score</div><div class="line">WHERE Math between 60 and 100</div><div class="line">--ORDER BY tb_Score.number</div><div class="line">) A</div></pre></td></tr></table></figure>
+<p>//消息 2714，级别 16，状态 6，第 1 行 数据库中已存在名为 ‘tb_TB’ 的对象。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">select  A.id,A.学号,A.数学成绩 </div><div class="line">into tb_TC</div><div class="line">from(SELECT  id,number As 学号,Math As 数学成绩</div><div class="line">FROM tb_Score</div><div class="line">WHERE Math between 60 and 100</div><div class="line">--ORDER BY tb_Score.number</div><div class="line">) A</div><div class="line"></div><div class="line">select * from tb_TC</div><div class="line">--新表中自动创建的id，number,Math与源表中数量，类型一致</div></pre></td></tr></table></figure>
+<p><strong>Q：在数据库表中，数据行位置并不重要，但是一个单位中要根据奇数行和偶数行的数据来汇总，在这个汇总的基础上再得到一个数值，因此，要查询数据库表的奇数行和偶数行的总数。</strong><br><strong>A：新建一个临时表，从原表中任选一列数据存入临时表，根据新的标识列，进行奇偶判断。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT 	</div><div class="line">IDENTITY(int,1,1) AS ID </div><div class="line">INTO TEMPTABL</div><div class="line">FROM tb_TC</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select * from TEMPTABL</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT count(ID) AS 奇数列汇总 </div><div class="line">FROM TEMPTABL</div><div class="line">WHERE ID%2 &lt;&gt; 0</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT count(ID) AS 偶数列汇总 </div><div class="line">FROM TEMPTABL </div><div class="line">WHERE ID%2 = 0</div></pre></td></tr></table></figure>
+<h2 id="更新数据行"><a href="#更新数据行" class="headerlink" title="更新数据行"></a>更新数据行</h2><p>语法：<br>Update &lt;表名&gt; Set &lt;列名 = 更新值&gt;<br>[Where &lt;更新条件&gt;]</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UPDATE Students SET SSEX = 0</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UPDATE Scores</div><div class="line">SET Scores = Scores + 5</div><div class="line">WHERE Scores &lt;= 95</div></pre></td></tr></table></figure>
+<h2 id="删除数据行"><a href="#删除数据行" class="headerlink" title="删除数据行"></a>删除数据行</h2><p>语法：Delete From &lt;表名&gt; [Where &lt;删除条件&gt;]</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DELETE FROM Table_3</div><div class="line"><span class="built_in">where</span> s = <span class="string">'6'</span></div></pre></td></tr></table></figure>
+<h2 id="删除表-1"><a href="#删除表-1" class="headerlink" title="删除表"></a>删除表</h2><p>语法：Truncate Table &lt;表名&gt;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">TRUNCATE TABLE Table_3</div><div class="line"></div><div class="line">DELETE FROM Table_3    --与上面的语句等价</div></pre></td></tr></table></figure>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>语法:<br>SELECT    &lt;列名&gt;<br>FROM      &lt;表名&gt;<br>[WHERE    &lt;查询条件表达式&gt;]<br>[ORDER BY &lt;排序的列名&gt;[ASC或DESC]]</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT id,Name,Number </div><div class="line">FROM Student </div><div class="line">WHERE SEX = 0 </div><div class="line">ORDER BY ClassNo</div></pre></td></tr></table></figure>
+<p>查询全部的行和列:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM Students</div></pre></td></tr></table></figure>
+<p>查询部分行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SELECT SCode,SName,SAddress FROM Students</div><div class="line">WHERE SAddress = <span class="string">'河南新乡'</span></div><div class="line"></div><div class="line">SELECT SCode,SName,SAddress FROM Students</div><div class="line">WHERE SAddress &lt;&gt; <span class="string">'河南新乡'</span></div></pre></td></tr></table></figure>
+<p>使用AS来命名列:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">SELECT SCode AS 学员编号,SName AS学员姓名,SAddress AS 学员地址  </div><div class="line">FROM Students</div><div class="line">WHERE SAddress &lt;&gt; <span class="string">'河南新乡'</span></div><div class="line"></div><div class="line">SELECT Name + <span class="string">'.'</span> + Number AS <span class="string">'姓名'</span> </div><div class="line">FROM Student</div><div class="line"></div><div class="line">SELECT Name  AS <span class="string">'男'</span> </div><div class="line">FROM Student</div><div class="line"><span class="built_in">where</span> Sex=1</div></pre></td></tr></table></figure>
+<p>使用=来命名列:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT <span class="string">'A'</span> = Name+<span class="string">'.'</span>+Number </div><div class="line">FROM Student</div></pre></td></tr></table></figure>
+<p>查询空行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT Name FROM Student WHERE Sex IS NULL</div></pre></td></tr></table></figure>
+<p>使用常量列(‘’AS列名,列名下元素赋值’’):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SELECT 姓名=Name,学号= Number,<span class="string">'.Net班'</span> AS 班级</div><div class="line">FROM Student</div><div class="line"></div><div class="line">--查询Name命名为ok</div><div class="line">SELECT Name AS ok,学号= Number,<span class="string">'.Net班'</span> AS 班级</div><div class="line">FROM Student</div></pre></td></tr></table></figure>
+<p>限制固定行数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT TOP 5 Name, Number</div><div class="line">FROM Student WHERE Sex = 0</div></pre></td></tr></table></figure>
+<p>返回百分之多少行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT TOP 40 PERCENT Name, Address</div><div class="line">FROM Student WHERE Sex = 0</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT TOP 1 PERCENT Name, Address</div><div class="line">FROM Student WHERE Sex = 0</div><div class="line">--若存在至少返回一行</div></pre></td></tr></table></figure>
+<p>升序排列:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT id As 学员编号,(Math*0.9+5) As 综合成绩</div><div class="line">FROM Tb_Score</div><div class="line">WHERE (Math*0.9+5)&gt;60</div><div class="line">ORDER BY number</div></pre></td></tr></table></figure>
+<p>//消息8115，级别16，状态8，第1 行 将varchar 转换为数据类型numeric 时出现算术溢出错误。</p>
+<p>降序排列:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">…</div><div class="line">ORDER BY number DESC</div></pre></td></tr></table></figure>
+<p>按多列排序:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SELECT  number As 学号,Math As 数学成绩</div><div class="line">FROM tb_Score</div><div class="line">WHERE Math&gt;60</div><div class="line">ORDER BY tb_Score.number</div><div class="line">--tb_Score可省略</div></pre></td></tr></table></figure>
+<h3 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h3><p>LIKE:<br>Q:以下的SQL语句：<br>SELECT * FROM 数据表<br>WHERE 编号 LIKE ‘00[^8]%[A,C]%’<br>可能会查询出的编号值为(B)。<br>A、9890ACD<br>B、007_AFF<br>C、008&amp;DCG<br>D、KK8C</p>
+<p>IS NULL(把某一字段中内容为空的记录查询出来):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT ID, Name FROM Student WHERE Phone Is null</div></pre></td></tr></table></figure>
+<p>BETWEEN:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT  number As 学号,Math As 数学成绩</div><div class="line">FROM tb_Score</div><div class="line">WHERE Math between 60 and 100</div><div class="line">ORDER BY tb_Score.number</div></pre></td></tr></table></figure>
+<p>IN(把某一字段中内容与所列出的查询内容列表匹配的记录查询出来):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT ID, Number FROM tb_address WHERE address </div><div class="line">IN (<span class="string">'北京'</span>,<span class="string">'沈阳'</span>,<span class="string">'南京'</span>)</div></pre></td></tr></table></figure>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><p>SUM:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT SUM(Math) FROM Tb_Score WHERE English = <span class="string">'95'</span></div></pre></td></tr></table></figure>
+<p>AVG:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT AVG(Math) AS 平均成绩 </div><div class="line">From Tb_Score WHERE Math &gt;=60</div></pre></td></tr></table></figure>
+<p>MAX、MIN:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT AVG(Math) AS 平均成绩, MAX (Math) AS 最高分, </div><div class="line">MIN (Math) AS 最低分 From tb_Score WHERE Math &gt;=60</div></pre></td></tr></table></figure>
+<p>COUNT/COUNT(*):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT COUNT (*)  AS 及格人数 From tb_Score </div><div class="line">WHERE Math&gt;=60</div></pre></td></tr></table></figure>
+<h2 id="分组汇总"><a href="#分组汇总" class="headerlink" title="分组汇总"></a>分组汇总</h2><p>GROUP BY:<br>指定 GROUP BY 时，如果 SELECT 子句中包含聚合函数, 则计算每组的汇总值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT math,AVG(Math) as 平均成绩</div><div class="line">FROM tb_Score</div><div class="line">GROUP BY math</div></pre></td></tr></table></figure>
+<p>选择列表中任一非聚合表达式内的所有列都应包含在 GROUP BY 列表中，或者 GROUP。<br>BY 表达式必须与选择列表表达式完全匹配。否则列无法对应。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT number,math</div><div class="line">FROM tb_Score</div><div class="line">GROUP BY number,math</div></pre></td></tr></table></figure>
+<p>多列分组:<br>用于两个或多个元素在两个或多个列值相同的情况。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SELECT Number AS 学员编号,courseId AS 内部测试, </div><div class="line">AVG(Score) AS 内部测试平均成绩 ge</div><div class="line">FROM studentScores</div><div class="line">GROUP BY Number,courseId</div><div class="line">--转化为平均成绩</div></pre></td></tr></table></figure>
+<p><font color="red">HAVING</font>:<br>输出两个或多个元素在两个或多个列值相同,例如成绩出现多次的分组的平均成绩：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SELECT Number AS 学员编号, courseId AS 内部测试, </div><div class="line">AVG(Score) AS 内部测试平均成绩</div><div class="line">FROM studentScores</div><div class="line">GROUP BY Number,courseId</div><div class="line">HAVING COUNT(Score)&gt;1</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">select * from	</div><div class="line">(SELECT Number AS 学员编号, courseId AS 内部测试,</div><div class="line">AVG(Score) AS 内部测试平均成绩 </div><div class="line">FROM studentScores</div><div class="line">GROUP BY Number,courseId					</div><div class="line">HAVING COUNT(Score)&gt;1) A</div><div class="line"><span class="built_in">where</span> 学员编号=12</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>((select count (*) a from </div><div class="line">(SELECT distinct Number from studentScores) A )</div><div class="line">&lt;&gt;(select count (Number) b </div><div class="line">from studentScores ))</div><div class="line">begin</div><div class="line"><span class="built_in">print</span> <span class="string">'有重复'</span></div><div class="line">end</div><div class="line"><span class="keyword">else</span></div><div class="line">begin</div><div class="line"><span class="built_in">print</span> <span class="string">'无重复'</span></div><div class="line">end</div></pre></td></tr></table></figure>
+<p>对比:<br>WHERE子句从数据源中去掉不符合其搜索条件的数据。<br>GROUP BY子句搜集数据行到各个组中，统计函数为各个组计算统计值。<br>HAVING子句去掉不符合其组搜索条件的各组数据行。</p>
+<h2 id="多表联结查询"><a href="#多表联结查询" class="headerlink" title="多表联结查询"></a>多表联结查询</h2><p>分类：<br>1.内联结(INNER JOIN)<br>2.外联结<br>①.左外联结(LEFT JOIN)<br>②.右外联结(RIGHT JOIN)<br>③.完整外联结(FULL JOIN)<br>3.交叉联结(CROSS JOIN)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT S.SName,C.CourseID,C.Score </div><div class="line">From Score AS C</div><div class="line">INNER JOIN Students AS S</div><div class="line">ON C.StudentID = S.SCode</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT S.SName,C.CourseID,C.Score </div><div class="line">From Students AS S</div><div class="line">INNER JOIN Score AS C</div><div class="line">ON C.StudentID = S.SCode</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT Students.SName, Score.CourseID, Score.Score</div><div class="line">FROM Students,Score --FROM 表A表B</div><div class="line">WHERE Students.SCode = Score.StudentID</div></pre></td></tr></table></figure>
+<p>//上面三个结果相同</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT S.SName,C.CourseID,C.Score </div><div class="line">From Students AS S</div><div class="line">INNER JOIN Score AS C</div><div class="line">ON C.StudentID &lt;&gt; S.SCode</div></pre></td></tr></table></figure>
+<p>三表联结:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SELECT </div><div class="line">--表A,B,C内要显示的列</div><div class="line">S.SName AS 姓名,C.Score AS 成绩   --,CS.CourseName AS 课程</div><div class="line">FROM Students AS S </div><div class="line">INNER JOIN Score AS C ON (S.SCode = C.StudentID)</div><div class="line">INNER JOIN Course AS CS ON (CS.CourseID = C.CourseID)</div></pre></td></tr></table></figure>
+<p>左外联结(LEFT JOIN /LEFT OUTER JOIN):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT S.SName --,C.CourseID,C.Score </div><div class="line">From Students AS S</div><div class="line">LEFT JOIN Score AS C</div><div class="line">ON C.StudentID = S.SCode</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT C.CourseID,C.Score --,S.SName</div><div class="line">From Score AS C</div><div class="line">LEFT JOIN Students AS S</div><div class="line">ON C.StudentID = S.SCode</div></pre></td></tr></table></figure>
+<p>//上面两个结果相同</p>
+<h2 id="T-SQL"><a href="#T-SQL" class="headerlink" title="T-SQL"></a>T-SQL</h2><p>局部变量：<br>局部变量必须以标记@作为前缀，如@age。<br>局部变量的使用也是先声明，再赋值。<br>全局变量：<br>全局变量必须以标记@@作为前缀，如@@version。<br>全局变量由系统定义和维护，我们只能读取，不能修改全局变量的值。<br>声明局部变量：DECLARE @变量名 数据类型</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DECLARE @name varchar(8)</div><div class="line"></div><div class="line">DECLARE @seat int</div></pre></td></tr></table></figure>
+<p>赋值:<br>SET @变量名 = 值<br>或 SELECT @变量名 = 值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SET @name=<span class="string">'张三'</span>     --必须确保筛选出的记录只有1条</div><div class="line"></div><div class="line">SELECT @name=stuName FROM stuInfo </div><div class="line">WHERE stuNo=<span class="string">'s25302'</span></div></pre></td></tr></table></figure>
+<p><strong>Eg：编写T-SQL查找李文才的左右同桌。</strong><br>/<em>–查找李文才的信息–</em>/</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">DECLARE @name varchar(8)  --学员姓名</div><div class="line">SET @name=<span class="string">'李文才'</span>        --使用SET赋值</div><div class="line">SELECT * FROM stuInfo WHERE stuName = @name</div><div class="line">/*--查找李文才的左右同桌--*/</div><div class="line">DECLARE @seat int  --座位号</div><div class="line">SELECT @seat=stuSeat FROM stuInfo  --使用SELECT赋值</div><div class="line">   WHERE stuName=@name</div><div class="line">SELECT * FROM stuInfo </div><div class="line">   WHERE (stuSeat = @seat+1) OR (stuSeat = @seat-1)</div><div class="line">GO</div></pre></td></tr></table></figure>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">INSERT INTO stuInfo(stuName,stuNo,stuSex,stuAge)   </div><div class="line">VALUES(<span class="string">'武松'</span>,<span class="string">'s25328'</span>,<span class="string">'男'</span>,<span class="string">'23'</span>)</div><div class="line">--如果大于0表示上一条语句执行有错误</div><div class="line"><span class="built_in">print</span> <span class="string">'当前错误号'</span>+convert(varchar(5),@@ERROR)</div><div class="line"><span class="built_in">print</span> <span class="string">'刚才报名的学员，座位号为:'</span>+convert(varchar(5),@@IDENTITY ) </div><div class="line">  Go</div></pre></td></tr></table></figure>
+<h3 id="IF-ELSE语句"><a href="#IF-ELSE语句" class="headerlink" title="IF-ELSE语句"></a>IF-ELSE语句</h3><p>ELSE是可选部分,如果有多条语句,才需要BEGIN-END语句块。<br>SQL中的IF-ELSE语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">IF (条件)</div><div class="line"> BEGIN</div><div class="line">    语句1</div><div class="line">    语句2</div><div class="line">    …</div><div class="line"> END</div><div class="line">ELSE</div><div class="line"> BEGIN</div><div class="line">    语句;</div><div class="line">    语句;</div><div class="line">    …</div><div class="line"> END</div></pre></td></tr></table></figure>
+<h3 id="WHILE循环语句"><a href="#WHILE循环语句" class="headerlink" title="WHILE循环语句"></a>WHILE循环语句</h3><p>BREAK表示退出循环,如果有多条语句才需要BEGIN-END语句块。<br>SQL中的WHILE语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">WHILE 条件）</div><div class="line"> BEGIN</div><div class="line">    语句1</div><div class="line">    语句2</div><div class="line">    ……</div><div class="line">    BREAK</div><div class="line"> END</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">DECLARE @n int</div><div class="line">WHILE(1=1) --条件永远成立</div><div class="line">  BEGIN</div><div class="line">    SELECT @n=COUNT(*) FROM stuMarks </div><div class="line">            WHERE writtenExam&lt;60    --统计不及格人数</div><div class="line">    IF (@n&gt;0)</div><div class="line">       UPDATE stuMarks     --每人加分</div><div class="line">            SET writtenExam=writtenExam+2 </div><div class="line">    ELSE</div><div class="line">       BREAK    --退出循环</div><div class="line">  END</div><div class="line"><span class="built_in">print</span> <span class="string">'加分后的成绩如下：'</span></div><div class="line">SELECT * FROM stuMarks</div></pre></td></tr></table></figure>
+<h3 id="CASE-END多分支语句"><a href="#CASE-END多分支语句" class="headerlink" title="CASE-END多分支语句"></a>CASE-END多分支语句</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CASE </div><div class="line">  WHEN 条件1 THEN  结果1</div><div class="line">  WHEN 条件2 THEN  结果2</div><div class="line">  ……</div><div class="line">  ELSE 其他结果</div><div class="line">END</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>  <span class="string">'ABCDE五级显示成绩如下：'</span></div><div class="line">SELECT stuNo,</div><div class="line">成绩=CASE  </div><div class="line">      WHEN writtenExam&lt;60 THEN <span class="string">'E'</span></div><div class="line">      WHEN writtenExam BETWEEN 60 AND 69 THEN <span class="string">'D'</span></div><div class="line">      WHEN writtenExam BETWEEN 70 AND 79 THEN <span class="string">'C'</span></div><div class="line">      WHEN writtenExam BETWEEN 80 AND 89 THEN <span class="string">'B'</span></div><div class="line">      ElSE <span class="string">'A'</span></div><div class="line">     END</div><div class="line">FROM stuMarks</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">USE stuDB</div><div class="line">GO</div><div class="line">SELECT 考号=ExamNo,学号=stuNo,笔试=writtenExam,机试=labExam,</div><div class="line">  平均分=(writtenExam+labExam)/2,</div><div class="line">  等级=CASE  </div><div class="line">       WHEN (writtenExam+labExam)/2&lt;60 THEN <span class="string">'不及格'</span></div><div class="line">       WHEN (writtenExam+labExam)/2 BETWEEN 60 AND 69 THEN <span class="string">'差'</span></div><div class="line">       WHEN (writtenExam+labExam)/2 BETWEEN 70 AND 79 THEN <span class="string">'中'</span></div><div class="line">       WHEN (writtenExam+labExam)/2 BETWEEN 80 AND 89 THEN <span class="string">'良'</span></div><div class="line">       ElSE <span class="string">'优'</span></div><div class="line">      END</div><div class="line">FROM stuMarks</div></pre></td></tr></table></figure>
+<p>批处理语句：SQLServer规定：如果是建库、建表语句、以及我们后面学习的存储过程和视图等，则必须在语句末尾添加 GO 批处理标志。</p>
+<p><strong>Eg:对机试成绩进行反复加分，直到平均分超过分为止。请编写T-SQL语句实现。</strong><br>90分以上：   不加分<br>80－89分：   加分<br>70－79分：   加分<br>60－69分：   加分<br>60分以下：   加分</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM stuMarks  --原始成绩</div><div class="line">DECLARE @labAvg INT</div><div class="line">WHILE(1=1)</div><div class="line"> BEGIN</div><div class="line">    UPDATE stuMarks </div><div class="line">      SET labExam=</div><div class="line">        CASE</div><div class="line">            WHEN labExam&lt;60 THEN labExam+5</div><div class="line">            WHEN labExam between 60 AND 69 THEN labExam+3</div><div class="line">            WHEN labExam between 70 AND 79 THEN labExam+2 </div><div class="line">            WHEN labExam between 80 AND 89 THEN labExam+1</div><div class="line">            ELSE labExam</div><div class="line">        END</div><div class="line">     SELECT @labAvg=AVG(labExam) FROM stuMarks</div><div class="line">     IF @labAvg&gt;=85</div><div class="line">        BREAK</div><div class="line"> END</div><div class="line">SELECT * FROM stuMarks  --加分后的成绩</div></pre></td></tr></table></figure>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>假定张三的账户直接转账1000元到李四的账户。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE bank</div><div class="line">(</div><div class="line">    customerName CHAR(10),  --顾客姓名</div><div class="line">    currentMoney MONEY     --当前余额</div><div class="line">)</div><div class="line">GO</div><div class="line"></div><div class="line">ALTER TABLE bank</div><div class="line">   ADD CONSTRAINT CK_currentMoney</div><div class="line">--添加约束：根据银行规定，账户余额不能少于1元，否则视为销户 </div><div class="line">       CHECK(currentMoney&gt;=1)</div><div class="line">GO</div><div class="line"></div><div class="line">INSERT INTO bank(customerName,currentMoney)</div><div class="line">        VALUES(<span class="string">'张三'</span>,1000)</div><div class="line">INSERT INTO bank(customerName,currentMoney)</div><div class="line">        VALUES(<span class="string">'李四'</span>,1)</div></pre></td></tr></table></figure>
+<p>haha，后面整理的资料丢失了，只到这了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>点击按钮打赏作者！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/blog/images/wechat-image.png" alt="Leezp WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/blog/images/alipay-image.png" alt="Leezp Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/sql语句/" rel="tag"># sql语句</a>
+          
+            <a href="/blog/tags/sqlserver/" rel="tag"># sqlserver</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/04/01/半年工作总结/" rel="next" title="半年工作总结">
+                <i class="fa fa-chevron-left"></i> 半年工作总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/04/20/sqlserver常用SQL语句整理/"
+     data-title="sqlserver常用SQL语句整理"
+     data-content=""
+     data-url="http://www.leezp.space/blog/blog/2017/04/20/sqlserver常用SQL语句整理/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/20/sqlserver常用SQL语句整理/"
+           data-title="sqlserver常用SQL语句整理" data-url="http://www.leezp.space/blog/blog/2017/04/20/sqlserver常用SQL语句整理/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/images/avatar.gif"
+               alt="Leezp" />
+          <p class="site-author-name" itemprop="name">Leezp</p>
+          <p class="site-description motion-element" itemprop="description">学习是一个模仿总结升华的过程</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/blog/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/leezp" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-weibo-url" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-douban-url" target="_blank" title="DouBan">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  DouBan
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="your-zhihu-url" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  ZhiHu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.importnew.com/" title="ImportNew" target="_blank">ImportNew</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number">1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据库"><span class="nav-number">2.</span> <span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SqlServer的主要数据类型"><span class="nav-number">3.</span> <span class="nav-text">SqlServer的主要数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表"><span class="nav-number">4.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除表"><span class="nav-number">5.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加约束"><span class="nav-number">6.</span> <span class="nav-text">添加约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主外键关系"><span class="nav-number">7.</span> <span class="nav-text">主外键关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除约束"><span class="nav-number">8.</span> <span class="nav-text">删除约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">9.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通配符"><span class="nav-number">10.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑表达式"><span class="nav-number">11.</span> <span class="nav-text">逻辑表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据行"><span class="nav-number">12.</span> <span class="nav-text">插入数据行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入多行数据-一个表中数据引入另一个表-建临时表"><span class="nav-number">12.1.</span> <span class="nav-text">插入多行数据(一个表中数据引入另一个表/建临时表)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新数据行"><span class="nav-number">13.</span> <span class="nav-text">更新数据行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据行"><span class="nav-number">14.</span> <span class="nav-text">删除数据行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除表-1"><span class="nav-number">15.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询"><span class="nav-number">16.</span> <span class="nav-text">查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模糊查询"><span class="nav-number">16.1.</span> <span class="nav-text">模糊查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聚合函数"><span class="nav-number">17.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组汇总"><span class="nav-number">18.</span> <span class="nav-text">分组汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多表联结查询"><span class="nav-number">19.</span> <span class="nav-text">多表联结查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T-SQL"><span class="nav-number">20.</span> <span class="nav-text">T-SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量"><span class="nav-number">20.1.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IF-ELSE语句"><span class="nav-number">20.2.</span> <span class="nav-text">IF-ELSE语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WHILE循环语句"><span class="nav-number">20.3.</span> <span class="nav-text">WHILE循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CASE-END多分支语句"><span class="nav-number">20.4.</span> <span class="nav-text">CASE-END多分支语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">21.</span> <span class="nav-text">事务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leezp</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leezp"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCSR37sVQgtQ3I6tDvMoemUp-gzGzoHsz", "PEz2OiJWtAgYkJKI5PNMWNvI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
