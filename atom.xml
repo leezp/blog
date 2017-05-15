@@ -22,7 +22,7 @@
     <published>2017-05-03T12:00:06.000Z</published>
     <updated>2017-05-15T06:06:00.818Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>几道java面试题。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>几道java面试题。</p>
 <a id="more"></a>
 <p>1.数据库中的行转列，列转行。</p>
 <p>①.行转列<br>建立tb_rtc表。</p>
@@ -172,7 +172,7 @@
     <published>2017-04-20T12:08:07.000Z</published>
     <updated>2017-05-03T01:22:58.637Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>15年10月份，大概一年半以前的某个工作日凌晨2点钟开始整理的sql语句。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>15年10月份，大概一年半以前的某个工作日凌晨2点钟开始整理的sql语句。</p>
 <a id="more"></a>
 <h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">CREATE DATABASE 数据库名</div><div class="line">ON PRIMARY     --默认就属于PRIMARY主文件组，可省略</div><div class="line">(</div><div class="line"> NAME=<span class="string">'  '</span>,  --主数据文件的逻辑名</div><div class="line"> FILENAME=<span class="string">'D:\project\stuDB_data.mdf'</span>,  --主数据文件的物理名</div><div class="line"> SIZE=5mb,  --主数据文件初始大小</div><div class="line"> MAXSIZE=100mb,  --主数据文件增长的最大值</div><div class="line"> FILEGROWTH=15%   --主数据文件的增长率</div><div class="line">)</div><div class="line">LOG ON</div><div class="line">(</div><div class="line">  NAME=<span class="string">'  '</span>,</div><div class="line">  FILENAME=<span class="string">'D:\project\stuDB_log.ldf'</span>,</div><div class="line">  SIZE=2mb,</div><div class="line">  FILEGROWTH=1MB</div><div class="line">)</div><div class="line">GO</div></pre></td></tr></table></figure>
 <h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DROP DATABASE 数据库名 </div><div class="line">USE master  --设置当前数据库为master，以便访问sysdatabases表</div><div class="line">GO</div><div class="line">IF  EXISTS（SELECT * FROM  sysdatabases WHERE  name =<span class="string">'stuDB'</span>）</div><div class="line">   DROP DATABASE stuDB</div></pre></td></tr></table></figure>
@@ -378,7 +378,7 @@
     <published>2017-04-01T05:04:02.000Z</published>
     <updated>2017-04-06T05:53:48.478Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>时间过得真快，在这家公司已经工作半年多了。是时候做个小结了。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>时间过得真快，在这家公司已经工作半年多了。是时候做个小结了。</p>
 <a id="more"></a>
 <p>有时候，不去比较真的不知道自己有多差劲。在一个安逸的环境里，的确会消磨人的一些东西。</p>
 <p>生于忧患，死于安乐。</p>
@@ -439,7 +439,7 @@
     <published>2017-01-11T11:30:02.000Z</published>
     <updated>2017-04-13T09:09:56.683Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>教你从零基础升级成会完美调试php的大神！</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>教你从零基础升级成会完美调试php的大神！</p>
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近由于工作的关系调研一些php的webshell，为了更好的理解一些语句的作用，我想到了用调试来解决，但是搜索了全网也没有找到一份同时具备适合于新手、可配置性高、实用且完整的教程，于是决定自己写一份，把自己探索研究的过程记录下来。我本人经过几天的认真研究总结出的这些方法的确使代码调试达到了eclipse、Visual Studio相当的十分流畅的用户体验，代码发布达到了eclipse相当的简洁高效的用户体验，总结起来就是用了我的这套配置方法以后，感觉很流畅。</p>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>操作系统：win7 64bit<br>Php版本是：5.6.27<br>PhpStorm版本是：PhpStorm 10.0.1<br>Apache版本：2.4.17<br>我用的是Chrome浏览器，版本：55.0.2883.87 m</p>
@@ -509,7 +509,7 @@
     <published>2016-12-31T06:01:20.000Z</published>
     <updated>2017-02-23T06:21:53.453Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>最近由于工作的原因，需要在内网用docker环境搭建靶场来复现一些漏洞的attack。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>最近由于工作的原因，需要在内网用docker环境搭建靶场来复现一些漏洞的attack。</p>
 <p>特此简单记录自己docker的学习过程。</p>
 <a id="more"></a>
 <p><a href="https://dashboard.daocloud.io/" target="_blank" rel="external">Daocloud官网</a></p>
@@ -604,7 +604,7 @@
     <published>2016-10-15T06:06:08.000Z</published>
     <updated>2017-04-27T09:11:32.757Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>mybatis笔记整理。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>mybatis笔记整理。</p>
 <a id="more"></a>
 <h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p>框架是一系列jar包，本质是对JDK功能的扩展。<br>框架是一组程序的集合，包含了一系列的最佳实践，作用是解决某一个领域的问题。<br>最佳实践：实际上是无数程序员经历过无数次尝试之后，总结出来的处理特定问题的特定方法，如果把程序员的自由发挥看作是一条通往成功的途径，最佳实践就是其中的最短路径，能极大的解放生产力。<br>最佳实践三要素：可读性，可维护性，可拓展性。</p>
 <h3 id="Web开发中的最佳实践-分层开发模式"><a href="#Web开发中的最佳实践-分层开发模式" class="headerlink" title="Web开发中的最佳实践(分层开发模式)"></a>Web开发中的最佳实践(分层开发模式)</h3><p>JavaEE开发根据职责的纵向划分为：表现层，业务层，持久层。<br>表现层（Predentation Layer）：web/mvc：负责处理与界面交互的相关操作，控制界面跳转（Struts2）<br>业务层（Business Layer）:service：负责复杂的业务逻辑计算和判断（Spring）<br>持久层（Persistent Layer）:dao：负责将业务逻辑数据进行持久化存储（Hibernate/MyBatis）</p>
@@ -658,7 +658,7 @@
     <published>2016-10-07T05:02:01.000Z</published>
     <updated>2017-04-21T02:45:17.872Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>jdbc复习笔记。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>jdbc复习笔记。</p>
 <a id="more"></a>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p><a href="http://pan.baidu.com/s/1i5R0pYP" target="_blank" rel="external">commons-dbcp-1.4-bin.zip</a><br><a href="http://pan.baidu.com/s/1qXRBNnI" target="_blank" rel="external">commons-dbcp-1.4-src.zip</a><br><a href="http://pan.baidu.com/s/1i5gdd45" target="_blank" rel="external">commons-pool-1.5.6.jar</a><br><a href="http://pan.baidu.com/s/1c1Twb1Q" target="_blank" rel="external">c3p0-0.9.1.2.jar</a><br><a href="http://pan.baidu.com/s/1eSDZnSu" target="_blank" rel="external">c3p0-0.9.1.2.src.zip</a></p>
 <h2 id="持久化和JDBC概述"><a href="#持久化和JDBC概述" class="headerlink" title="持久化和JDBC概述"></a>持久化和JDBC概述</h2><h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><p>持久化（persistence），把数据保存到可掉电式存储设备中以供之后使用。<br>大多数情况下，特别是企业级应用，数据持久化意味着将内存中的数据保存到硬盘中加以“固化”，而持久化的实现过程大多通过各种关系型数据库来完成。<br>持久化的主要应用是将内存中的数据存储在关系型数据库中，当然也可以存储在磁盘文件、XML数据文件中。</p>
@@ -719,7 +719,7 @@
     <published>2016-10-04T02:10:10.000Z</published>
     <updated>2017-03-24T05:56:16.733Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>Maven是一个项目管理工具，它能够很方便的帮你管理项目报告，生成站点，管理JAR文件，等等。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>Maven是一个项目管理工具，它能够很方便的帮你管理项目报告，生成站点，管理JAR文件，等等。</p>
 <a id="more"></a>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>登录<a href="http://maven.apache.org/download.cgi" target="_blank" rel="external">Maven官网</a>下载Maven。<br>我安装的Maven版本是apache-maven-3.3.9。<br>值得注意的是，Maven需要在java环境运行，因此你的电脑应该装有jdk。</p>
 <h2 id="配置Maven环境"><a href="#配置Maven环境" class="headerlink" title="配置Maven环境"></a>配置Maven环境</h2><p>将下载文件解压，然后设置maven环境。<br>如果你配置过jdk的话，这里对你应该不难。如我的maven环境为：D:\apache-maven-3.3.9<br>我的电脑—-属性—-高级—-环境变量—-系统环境变量—-新建<br>变量名：maven_HOME<br>变量值：D:\apache-maven-3.3.9<br>找到path<br>在环境变量值尾部加入：;%maven_HOME%\bin;—前面注意分号<br>打开命令提示符（开始—运行—cmd）,检查我们的java环境和maven环境是否有误。</p>
@@ -781,7 +781,7 @@
     <published>2016-09-24T06:01:15.000Z</published>
     <updated>2017-03-20T07:51:45.286Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>ssh整合的一个demo。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>ssh整合的一个demo。</p>
 <a id="more"></a>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p><a href="http://pan.baidu.com/s/1eRExe5W" target="_blank" rel="external">spring4-required</a><br><a href="http://pan.baidu.com/s/1misg1rM" target="_blank" rel="external">struts2.3.15.3-blank</a><br><a href="http://pan.baidu.com/s/1miqe6so" target="_blank" rel="external">hibernate-release-4.2.4.Final</a></p>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="加入Spring"><a href="#加入Spring" class="headerlink" title="加入Spring"></a>加入Spring</h3><h4 id="加入jar包"><a href="#加入jar包" class="headerlink" title="加入jar包"></a>加入jar包</h4><p><a href="http://pan.baidu.com/s/1eRExe5W" target="_blank" rel="external">spring4-required</a></p>
@@ -929,7 +929,7 @@
     <published>2016-09-17T06:05:01.000Z</published>
     <updated>2017-03-14T06:24:51.392Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>本节讲述Spring整合Struts2。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>本节讲述Spring整合Struts2。</p>
 <a id="more"></a>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>Struts2官方示例jar包:<a href="http://pan.baidu.com/s/1gfihiZD" target="_blank" rel="external">struts2.3.15.3-blank</a><br><a href="http://pan.baidu.com/s/1pK7YYHd" target="_blank" rel="external">struts-2.3.15.3-lib</a><br><a href="http://pan.baidu.com/s/1pL8Vl7X" target="_blank" rel="external">struts2官方示例web.xml</a><br><a href="http://pan.baidu.com/s/1pLAXfjd" target="_blank" rel="external">struts2官方配置文件struts.xml</a><br><a href="http://pan.baidu.com/s/1jHAQZeY" target="_blank" rel="external">spring4-required jar</a></p>
 <h2 id="Spring如何在WEB应用中使用"><a href="#Spring如何在WEB应用中使用" class="headerlink" title="Spring如何在WEB应用中使用"></a>Spring如何在WEB应用中使用</h2><p>1).需要额外导入两个jar包。<br>spring-web-4.0.4.RELEASE.jar<br>spring-webmvc-4.0.4.RELEASE.jar<br>2).Spring的配置文件，和非WEB环境没有什么不同<br>3).需要在web.xml文件中加入如下配置：</p>
@@ -1006,7 +1006,7 @@
     <published>2016-09-11T06:00:05.000Z</published>
     <updated>2017-03-13T08:31:07.650Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>本节讲述Spring整合Hibernate。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>本节讲述Spring整合Hibernate。</p>
 <a id="more"></a>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p><a href="http://tools.jboss.org/downloads/overview.html" target="_blank" rel="external">JBoss官网</a><br>Spring jar包：<a href="http://pan.baidu.com/s/1slHEwLR" target="_blank" rel="external">spring-framework-4.0.4.RELEASE</a><br>Hibernate jar包：<a href="http://pan.baidu.com/s/1miM8poG" target="_blank" rel="external">hibernate-release-4.2.4.Final</a></p>
 <p>根据自己Eclipse版本下载对应的插件。我的是Eclipse Kepler 4.3.2，与之对应的Hibernate Tools版本是<a href="http://pan.baidu.com/s/1jIfYTxG" target="_blank" rel="external">hibernatetools-Update-4.1.2.Final_2014-03-18_15-46-19-B706</a>。<br>官网上写它的Requirements: Java 6 or Java 7 and Eclipse Kepler 4.3.2。</p>
@@ -1087,7 +1087,7 @@
     <published>2016-09-03T06:10:06.000Z</published>
     <updated>2017-03-08T08:00:11.415Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>本节讲述Spring中的事务管理。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>本节讲述Spring中的事务管理。</p>
 <a id="more"></a>
 <h2 id="Spring中的事务管理"><a href="#Spring中的事务管理" class="headerlink" title="Spring中的事务管理"></a>Spring中的事务管理</h2><p>事务就是一系列的动作，它们被当做一个单独的工作单元，这些动作要么全部完成，要么全部不起作用。用来确保数据的完整性和一致性。<br>事务的四个关键属性（ACID）<br>1.原子性（atomicity）：事务是一个原子操作，由一系列动作组成。事务的原子性确保动作要么全部完成要么完全不起作用。<br>2.一致性（consistency）：一旦所有事务动作完成，事务就被提交，数据和资源就处于一种满足业务规则的一致性状态中。<br>3.隔离性（isolation）：可能有许多事务会同时处理相同的数据，因此每个事物都应该与其他事务隔离开来，防止数据破坏。<br>4.持久性（durability）：一旦事务完成，无论发生什么系统错误，它的结果都不应该受到影响，通常情况下，事务的结果被写到持久化存储器中。</p>
 <h2 id="Spring的事务管理机制"><a href="#Spring的事务管理机制" class="headerlink" title="Spring的事务管理机制"></a>Spring的事务管理机制</h2><p>Spring在不同的事务管理API之上定义了一个抽象层。而应用程序开发人员不必了解底层的事务管理API，就可以使用Spring的事务管理机制。<br>Spring既支持编程式事务管理，也支持声明式的事务管理。<br><strong>编程式事务管理：将事务管理代码嵌入到业务方法中来控制事务的提交和回滚</strong>。在编程式管理事务时，必须在每个事务操作中包含额外的事务管理代码。<br><strong>声明式事务管理</strong>：大多数情况下比编程式事务管理更好用。它<strong>将事务管理代码从业务方法中分离出来，以声明的方式来实现事务管理</strong>。事务管理作为一种横切关注点，可以通过AOP方法模块化。<strong>Spring通过SpringAOP框架支持声明式事务管理</strong>。</p>
@@ -1181,7 +1181,7 @@
     <published>2016-08-27T06:02:56.000Z</published>
     <updated>2017-03-06T07:36:17.299Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>本节讲述Spring对JDBC的支持。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>本节讲述Spring对JDBC的支持。</p>
 <a id="more"></a>
 <h2 id="JdbcTemplate-简介"><a href="#JdbcTemplate-简介" class="headerlink" title="JdbcTemplate 简介"></a>JdbcTemplate 简介</h2><p>为了使JDBC更加易于使用，Spring在JDBC API上定义了一个抽象层，以此建立一个JDBC存取框架。</p>
 <p>作为Spring JDBC框架的核心，JDBC模板的设计目的是为不同类型的JDBC操作提供模板方法。每个模板方法都能控制整个过程，并允许覆盖过程中的特定任务。通过这种方式，可以在尽可能保留灵活性的情况下，将数据库存取的工作量降到最低。</p>
@@ -1247,7 +1247,7 @@
     <published>2016-08-20T06:07:16.000Z</published>
     <updated>2017-03-01T04:34:06.179Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>本节讲述Spring AOP（面向切面编程）。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>本节讲述Spring AOP（面向切面编程）。</p>
 <a id="more"></a>
 <h2 id="代理设计模式的原理"><a href="#代理设计模式的原理" class="headerlink" title="代理设计模式的原理"></a>代理设计模式的原理</h2><p><strong>使用一个代理将对象包装起来</strong>，然后用该代理对象取代原始对象。任何对原始对象的调用都要通过代理。代理对象决定是否以及何时将方法调用转到原始对象上。</p>
 <p>新建项目 spring-02。在项目下新建包com.leezp.spring.aop.helloworld。<br>在该包下新建ArithmeticCalculator.java接口。</p>
@@ -1329,7 +1329,7 @@
     <published>2016-08-13T06:02:02.000Z</published>
     <updated>2017-02-27T06:38:26.849Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>在上一节中，我们已经学会了Bean的一些基本配置。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>在上一节中，我们已经学会了Bean的一些基本配置。</p>
 <p>在这一节中，将补充介绍Bean的配置。</p>
 <a id="more"></a>
 <p>沿用上一节的项目。</p>
@@ -1455,7 +1455,7 @@
     <published>2016-08-01T12:30:01.000Z</published>
     <updated>2017-02-23T06:55:39.816Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>在上一节中，我们已经学会了用Eclipse配置Spring4.0环境并创建一个简单的Spring项目。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>在上一节中，我们已经学会了用Eclipse配置Spring4.0环境并创建一个简单的Spring项目。</p>
 <p>在这一节中，将介绍Bean的配置。</p>
 <a id="more"></a>
 <h2 id="本教程使用方法"><a href="#本教程使用方法" class="headerlink" title="本教程使用方法"></a>本教程使用方法</h2><p>从前向后阅读，本文较长，建议分9次学完，每次下载当前的代码。</p>
@@ -1702,7 +1702,7 @@ destroy...
     <published>2016-07-30T06:30:02.000Z</published>
     <updated>2017-02-14T06:35:54.872Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>从今天起，准备陆续更新Spring4.0的博客，当做自己知识的巩固。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>从今天起，准备陆续更新Spring4.0的博客，当做自己知识的巩固。</p>
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="http://projects.spring.io/spring-framework/" target="_blank" rel="external">Spring 官网</a></p>
 <p>开发工具：推荐使用Eclipse，我用的是<a href="http://pan.baidu.com/s/1nuGOIfR" target="_blank" rel="external">Eclipse 4.3(KEPLER) 64bit</a> 版本。</p>
@@ -1752,7 +1752,7 @@ destroy...
     <published>2016-07-23T06:30:08.000Z</published>
     <updated>2017-02-08T00:42:06.923Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>在上一节中，我们已经学会了对Hexo博客配置文件和Next主题配置文件进行配置以达到我们想要的效果。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>在上一节中，我们已经学会了对Hexo博客配置文件和Next主题配置文件进行配置以达到我们想要的效果。</p>
 <p>在这一节中，将介绍一些Hexo博客的进阶设计，有了这些设计，博客看起来会美美哒。</p>
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前的章节已经讲到如何搭建Hexo博客并选择自己喜欢的主题进行配置。那么如何添加自己喜欢的样式或效果来使自己的网站更加美观，在众多Hexo博客中脱颖而出呢？</p>
@@ -1787,7 +1787,7 @@ destroy...
     <published>2016-07-17T06:00:07.000Z</published>
     <updated>2017-03-14T01:07:28.364Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>在上一节中，我们已经学会了使用hexo搭建博客，并且可以使用hexo发布博文。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>在上一节中，我们已经学会了使用hexo搭建博客，并且可以使用hexo发布博文。</p>
 <p>在这一节中，将介绍一些基于Next主题配置的实用功能，有了这些功能，博客看起来会更美观和充实。</p>
 <a id="more"></a>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>配置Next主题</p>
@@ -1837,7 +1837,7 @@ destroy...
     <published>2016-07-16T14:02:02.000Z</published>
     <updated>2017-02-07T01:00:24.582Z</updated>
     
-    <content type="html"><![CDATA[<script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>今天是农历6月13，对我来说是一个特别的日子。</p>
+    <content type="html"><![CDATA[<script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>今天是农历6月13，对我来说是一个特别的日子。</p>
 <p>我们来使用hexo生成静态博客并架设在免费的github page平台，看看会发生什么。</p>
 <a id="more"></a>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>我的电脑系统是win7 64bit，node.js 版本 v4.4.4，本教程只针对windows用户。</p>

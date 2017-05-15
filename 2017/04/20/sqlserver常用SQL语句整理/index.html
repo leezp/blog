@@ -413,7 +413,7 @@
       
 
       
-        <script src="/blog/assets/js/DPlayer.min.js"> </script><script src="/blog/assets/js/APlayer.min.js"> </script><p>15年10月份，大概一年半以前的某个工作日凌晨2点钟开始整理的sql语句。</p>
+        <script src="/blog/assets/js/APlayer.min.js"> </script><script src="/blog/assets/js/DPlayer.min.js"> </script><p>15年10月份，大概一年半以前的某个工作日凌晨2点钟开始整理的sql语句。</p>
 <a id="more"></a>
 <h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">CREATE DATABASE 数据库名</div><div class="line">ON PRIMARY     --默认就属于PRIMARY主文件组，可省略</div><div class="line">(</div><div class="line"> NAME=<span class="string">'  '</span>,  --主数据文件的逻辑名</div><div class="line"> FILENAME=<span class="string">'D:\project\stuDB_data.mdf'</span>,  --主数据文件的物理名</div><div class="line"> SIZE=5mb,  --主数据文件初始大小</div><div class="line"> MAXSIZE=100mb,  --主数据文件增长的最大值</div><div class="line"> FILEGROWTH=15%   --主数据文件的增长率</div><div class="line">)</div><div class="line">LOG ON</div><div class="line">(</div><div class="line">  NAME=<span class="string">'  '</span>,</div><div class="line">  FILENAME=<span class="string">'D:\project\stuDB_log.ldf'</span>,</div><div class="line">  SIZE=2mb,</div><div class="line">  FILEGROWTH=1MB</div><div class="line">)</div><div class="line">GO</div></pre></td></tr></table></figure>
 <h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DROP DATABASE 数据库名 </div><div class="line">USE master  --设置当前数据库为master，以便访问sysdatabases表</div><div class="line">GO</div><div class="line">IF  EXISTS（SELECT * FROM  sysdatabases WHERE  name =<span class="string">'stuDB'</span>）</div><div class="line">   DROP DATABASE stuDB</div></pre></td></tr></table></figure>
@@ -748,7 +748,7 @@
                src="/blog/images/avatar.gif"
                alt="Leezp" />
           <p class="site-author-name" itemprop="name">Leezp</p>
-          <p class="site-description motion-element" itemprop="description">学习是一个模仿总结升华的过程</p>
+          <p class="site-description motion-element" itemprop="description">我将永远困惑，也将永远寻找。</p>
         </div>
         <nav class="site-state motion-element">
         
